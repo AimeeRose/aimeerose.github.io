@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>I'm just trying to program without going crazy.* | Twenty-something</title>
+  <meta name="author" content="Aimee Barciauskas">
+  
+  <meta name="description" content="It's all about me.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="I'm just trying to program without going crazy.*"/>
+  <meta property="og:site_name" content="Twenty-something"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Twenty-something" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Twenty-something</a></h1>
+  <h2><a href="/">and totally obsessed.</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-09-02T16:38:16.000Z"><a href="/2013/09/02/im-just-trying-to-program-without-going-crazy/">Sep 2 2013</a></time>
+      
+      
+  
+    <h1 class="title">I'm just trying to program without going crazy.*</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2>I love Rich Hickey’s talk <a href="http://www.infoq.com/presentations/Are-We-There-Yet-Rich-Hickey">“Are we there yet?”</a> because it helped me “get” functional programming.</h2>
+<p>I “knew” about functional program in the sense I could recapitulate the functional programming as a paradigm which implements pure functions returning values and avoids state and mutability by the time-insensitivity of its functions. But the talk helped me “get” functional programming in the conceptual sense of why and how a programmer would write a functional program. </p>
+<h2>I also love “Are we there yet?” because I love philosophy and Hickey gets pretty philosophical.</h2>
+<p>During the talk, Hickey touches on the philosophical topics of time and existentialism. </p>
+<p>Hickey convinced me of something I have already been turning over: the close relationship between programming paradigms and philosophy. This makes sense: programming is an activity invented by humans to teach things to behave like us. Further, mathematical functions, the most basic and foundational of functions of computers, are inventions of humans as well.</p>
+<h2>Existentialism and Functional Programming</h2>
+<p>Wouldn’t it be stupendous if we, as programmers, could be unconcerned with how our functions affect the objects they operate on? </p>
+<p>We need to thinking of our programs more like the real world, where change, and oopsies!, are the norm, not the exception.</p>
+<p>The object-oriented programming paradigm enables programmers to relax into false notions of control. Hickey uses an image from the movie <em>the Matrix</em> to visually signify how object-orientation is like attempting to be Neo, attempting to remove objects from time for our programs&#39; manipulation.</p>
+<p>But programmers, as much as they try, do not exist in the Matrix, nor do their programs. </p>
+<p>Object-orientation represents objects falsely, like the false construct of a river. What is described as an object is really just a series of causally-related values, just as a river is a way to associate an identity with something which is constantly changing. Thinking this way is comfortable. As humans, we understand a sense of self as one of the things that makes us human.</p>
+<p>When Hickey breaks &quot;perceptive objectivity&quot; down into its component terms, this drives home the conceptual differences between object-oriented and functional:</p>
+<ul>
+<li>A <strong>value</strong> is an immutable entity like a number, quantity or immutable composite thereof.</li>
+<li><strong>Identity</strong> is a putative construct used to associate a series of causally-related values.</li>
+<li><strong>Time</strong> is the relative before and after ordering of causally-related values.</li>
+<li><strong>State</strong> is the value of an identity at any one point in time.</li>
+</ul>
+<h2>“Perception is massively parallel and requires no coordination”**</h2>
+<p>Or, <em>How to Write Usable, Functional Programs</em></p>
+<p>Hickey uses a photograph of a major league baseball game to demonstrate how a photograph is analogous to the parallel nature of perception. The photograph of the baseball game doesn&#39;t require the game and its attendees to stop whatever there doing. Everyone continues without affection from the photograph being taken.</p>
+<p><strong>How do we model the real world of parallel perception and activity in our programs?</strong></p>
+<p>Hickey’s answer is founded on the use of persistent data structures. Persistent data structures enable the programmer to maintain sanity through immutability. Every time a function is called both the before and after are captured by the persistent data store. The idea of mutability is dismissed. Every initial and ending value is separately maintained. Concerns of size are managed by b-trees and garbage collections. </p>
+<p>The construct of identity is not built via perception of a value or values which may or may not change over time but via a time-based construct of causally-related values.</p>
+<p>An analogy used to describe persistent data structures was that of a tree. Trees grow REALLY big because they collect old versions of themselves. The analogy of a persistant data structure as like a tree was an “A ha!” moment for me. I will save the readers of this post from a diatribe on CouchDB, but mention it me understand the objectives of its design. A CouchDB database grows like a tree in that all its previous versions of itself are kept around.</p>
+<h2>In conclusion: Relax.</h2>
+<p>“Are we there yet?” is littered with inspiring anecdotes, and I only got the full oompf of some by pausing the recording to chew, swallow and digest. A lot come from Hickey himself, but many others come from the philosopher Alfred North Whitehead:</p>
+<p>“Civilization advances by extending the number of important operations which we can perform without thinking about them.”</p>
+<p>Perhaps we can write better programs by writing programs we don&#39;t have to worry about so much. I hope by adopting some of Hickey’s ideas on how to write functional programs, I can program without going crazy.</p>
+<p>* During Q&amp;A, Hickey responds to an attendee who asks a long-winded philosophical question which wasn’t really a question but ostentation, with the statement “I’m just trying to program without going crazy”.</p>
+<p>** Hickey, quoted from <a href="http://www.infoq.com/presentations/Are-We-There-Yet-Rich-Hickey">&quot;Are we there yet?&quot;</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/programming/">programming</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:aimeeb.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/beer/">beer</a><small>1</small></li>
+  
+    <li><a href="/tags/beverages/">beverages</a><small>1</small></li>
+  
+    <li><a href="/tags/food/">food</a><small>1</small></li>
+  
+    <li><a href="/tags/funny/">funny</a><small>1</small></li>
+  
+    <li><a href="/tags/japan/">japan</a><small>2</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>1</small></li>
+  
+    <li><a href="/tags/kyoto/">kyoto</a><small>1</small></li>
+  
+    <li><a href="/tags/new-york-city/">new york city</a><small>1</small></li>
+  
+    <li><a href="/tags/notes/">notes</a><small>1</small></li>
+  
+    <li><a href="/tags/programming/">programming</a><small>2</small></li>
+  
+    <li><a href="/tags/programming-javascript/">programming, javascript</a><small>1</small></li>
+  
+    <li><a href="/tags/statistics/">statistics</a><small>1</small></li>
+  
+    <li><a href="/tags/sundry/">sundry</a><small>0</small></li>
+  
+    <li><a href="/tags/tokyo/">tokyo</a><small>2</small></li>
+  
+    <li><a href="/tags/travel/">travel</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2013 Aimee Barciauskas
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

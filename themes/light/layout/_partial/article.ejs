@@ -1,0 +1,47 @@
+<article class="<%= item.layout %>">
+  <% if (item.title == 'Hacking with D3'){ %>
+    <script src='http://d3js.org/d3.v3.min.js' type='text/javascript'></script>
+    <script src='http://d3js.org/topojson.v1.min.js' type='text/javascript'></script>
+    <%- js('/js/hacking_d3.js') %>
+  <% } %>
+  <% if (item.photos){ %>
+    <%- partial('post/gallery') %>
+  <% } %>
+  <div class="post-content">
+    <header>
+      <% if (item.layout != 'page'){ %>
+        <div class="icon"></div>
+        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
+      <% } %>
+      <%- partial('post/title') %>
+    </header>
+    <div class="entry">
+      <% if (item.excerpt && index){ %>
+        <%- item.excerpt %>
+      <% } else { %>
+        <%- item.content %>
+      <% } %>
+    </div>
+    <footer>
+      <% if (index){ %>
+        <% if (item.excerpt){ %>
+          <div class="alignleft">
+            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
+          </div>
+        <% } %>
+        <% if (item.comment && config.disqus_shortname){ %>
+        <div class="alignright">
+          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
+        </div>
+        <% } %>
+      <% } else { %>
+        <%- partial('post/category') %>
+        <%- partial('post/tag') %>
+        <%- partial('post/share') %>
+      <% } %>
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+<%- partial('comment') %>

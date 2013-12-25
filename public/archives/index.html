@@ -1,0 +1,457 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Archives | Twenty-something</title>
+  <meta name="author" content="Aimee Barciauskas">
+  
+  <meta name="description" content="It's all about me.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Twenty-something"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Twenty-something" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Twenty-something</a></h1>
+  <h2><a href="/">and totally obsessed.</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title">Archives</h2>
+
+
+  
+    <article class="post">
+  
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-12-25T19:22:03.000Z"><a href="/2013/12/25/santa-claus-gifs/">Dec 25 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/12/25/santa-claus-gifs/">Santa Claus Gifs</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><img src="http://christmasgifs.org/wp-content/uploads/2013/12/spinelli_full.gif" alt="Look ma no hands!">
+<br/>
+<br/>
+<img src="http://christmasgifs.org/wp-content/uploads/2013/12/FINAL-WITH-BACKGROUND.gif" alt="He&#39;s got the movies like Jagger.">
+<br/>
+<br/>
+<img src="http://christmasgifs.org/wp-content/uploads/2013/12/menard_full.gif" alt="Annual north pole rodeo">
+<br/>
+<br/>
+<img src="http://christmasgifs.org/wp-content/uploads/2013/12/hamburg_full.gif" alt="Because wherever there is river dance house music playing, there be Santa Claus.">
+<br/>
+<br/>
+<img src="http://christmasgifs.org/wp-content/uploads/2013/12/dixon_full.gif" alt="Fist pump to what is obviously:"></p>
+<p><iframe width="560" height="315" src="//www.youtube.com/embed/UxxajLWwzqY" frameborder="0" allowfullscreen></iframe>
+<br/>
+<br/>
+<img src="http://christmasgifs.org/wp-content/uploads/2013/12/Party.gif" alt="It&#39;s getting hot in herrrre.">
+<br/>
+<br/>
+<img src="http://christmasgifs.org/wp-content/uploads/2013/12/TCHIKI-BOUM-BOUM.gif" alt="Merry Christmas!"></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+    <script src='http://d3js.org/d3.v3.min.js' type='text/javascript'></script>
+    <script src='http://d3js.org/topojson.v1.min.js' type='text/javascript'></script>
+    <script type="text/javascript" src="/js/hacking_d3.js"></script>
+  
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-10-12T14:12:07.000Z"><a href="/2013/10/12/hacking-with-d3/">Oct 12 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/10/12/hacking-with-d3/">Hacking with D3</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>My first time hacking with D3.js coincided with a 3-day beercation in Colorado during the Great American Beer Festival. As I wanted to accomplish some D3 hacking while I was in Colorado, I missed some breweries to do so! </p>
+<p>Even after skipping breweries and trying to work through my sobriety with beer-related hacking, this project still isn&#39;t where I would I like it to be. However, I give myself some slack as returning to the front end world through the lens of an entirely foreign library presented a number of practical obstacles* </p>
+<p>* <em>Loading local json files in a browser is prohibited by <a href="http://developer.chrome.com/extensions/xhr.html">Cross-Origin XMLHttpRequest</a>, I learned, after stubbornly trying different things for hours. Also, linting a huge json file was its own class of fun.</em></p>
+<h3>Why I am obssessed with D3</h3>
+<p>D3 stands for data-driven documents. It is a simple, beautiful and ultimately very powerful concept. Further, its popularity corresponds has generated a base of continued support and a growing list of supplementary libraries. It is also reassuring to see the author responding and conversing on Google groups with users directly, and with examples.</p>
+<p>In the below example, the map of US states is drawn using a TopoJSON file which uses line segments, or arcs, to create svg paths. The points representing breweries are composed from another TopoJSON.</p>
+<p>D3 enables any DOM object to have bound data, in this case US State geo data or brewery data. It is also the common objective to bind this data to svg objects for visualizations but svg is not a requirement.</p>
+<p>I give credit for this code to <a href="http://bost.ocks.org/mike/">Mike Bostock</a>, author of D3.js and TopoJSON, along with many other libraries. The brewery data is taken from <a href="http://openbeerdb.com/">Open Beer Database</a> (and full disclosure, is out of date).</p>
+<h2>Map of breweries</h2>
+<p><strong>This is a WIP.</strong> I fully realize there are issues and hope to continue work on a more functional (and fun!) map in the future.</p>
+<p>Click to zoom in and out. Hover for names, click points for descriptions</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="photo">
+  
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      
+        <img src="https://lh3.googleusercontent.com/-6Onqh0C_gxI/UiW-weOeI6I/AAAAAAAAE4E/uIwe7OEd1wU/w461-h615-no/20130614_211226_LLS.jpg">
+      
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-09-03T10:07:05.000Z"><a href="/2013/09/03/japan-is-as-cool-as-it-is-in-my-imagination/">Sep 3 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/09/03/japan-is-as-cool-as-it-is-in-my-imagination/">Japan</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><img src="https://lh5.googleusercontent.com/-Rr0t2nuuhi4/UiW-bqzcXPI/AAAAAAAAE3Q/OcGDmLIgEng/w865-h649-no/20130610_163311.jpg" alt="Arriving at Narita Airport"></p>
+<p><img src="https://lh3.googleusercontent.com/FU5aXTAdIfncByP7ZJcxBaB1D_YXxuasZs7w-e-1G7A=w865-h649-no" alt="Tokyo train system"></p>
+<p><img src="https://lh4.googleusercontent.com/-4luPnTQYyHE/UiW-lWkcTzI/AAAAAAAAE3s/I3UlUJYoC5E/w865-h649-no/20130612_124822.jpg" alt="Bento box lunch"></p>
+<p><img src="https://lh4.googleusercontent.com/-_Y6yBjpnTPA/UiW-qYoyE8I/AAAAAAAAE30/OrkXSvS8qeA/w487-h649-no/20130614_205117_LLS.jpg" alt="Tokyo Tower"></p>
+<p><img src="https://lh6.googleusercontent.com/-6Onqh0C_gxI/UiW-weOeI6I/AAAAAAAAE4E/uIwe7OEd1wU/w487-h649-no/20130614_211226_LLS.jpg" alt="View from the top of Tokyo Tower"></p>
+<p><img src="https://lh3.googleusercontent.com/-SqCyHQjRL5E/UiW-5PZClGI/AAAAAAAAE4Y/S0mBKzBXfR8/w865-h649-no/20130615_171627.jpg" alt="His and hers Asahis!"></p>
+<p><img src="https://lh6.googleusercontent.com/-NJEfBbL383I/UiW_EWP-msI/AAAAAAAAE4o/loQKUdRBwqU/w865-h649-no/20130615_215327_LLS.jpg" alt="Shibuya shopping district at night"></p>
+<p><img src="https://lh3.googleusercontent.com/-UYLRByQ3k7k/UiW_KEnEALI/AAAAAAAAE48/kNUFSNjBi8w/w865-h649-no/20130615_215330_LLS.jpg" alt="The order of the Tokyo public"></p>
+<p><img src="https://lh3.googleusercontent.com/-pAe0G1fLitA/UiW_P6ZNs4I/AAAAAAAAE5E/hNZKo6n1rHs/w865-h649-no/20130615_215336_LLS.jpg" alt="The flood gates open"></p>
+<p><img src="https://lh5.googleusercontent.com/-1CCoXXDJKXE/UiW_Ze35INI/AAAAAAAAE5c/QKeWXHadCL0/w865-h649-no/20130615_215344_LLS.jpg" alt="Getting swallowed"></p>
+<p><img src="https://lh3.googleusercontent.com/xbce6QKkCIhW-iqm9eWIzkNy87k0HSh4qMLHUFaQngo=w865-h649-no" alt="Eeep"></p>
+<p><img src="https://lh6.googleusercontent.com/-Ki0_7K7zaI0/UiW_jxjArVI/AAAAAAAAE5w/q07_86ia6pQ/w865-h649-no/20130615_224927.jpg" alt="Amazing sukiyaki"></p>
+<p><img src="https://lh3.googleusercontent.com/-nghLrR3CITw/UiW_qV6hF3I/AAAAAAAAE58/Ph1IFWPj0N8/w487-h649-no/20130616_131212.jpg" alt="Market at Sensoji, the oldest temple in Tokyo"></p>
+<p><img src="https://lh6.googleusercontent.com/-avG-OVH0vZM/UiW_wqIbOMI/AAAAAAAAE6E/ShF9l5Xddn4/w865-h649-no/20130616_132713_LLS.jpg" alt="Entrance to Sensoji"></p>
+<p><img src="https://lh5.googleusercontent.com/-1WdUv4864mA/UiW_7ewB4DI/AAAAAAAAE6U/abUgcWFUmeU/w865-h649-no/20130616_134907_LLS.jpg" alt="Requisite picture of koi fish"></p>
+<p><img src="https://lh5.googleusercontent.com/-SfEaI-EXoxo/UiXAAFny5hI/AAAAAAAAE6c/CjKoEFMWgaI/w865-h649-no/20130616_135627.jpg" alt="Me at Sensoji"></p>
+<p><img src="https://lh6.googleusercontent.com/-GCeuUg_fAHg/UiXAGpWH1sI/AAAAAAAAE6k/r7RrSwUoHWQ/w865-h649-no/20130616_141702.jpg" alt="Adorable sushi hut"></p>
+<p><img src="https://lh5.googleusercontent.com/-nNwVyEw58OY/UiXAM4D3OdI/AAAAAAAAE64/ka27QA2BecY/w487-h649-no/20130616_180808.jpg" alt="Free snake skin"></p>
+<p><img src="https://lh5.googleusercontent.com/-f2pUYonOhFQ/UiXAdE-QJrI/AAAAAAAAE7Q/xgAe2JppDz8/w865-h649-no/20130618_123256.jpg" alt="Beautiful soba noodle and raw tuna lunch box"></p>
+<p><img src="https://lh6.googleusercontent.com/--lQnX9INLL4/UiXAh8GmxaI/AAAAAAAAE7o/moUNfRMF8HM/w865-h649-no/20130620_193851.jpg" alt="Coworkers out at tiny yakitori restaurant"></p>
+<p><img src="https://lh6.googleusercontent.com/--fSDcL_J_uE/UiXArfrcj1I/AAAAAAAAE78/9ENNUcnI2o8/w865-h649-no/20130620_193903.jpg" alt="More coworkers!"></p>
+<p><img src="https://lh4.googleusercontent.com/-aQrd1oJOeV0/UiXA5hkbZiI/AAAAAAAAE8U/6L3wSegNBXg/w865-h649-no/20130622_115036_LLS.jpg" alt="Bottom of first Kyoto Temple: Fushimi Inari-taisha Shrine"></p>
+<p><img src="https://lh6.googleusercontent.com/--28Qd9J2MSM/UiXA-ab-FBI/AAAAAAAAE8o/JwwiulQ11R4/w865-h649-no/20130622_115925_LLS.jpg" alt="Orange gates, sponsored by businesses in exchange for blessings"></p>
+<p><img src="https://lh4.googleusercontent.com/-SbOwVSiBWoc/UiXBGpJ1cCI/AAAAAAAAE84/pIDT9CM2548/w487-h649-no/20130622_115936_LLS.jpg" alt="Quick, no tourists!"></p>
+<p><img src="https://lh6.googleusercontent.com/-XiaMwgnLuHc/UiXBLIzjPJI/AAAAAAAAE9A/-U1VJ2VgKIU/w865-h649-no/20130622_120003_LLS.jpg" alt="More gates"></p>
+<p><img src="https://lh3.googleusercontent.com/-a1iZ7IB4_l8/UiXBWEeen7I/AAAAAAAAE9Q/BnaZpHKDMkI/w487-h649-no/20130622_120825_LLS.jpg" alt="Big business gates"></p>
+<p><img src="https://lh3.googleusercontent.com/-Wsx9gKxiNHg/UiXBZjF8IfI/AAAAAAAAE9Y/6K9y_Lb8xFY/w1045-h192-no/20130622_121020.jpg" alt="And there will be panoramas."></p>
+<p><img src="https://lh6.googleusercontent.com/--I2iQ1dKjmg/UiXBd--9oNI/AAAAAAAAE9g/GvpOd3sr6qM/w1045-h142-no/20130622_121921.jpg" alt="Whoa."></p>
+<p><img src="https://lh5.googleusercontent.com/-MLdR_LX2WF8/UiXBlPls7SI/AAAAAAAAE9o/tAAKd73UmWw/w487-h649-no/20130622_130319.jpg" alt="View of Kyoto from top of Fushimi Inari-taisha Shrine"></p>
+<p><img src="https://lh3.googleusercontent.com/-1pEjfygst2A/UiXBq3zDwqI/AAAAAAAAE9w/b4jgnupDBrM/w487-h649-no/20130622_153130.jpg" alt="Massive pagoda at Kiyomizu-dera Temple"></p>
+<p><img src="https://lh5.googleusercontent.com/-bUva6QfcJX4/UiXBu67DHaI/AAAAAAAAE94/93ks1GSjyFI/w1048-h157-no/20130622_153820.jpg" alt="Tourists at Kiyomizu-dera Temple"></p>
+<p><img src="https://lh4.googleusercontent.com/-15LEpmr03Bw/UiXByE_U_NI/AAAAAAAAE-A/ZtQuNMoFuLk/w1048-h208-no/20130622_155136.jpg" alt="Another panorama of Kiyomizu-dera Temple (it&#39;s a big place)"></p>
+<p><img src="https://lh5.googleusercontent.com/-gQ1ujxOAMdI/UiXB3Q35bAI/AAAAAAAAE-I/tT64gd7jIpQ/w487-h649-no/20130622_155807.jpg" alt="Normal size pagoda at Kiyomizu-dera Temple"></p>
+<p><img src="https://lh5.googleusercontent.com/-zA_U2lObJ08/UiXB7W61tQI/AAAAAAAAE-Q/HhpE4ewCSYY/w865-h649-no/20130622_160928.jpg" alt="Turtle!"></p>
+<p><img src="https://lh4.googleusercontent.com/-hOd5VyPCfHA/UiXCIEYxKfI/AAAAAAAAE-g/Jfn81IVYCxg/w865-h649-no/20130622_173542.jpg" alt="Geisha photo shoot!"></p>
+<p><img src="https://lh5.googleusercontent.com/-4LEY441SD7E/UiXCMyV__JI/AAAAAAAAE-o/griqdskpNnI/w865-h649-no/20130622_173632.jpg" alt="Cool neck paint"></p>
+<p><img src="https://lh4.googleusercontent.com/-H_MCnn36Cew/UiXCPmhT5VI/AAAAAAAAE-w/14m6RlEIkSU/w487-h649-no/20130622_174411_LLS.jpg" alt="Giant buddha"></p>
+<p><img src="https://lh3.googleusercontent.com/-U6-NctSiZh4/UiXCVwlL30I/AAAAAAAAE-4/5jTZtfGc_Ac/w865-h649-no/20130622_174603.jpg" alt="Adorable statues"></p>
+<p><img src="https://lh5.googleusercontent.com/-s1rJ9vgY9eA/UiXCjCrgfII/AAAAAAAAE_I/14zGsvXxeXA/w487-h649-no/20130622_175219.jpg" alt="Requisite picture of cool bamboo trees"></p>
+<p><img src="https://lh6.googleusercontent.com/-20oJSG4ys8I/UiXCns6fOfI/AAAAAAAAE_Q/Mtn12TT15Y4/w865-h649-no/20130623_120318_LLS.jpg" alt="Kinkaku-ji Temple (Golden Pavilion)"></p>
+<p><img src="https://lh5.googleusercontent.com/-Bfzd98kZD6s/UiXDEPg38SI/AAAAAAAAFAI/rr8azNEFG1Q/w1047-h214-no/20130623_120511.jpg" alt="Panorama of Kinkaku-ji"></p>
+<p><img src="https://lh4.googleusercontent.com/-AWWrLUYQpLE/UiXDgdJijKI/AAAAAAAAFAw/y7u1iTe4EWw/w865-h649-no/20130623_130508.jpg" alt="Outside a temple at the Daitoku-ji complex"></p>
+<p><img src="https://lh4.oogleusercontent.com/-0okVzxZzoP4/UiXDI9qKTDI/AAAAAAAAFAQ/EUImtbbUOx8/w487-h649-no/20130623_125921_LLS.jpg" alt="Inside a temple at Daitoku-ji"></p>
+<p><img src="https://lh5.googleusercontent.com/-hItI17riOR8/UiXDu7FuZKI/AAAAAAAAFBI/LOFxFsKjskY/w891-h144-no/20130623_135729.jpg" alt="Rock garden at Daisen-in, a sub-temple of Daitoku-ji"></p>
+<p><img src="https://lh6.googleusercontent.com/-qqkVYLofD8w/UiXD2gKwz_I/AAAAAAAAFBQ/fq85bTPqLxs/w891-h281-no/20130623_140021%25282%2529.jpg" alt="River rock garden at Daisen-in"></p>
+<p><img src="https://lh6.googleusercontent.com/-E_zOZRFywJo/UiXEFTXAWfI/AAAAAAAAFBg/Xn8dtOxg5rQ/w890-h148-no/20130623_140105.jpg" alt="Gratuitous panorama"></p>
+<p><img src="https://lh4.googleusercontent.com/-l1OaCQ_hZP0/UiXEIxxE7NI/AAAAAAAAFBo/ACN7HOMuDl8/w892-h221-no/20130623_140925.jpg" alt="Shrine of Daisen-in"></p>
+<p><img src="https://lh5.googleusercontent.com/-6sFhdtVgYbc/UiXEOFdeV9I/AAAAAAAAFB0/naItXElo3d4/w820-h615-no/20130623_144058.jpg" alt="The best meal I had in Japan, a Kyoto lunch box"></p>
+<p><img src="https://lh5.googleusercontent.com/-J-6_PQL4oI0/UiXERjxoIWI/AAAAAAAAFB8/5SqJKh45hTY/w892-h140-no/20130625_185916.jpg" alt="A hotel room for ~$150 in Tokyo, those are pajamas on the bed!"></p>
+<p><img src="https://lh6.googleusercontent.com/-jRbEiXxPUqk/UiXEV-uBkLI/AAAAAAAAFCE/sFqKd7D_MgM/w892-h132-no/20130626_124638.jpg" alt="Another gratuitous panorama of he view from the station near my company&#39;s office in Tokyo"></p>
+<p>I had an amazing trip to Japan and I am truly blessed to have had the experience. One piece of advice to those interested in traveling to Japan: <strong>travel with someone who knows the language</strong>, both written and spoken. Not only is English rare, being restricted to restaurants with pictures results in missing a lot of amazing Japanese cuisine. From what little personal experience of the cuisine I had, I would say Japanese cuisine is as refined, surprising and diverse as French cuisine. I can&#39;t believe I&#39;m saying this, but I ate too much raw fish and not enough of everything else.</p>
+<p>I would also recommend <strong>traveling to Kyoto and staying in a traditional ryokan</strong>. I was hesitant about sleeping on the floor, but with a mat and a tatami floor, it was almost like any firm mattress.</p>
+<p>Unfortunately, I am not an expert on Japan, having only spent two and a half weeks while working a full-time job. However, <strong>in addition to places mentioned in captions above</strong> I would recommend the following:</p>
+<ul>
+<li><strong>Shinjuku</strong> - Another shopping district with massive superstores specializing in everything from action figures, adult toys, and electronics retailers</li>
+<li><strong>Karaoke</strong> - Everyone karaokes and its shocking and embaressing I didn&#39;t get a chance to go, there are entire buildings dedicated to karaoke rooms</li>
+<li><strong>Akihabara</strong> - Also known for its electronics and other superstores and more recently Japanese fan culture (make sure to visit <strong>Don Quijote</strong> superstore)</li>
+<li><strong>Golden Gai</strong> - A hidden network of alleys lined with miniature bars. All the bars were themed and sat at most half a dozen people.</li>
+</ul>
+<p>Another word of advice to fish lovers: <strong>If you are interested in the fish market, don&#39;t go to sleep</strong>. Someone told us to be there at 4am and though we stayed up to be there on time at 4am, we were still too late. My suggestion would be to <strong>go there the day before and ask someone</strong> guarding the entrance where and when to show up.</p>
+<p>I can&#39;t wait to return, but I&#39;m need to learn some Japanese first!</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-09-02T16:38:16.000Z"><a href="/2013/09/02/im-just-trying-to-program-without-going-crazy/">Sep 2 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/09/02/im-just-trying-to-program-without-going-crazy/">I'm just trying to program without going crazy.*</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2>I love Rich Hickey’s talk <a href="http://www.infoq.com/presentations/Are-We-There-Yet-Rich-Hickey">“Are we there yet?”</a> because it helped me “get” functional programming.</h2>
+<p>I “knew” about functional program in the sense I could recapitulate the functional programming as a paradigm which implements pure functions returning values and avoids state and mutability by the time-insensitivity of its functions. But the talk helped me “get” functional programming in the conceptual sense of why and how a programmer would write a functional program. </p>
+<h2>I also love “Are we there yet?” because I love philosophy and Hickey gets pretty philosophical.</h2>
+<p>During the talk, Hickey touches on the philosophical topics of time and existentialism. </p>
+<p>Hickey convinced me of something I have already been turning over: the close relationship between programming paradigms and philosophy. This makes sense: programming is an activity invented by humans to teach things to behave like us. Further, mathematical functions, the most basic and foundational of functions of computers, are inventions of humans as well.</p>
+<h2>Existentialism and Functional Programming</h2>
+<p>Wouldn’t it be stupendous if we, as programmers, could be unconcerned with how our functions affect the objects they operate on? </p>
+<p>We need to thinking of our programs more like the real world, where change, and oopsies!, are the norm, not the exception.</p>
+<p>The object-oriented programming paradigm enables programmers to relax into false notions of control. Hickey uses an image from the movie <em>the Matrix</em> to visually signify how object-orientation is like attempting to be Neo, attempting to remove objects from time for our programs&#39; manipulation.</p>
+<p>But programmers, as much as they try, do not exist in the Matrix, nor do their programs. </p>
+<p>Object-orientation represents objects falsely, like the false construct of a river. What is described as an object is really just a series of causally-related values, just as a river is a way to associate an identity with something which is constantly changing. Thinking this way is comfortable. As humans, we understand a sense of self as one of the things that makes us human.</p>
+<p>When Hickey breaks &quot;perceptive objectivity&quot; down into its component terms, this drives home the conceptual differences between object-oriented and functional:</p>
+<ul>
+<li>A <strong>value</strong> is an immutable entity like a number, quantity or immutable composite thereof.</li>
+<li><strong>Identity</strong> is a putative construct used to associate a series of causally-related values.</li>
+<li><strong>Time</strong> is the relative before and after ordering of causally-related values.</li>
+<li><strong>State</strong> is the value of an identity at any one point in time.</li>
+</ul>
+<h2>“Perception is massively parallel and requires no coordination”**</h2>
+<p>Or, <em>How to Write Usable, Functional Programs</em></p>
+<p>Hickey uses a photograph of a major league baseball game to demonstrate how a photograph is analogous to the parallel nature of perception. The photograph of the baseball game doesn&#39;t require the game and its attendees to stop whatever there doing. Everyone continues without affection from the photograph being taken.</p>
+<p><strong>How do we model the real world of parallel perception and activity in our programs?</strong></p>
+<p>Hickey’s answer is founded on the use of persistent data structures. Persistent data structures enable the programmer to maintain sanity through immutability. Every time a function is called both the before and after are captured by the persistent data store. The idea of mutability is dismissed. Every initial and ending value is separately maintained. Concerns of size are managed by b-trees and garbage collections. </p>
+<p>The construct of identity is not built via perception of a value or values which may or may not change over time but via a time-based construct of causally-related values.</p>
+<p>An analogy used to describe persistent data structures was that of a tree. Trees grow REALLY big because they collect old versions of themselves. The analogy of a persistant data structure as like a tree was an “A ha!” moment for me. I will save the readers of this post from a diatribe on CouchDB, but mention it me understand the objectives of its design. A CouchDB database grows like a tree in that all its previous versions of itself are kept around.</p>
+<h2>In conclusion: Relax.</h2>
+<p>“Are we there yet?” is littered with inspiring anecdotes, and I only got the full oompf of some by pausing the recording to chew, swallow and digest. A lot come from Hickey himself, but many others come from the philosopher Alfred North Whitehead:</p>
+<p>“Civilization advances by extending the number of important operations which we can perform without thinking about them.”</p>
+<p>Perhaps we can write better programs by writing programs we don&#39;t have to worry about so much. I hope by adopting some of Hickey’s ideas on how to write functional programs, I can program without going crazy.</p>
+<p>* During Q&amp;A, Hickey responds to an attendee who asks a long-winded philosophical question which wasn’t really a question but ostentation, with the statement “I’m just trying to program without going crazy”.</p>
+<p>** Hickey, quoted from <a href="http://www.infoq.com/presentations/Are-We-There-Yet-Rich-Hickey">&quot;Are we there yet?&quot;</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="photo">
+  
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      
+        <img src="https://lh6.googleusercontent.com/-0Q7Gygw7sJk/UfRgEhDKItI/AAAAAAAAC9I/dxoHgsKNXA0/w923-h693-no/20130620_193849-MOTION.gif">
+      
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-08-09T02:16:21.000Z"><a href="/2013/08/08/tokyo-and-kyoto/">Aug 8 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/08/08/tokyo-and-kyoto/">Tokyo and Kyoto</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>A coworker mixing a popular beverage in Japan composed of beer and what I believe to be the popular Japanese distilled beverage shochu and some syrup.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+
+  <nav id="pagination">
+  
+  
+    <a href="/archives/page/2/" class="alignright next">Next</a>
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:aimeeb.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/beer/">beer</a><small>1</small></li>
+  
+    <li><a href="/tags/beverages/">beverages</a><small>1</small></li>
+  
+    <li><a href="/tags/food/">food</a><small>1</small></li>
+  
+    <li><a href="/tags/funny/">funny</a><small>1</small></li>
+  
+    <li><a href="/tags/japan/">japan</a><small>2</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>1</small></li>
+  
+    <li><a href="/tags/kyoto/">kyoto</a><small>1</small></li>
+  
+    <li><a href="/tags/new-york-city/">new york city</a><small>1</small></li>
+  
+    <li><a href="/tags/notes/">notes</a><small>1</small></li>
+  
+    <li><a href="/tags/programming/">programming</a><small>2</small></li>
+  
+    <li><a href="/tags/programming-javascript/">programming, javascript</a><small>1</small></li>
+  
+    <li><a href="/tags/statistics/">statistics</a><small>1</small></li>
+  
+    <li><a href="/tags/sundry/">sundry</a><small>0</small></li>
+  
+    <li><a href="/tags/tokyo/">tokyo</a><small>2</small></li>
+  
+    <li><a href="/tags/travel/">travel</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2013 Aimee Barciauskas
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

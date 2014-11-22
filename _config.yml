@@ -1,0 +1,12 @@
+# Site settings
+title: aimeeb
+email: barciaai@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  allthethings!
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://aimeeb.com" # the base hostname & protocol for your site
+twitter_username: _aimeeb
+github_username:  aimeerose
+
+# Build settings
+markdown: kramdown

@@ -6,20 +6,26 @@
 </description>
     <link>http://aimeeb.com/</link>
     <atom:link href="http://aimeeb.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 22 Nov 2014 14:22:12 -0500</pubDate>
-    <lastBuildDate>Sat, 22 Nov 2014 14:22:12 -0500</lastBuildDate>
+    <pubDate>Sat, 22 Nov 2014 14:54:47 -0500</pubDate>
+    <lastBuildDate>Sat, 22 Nov 2014 14:54:47 -0500</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
-        <title>It&#39;s cold outside, so I&#39;m starting a new blog (thanks github pages!)</title>
-        <description>&lt;p&gt;Thank you github for making blogging fun and easy! Just when I was preparing to build a blog with Angular.js, I found the github pages site. I’m a little annoyed because I was excited about Angular.js, after finally learning the basics from &lt;a href=&quot;http://codeschool.com/courses/shaping-up-with-angular-js&quot;&gt;this awesome codeschool course&lt;/a&gt;. But! I am sure I will find an opportunity in the not-so-distant future.&lt;/p&gt;
+        <title>I&#39;m starting a new blog. Thanks github pages!</title>
+        <description>&lt;p&gt;Just when I was getting ready to build a blog while simultaneously exercising my &lt;a href=&quot;https://angularjs.org/&quot;&gt;AngularJS&lt;/a&gt; skills, I found &lt;a href=&quot;https://pages.github.com/&quot;&gt;github pages&lt;/a&gt;. I knew about github pages, but I didn’t know how dead-simple it is to set up. Sometimes the brillance of the internet mucks with the fun of being a developer. I keep in mind, at these times, the words of Alfred North Whitehead:&lt;/p&gt;
 
-&lt;p&gt;This post is pretty much already just a commercial for github pages, so &lt;a href=&quot;https://pages.github.com/&quot;&gt;here is a link to github pages instructional site&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Civilization advances by extending the number of important operations which we can perform without thinking about them.&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;Github pages uses &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt;, which is perfect because Jekyll offers support for code snippet markdown.&lt;/p&gt;
+&lt;p&gt;I was excited about AngularJS, after finally learning the basics from &lt;a href=&quot;http://codeschool.com/courses/shaping-up-with-angular-js&quot;&gt;this awesome codeschool course&lt;/a&gt;. But! I am sure I will find an opportunity to use AngularJS in the not-so-distant future.&lt;/p&gt;
+
+&lt;p&gt;This post is pretty much just a commercial for github pages, so &lt;a href=&quot;https://help.github.com/categories/github-pages-basics/&quot;&gt;here is the link to github pages help site&lt;/a&gt; and &lt;a href=&quot;https://pages.github.com/&quot;&gt;the link to the github pages site again&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Github pages is powered by &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; to boot, which includes markdown for code, an essential feature of any developer’s blogging platform.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Hello World!&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;allthethings!&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}());&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 </description>

@@ -6,8 +6,8 @@
 </description>
     <link>http://aimeeb.com/</link>
     <atom:link href="http://aimeeb.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 23 Nov 2014 16:12:17 -0500</pubDate>
-    <lastBuildDate>Sun, 23 Nov 2014 16:12:17 -0500</lastBuildDate>
+    <pubDate>Sun, 23 Nov 2014 16:15:25 -0500</pubDate>
+    <lastBuildDate>Sun, 23 Nov 2014 16:15:25 -0500</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -152,9 +152,7 @@ report.&lt;/p&gt;
             .style(&quot;text-anchor&quot;, &quot;end&quot;)
             .text(&quot;Avg offensive yards per play&quot;);
 
-        var postHeight = document.getElementsByClassName(&#39;post&#39;)[0].clientHeight
 
-        console.log(&quot;postHeight: &quot; + postHeight.toString())
         // draw dots
         svg.selectAll(&quot;.dot&quot;)
             .data(data)
@@ -163,16 +161,7 @@ report.&lt;/p&gt;
             .attr(&quot;r&quot;, 3.5)
             .attr(&quot;cx&quot;, xMap)
             .attr(&quot;cy&quot;, yMap)
-            .style(&quot;fill&quot;, &quot;rgb(102,163,217)&quot;) 
-            .on(&quot;mouseover&quot;, function(d) {
-                console.log(postHeight - (height - d3.event.y))
-                tooltip.transition()
-                     .duration(200)
-                     .style(&quot;opacity&quot;, .9);
-                tooltip.html(xValue(d) + &quot;, &quot; + yValue(d))
-                     .style(&quot;left&quot;, d3.event.x  + &quot;px&quot;)
-                     .style(&quot;top&quot;, postHeight - (height - d3.event.y) - 200 + &quot;px&quot;);
-            })
+            .style(&quot;fill&quot;, &quot;rgb(102,163,217)&quot;)
             .on(&quot;mouseout&quot;, function(d) {
                 tooltip.transition()
                      .duration(500)

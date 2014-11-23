@@ -147,9 +147,7 @@ report.
             .style("text-anchor", "end")
             .text("Avg offensive yards per play");
 
-        var postHeight = document.getElementsByClassName('post')[0].clientHeight
 
-        console.log("postHeight: " + postHeight.toString())
         // draw dots
         svg.selectAll(".dot")
             .data(data)
@@ -158,16 +156,7 @@ report.
             .attr("r", 3.5)
             .attr("cx", xMap)
             .attr("cy", yMap)
-            .style("fill", "rgb(102,163,217)") 
-            .on("mouseover", function(d) {
-                console.log(postHeight - (height - d3.event.y))
-                tooltip.transition()
-                     .duration(200)
-                     .style("opacity", .9);
-                tooltip.html(xValue(d) + ", " + yValue(d))
-                     .style("left", d3.event.x  + "px")
-                     .style("top", postHeight - (height - d3.event.y) - 200 + "px");
-            })
+            .style("fill", "rgb(102,163,217)")
             .on("mouseout", function(d) {
                 tooltip.transition()
                      .duration(500)

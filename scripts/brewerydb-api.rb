@@ -1,10 +1,14 @@
 require 'json'
+require 'uri'
+require 'net/http'
+require 'pry'
+
 @current_year = 2014
 @end_year = 1765
 @api_key = 'edeab556c7df6f8bde57b33c1150dad3'
 
 def get_breweries_established(year, page = 1)
-  uri = URI("http://api.brewerydb.com/v2/breweries?key=#{@api_key}&established=#{year}&p=#{page}")
+  uri = URI("http://api.brewerydb.com/v2/breweries?key=#{@api_key}&established=#{year}&withLocations=Y&p=#{page}")
   JSON.parse(Net::HTTP.get(uri))
 end
 
@@ -14,9 +18,7 @@ def all_brewery_locations(year = 2014, breweries_array = [], current_page = 1, t
 
     index = 0
     while index < breweries['data'].length
-      location_uri = URI("http://api.brewerydb.com/v2/brewery/#{breweries["data"][index]["id"]}/locations?key=#{@api_key}")
-      brewery_with_locations = JSON.parse(Net::HTTP.get(location_uri))
-      breweries_array += brewery_with_locations['data'] if brewery_with_locations['data']
+      breweries_array << breweries['data'][index] if breweries['data']
       index += 1
     end
 

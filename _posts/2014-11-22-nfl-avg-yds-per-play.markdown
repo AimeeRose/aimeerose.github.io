@@ -104,9 +104,12 @@ report.
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
       // add the tooltip area to the webpage
-      var tooltip = d3.select(".post").append("div")
-          .attr("class", "tooltip")
-          .style("opacity", 0);
+      var tooltip = d3.select("body")//.style("position", "relative")
+          .append("div")
+            .attr("class", "tooltip")
+            .style("position", "absolute")
+            .style("opacity", 0)
+            .style("color", "#F2A341");
 
       // load data
       d3.csv("/data/NFL-YrAggregates.csv", function(error, data) {
@@ -144,6 +147,9 @@ report.
             .style("text-anchor", "end")
             .text("Avg offensive yards per play");
 
+        var postHeight = document.getElementsByClassName('post')[0].clientHeight
+
+        console.log("postHeight: " + postHeight.toString())
         // draw dots
         svg.selectAll(".dot")
             .data(data)
@@ -152,16 +158,15 @@ report.
             .attr("r", 3.5)
             .attr("cx", xMap)
             .attr("cy", yMap)
-            .style("fill", "blue") 
+            .style("fill", "rgb(102,163,217)") 
             .on("mouseover", function(d) {
-                var xPlace = document.getElementsByClassName('post')[0].clientHeight + d3.event.y - height*3 + 300
+                console.log(postHeight - (height - d3.event.y))
                 tooltip.transition()
                      .duration(200)
                      .style("opacity", .9);
                 tooltip.html(xValue(d) + ", " + yValue(d))
-                     .style("position", "absolute")
-                     .style("left", d3.event.x + "px")
-                     .style("top", xPlace + "px");
+                     .style("left", d3.event.x  + "px")
+                     .style("top", postHeight - (height - d3.event.y) + "px");
             })
             .on("mouseout", function(d) {
                 tooltip.transition()

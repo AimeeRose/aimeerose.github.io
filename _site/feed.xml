@@ -6,9 +6,198 @@
 </description>
     <link>http://aimeeb.com/</link>
     <atom:link href="http://aimeeb.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 22 Nov 2014 14:54:47 -0500</pubDate>
-    <lastBuildDate>Sat, 22 Nov 2014 14:54:47 -0500</lastBuildDate>
+    <pubDate>Sat, 22 Nov 2014 19:06:18 -0500</pubDate>
+    <lastBuildDate>Sat, 22 Nov 2014 19:06:18 -0500</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>The end of the NFL</title>
+        <description>&lt;h1 id=&quot;the-end-of-the-nfl-driven-by-head-injuries&quot;&gt;The end of the NFL driven by head injuries&lt;/h1&gt;
+
+&lt;p&gt;Journalists, among others, are predicting the end of the NFL. Lawsuits by
+current and former players suffering &lt;a href=&quot;http://en.wikipedia.org/wiki/Concussions_in_American_football&quot;&gt;concussions&lt;/a&gt; and head
+injuries are driving these predictions. The controversy over these injuries
+comes amidst coverage of the violence in players’ personal lives.&lt;/p&gt;
+
+&lt;p&gt;What’s worse is these two trends may be related: according to &lt;a href=&quot;https://sports.vice.com/article/the-nfl-concussion-settlement-is-pure-evil&quot;&gt;this article in
+vice sports&lt;/a&gt;, doctors examining former players at Boston
+University linked their football-related brain injuries to depression and
+impulse control. So, not only are potential future NFL players being forbidden
+from the sport by concerned parents, but conscientious fans may feel a tremor
+of hesitation, at least for a half-second, before they turn on the game.&lt;/p&gt;
+
+&lt;p&gt;However, in spite of all this, I continue to watch football, as do an
+increasing number of Americans. And all this is really just a obligatory
+preamble for my own prediction for the end of football.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-end-of-the-nfl-driven-by-game-predictability&quot;&gt;The end of the NFL driven by game predictability&lt;/h1&gt;
+
+&lt;p&gt;It may be the game itself becomes too predictable to enjoy. One of the reasons
+sports (and sports betting) is so popular is because of the high degree of
+unpredictability. A superior football fan suggested offensive yards gained per
+play may be increasing because players are getting better and better.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;If players are getting more and more powerful over time, they could become
+so powerful they are able to drive the ball to the endzone every possession.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Reasonable predictions are data-driven. I scoured the internet for data, and
+ultimately the data below came from [pro-football-reference.com][pro-football-
+reference].^&lt;/p&gt;
+
+&lt;p&gt;The evidence agrees with the theory offensive plays are gaining more yards per
+play than the year prior. This relationship has a high degree of statistical
+signifance (the probability the relationship is actually random being
+2.183e-07). Admittedly, the increase is minor, about 0.026 yards per year.&lt;/p&gt;
+
+&lt;p&gt;A similarly strong and positive relationship was found between the likelihood
+of a play resulting in a conversion over time. The likelihood a play results
+in a first down, year over year, is increasing by 0.128% (in 2013, the
+percentage of plays resulting in a first down was 27.8%). Again, this is a
+rather trivial quantity, but the relationship shows a high degree of
+statistical significance (the likelihood this relationship is actually random
+is 1.782e-06).&lt;/p&gt;
+
+&lt;p&gt;So, long term, as football players become harder, faster, stronger, the game
+more predictable and therefore, less fun to watch.&lt;/p&gt;
+
+&lt;p&gt;But this is a &lt;strong&gt;very&lt;/strong&gt; long term concern: &lt;strong&gt;It will take until the year 2579
+for players to be so good that every play results in a first down.&lt;/strong&gt;
+Personally, I am a lot more concerned about entire teams being on the injury
+report.&lt;/p&gt;
+
+&lt;style&gt;
+
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+
+&lt;/style&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+  
+  var margin = {top: 20, right: 20, bottom: 30, left: 40},
+          width = document.getElementsByClassName(&#39;wrapper&#39;)[0].clientWidth - margin.left - margin.right,
+          height = 500 - margin.top - margin.bottom;
+
+      /* 
+       * value accessor - returns the value to encode for a given data object.
+       * scale - maps value to a visual display encoding, such as a pixel position.
+       * map function - maps from data value to display value
+       * axis - sets up axis
+       */ 
+
+      // setup x 
+      var xValue = function(d) { return d.Year; }, // data -&gt; value
+          xScale = d3.scale.linear().range([0,width])
+          xMap = function(d) { return xScale(xValue(d));}, // data -&gt; display
+          xAxis = d3.svg.axis().scale(xScale).orient(&quot;bottom&quot;);
+
+      // setup y
+      var yValue = function(d) { return d.Yds;}, // data -&gt; value
+          yScale = d3.scale.linear().range([height, 0]), // value -&gt; display
+          yMap = function(d) { return yScale(yValue(d));}, // data -&gt; display
+          yAxis = d3.svg.axis().scale(yScale).orient(&quot;left&quot;);
+
+      // add the graph canvas to the body of the webpage
+      var svg = d3.select(&quot;.post-content&quot;).append(&quot;svg&quot;)
+          .attr(&quot;width&quot;, width + margin.left + margin.right)
+          .attr(&quot;height&quot;, height + margin.top + margin.bottom)
+        .append(&quot;g&quot;)
+          .attr(&quot;transform&quot;, &quot;translate(&quot; + margin.left + &quot;,&quot; + margin.top + &quot;)&quot;);
+
+      // add the tooltip area to the webpage
+      var tooltip = d3.select(&quot;body&quot;).append(&quot;div&quot;)
+          .attr(&quot;class&quot;, &quot;tooltip&quot;)
+          .style(&quot;opacity&quot;, 0);
+
+      // load data
+      d3.csv(&quot;/data/NFL-YrAggregates.csv&quot;, function(error, data) {
+        // change string (from CSV) into number format
+        data.forEach(function(d) {
+          d.Yds = +d.Yds;
+          d.Year = +d.Year;
+        });
+
+        // don&#39;t want dots overlapping axis, so add in buffer to data domain
+        xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
+        yScale.domain([d3.min(data, yValue)-.05, d3.max(data, yValue)+.05]);
+
+        // x-axis
+        svg.append(&quot;g&quot;)
+            .attr(&quot;class&quot;, &quot;x axis&quot;)
+            .attr(&quot;transform&quot;, &quot;translate(0,&quot; + height + &quot;)&quot;)
+            .call(xAxis.tickFormat(d3.format(&quot;j&quot;)))
+          .append(&quot;text&quot;)
+            .attr(&quot;class&quot;, &quot;label&quot;)
+            .attr(&quot;x&quot;, width)
+            .attr(&quot;y&quot;, -6)
+            .style(&quot;text-anchor&quot;, &quot;end&quot;)
+            .text(&quot;Year&quot;);
+
+        // y-axis
+        svg.append(&quot;g&quot;)
+            .attr(&quot;class&quot;, &quot;y axis&quot;)
+            .call(yAxis)
+          .append(&quot;text&quot;)
+            .attr(&quot;class&quot;, &quot;label&quot;)
+            .attr(&quot;transform&quot;, &quot;rotate(-90)&quot;)
+            .attr(&quot;y&quot;, 6)
+            .attr(&quot;dy&quot;, &quot;.71em&quot;)
+            .style(&quot;text-anchor&quot;, &quot;end&quot;)
+            .text(&quot;Avg offensive yards per play&quot;);
+
+        // draw dots
+        svg.selectAll(&quot;.dot&quot;)
+            .data(data)
+          .enter().append(&quot;circle&quot;)
+            .attr(&quot;class&quot;, &quot;dot&quot;)
+            .attr(&quot;r&quot;, 3.5)
+            .attr(&quot;cx&quot;, xMap)
+            .attr(&quot;cy&quot;, yMap)
+            .style(&quot;fill&quot;, &quot;blue&quot;) 
+            .on(&quot;mouseover&quot;, function(d) {
+                tooltip.transition()
+                     .duration(200)
+                     .style(&quot;opacity&quot;, .9);
+                tooltip.html(xValue(d) + &quot;, &quot; + yValue(d))
+                     .style(&quot;position&quot;, &quot;absolute&quot;)
+                     .style(&quot;left&quot;, d3.event.x + &quot;px&quot;)
+                     .style(&quot;top&quot;, d3.event.y + height + 190 + &quot;px&quot;);
+            })
+            .on(&quot;mouseout&quot;, function(d) {
+                tooltip.transition()
+                     .duration(500)
+                     .style(&quot;opacity&quot;, 0);
+            });
+      });
+
+&lt;/script&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;^ &lt;em&gt;Truthfully, I was originally interested in finding
+evidence for an unrelated hunch: that the likelihood of a play resulting in a
+conversion increases the closer the offense is to their opponents’ endzone. I
+came to the conclusion, based on the data I had at hand, such a relationship
+does not exist.&lt;/em&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 22 Nov 2014 15:28:45 -0500</pubDate>
+        <link>http://aimeeb.com/nfl/d3/statistics/2014/11/22/nfl-avg-yds-per-play.html</link>
+        <guid isPermaLink="true">http://aimeeb.com/nfl/d3/statistics/2014/11/22/nfl-avg-yds-per-play.html</guid>
+        
+        
+        <category>nfl</category>
+        
+        <category>d3</category>
+        
+        <category>statistics</category>
+        
+      </item>
     
       <item>
         <title>I&#39;m starting a new blog. Thanks github pages!</title>

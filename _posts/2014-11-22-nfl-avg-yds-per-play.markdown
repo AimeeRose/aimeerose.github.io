@@ -160,7 +160,7 @@ report.
                 tooltip.html(xValue(d) + ", " + yValue(d))
                      .style("position", "absolute")
                      .style("left", d3.event.x + "px")
-                     .style("top", d3.event.y + height + 210 + "px");
+                     .style("top", d3.event.y + height + 190 + "px");
             })
             .on("mouseout", function(d) {
                 tooltip.transition()

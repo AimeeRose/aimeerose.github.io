@@ -6,18 +6,18 @@
 </description>
     <link>http://aimeeb.com/</link>
     <atom:link href="http://aimeeb.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 22 Nov 2014 19:06:18 -0500</pubDate>
-    <lastBuildDate>Sat, 22 Nov 2014 19:06:18 -0500</lastBuildDate>
+    <pubDate>Sat, 22 Nov 2014 19:18:23 -0500</pubDate>
+    <lastBuildDate>Sat, 22 Nov 2014 19:18:23 -0500</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
         <title>The end of the NFL</title>
         <description>&lt;h1 id=&quot;the-end-of-the-nfl-driven-by-head-injuries&quot;&gt;The end of the NFL driven by head injuries&lt;/h1&gt;
 
-&lt;p&gt;Journalists, among others, are predicting the end of the NFL. Lawsuits by
-current and former players suffering &lt;a href=&quot;http://en.wikipedia.org/wiki/Concussions_in_American_football&quot;&gt;concussions&lt;/a&gt; and head
-injuries are driving these predictions. The controversy over these injuries
-comes amidst coverage of the violence in players’ personal lives.&lt;/p&gt;
+&lt;p&gt;Journalists are predicting &lt;a href=&quot;http://grantland.com/features/cte-concussion-crisis-economic-look-end-football/&quot;&gt;the end of the NFL&lt;/a&gt;. Driving these
+predictions are the lawsuits by current and former players suffering
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Concussions_in_American_football&quot;&gt;concussions&lt;/a&gt; and head injuries. In parallel with this
+controversy comes coverage of violence in players’ personal lives.&lt;/p&gt;
 
 &lt;p&gt;What’s worse is these two trends may be related: according to &lt;a href=&quot;https://sports.vice.com/article/the-nfl-concussion-settlement-is-pure-evil&quot;&gt;this article in
 vice sports&lt;/a&gt;, doctors examining former players at Boston
@@ -27,8 +27,9 @@ from the sport by concerned parents, but conscientious fans may feel a tremor
 of hesitation, at least for a half-second, before they turn on the game.&lt;/p&gt;
 
 &lt;p&gt;However, in spite of all this, I continue to watch football, as do an
-increasing number of Americans. And all this is really just a obligatory
-preamble for my own prediction for the end of football.&lt;/p&gt;
+increasing number of Americans (and the English! American football is
+apparently favored by the mayor of London, &lt;a href=&quot;http://profootballtalk.nbcsports.com/2014/11/13/mayor-says-london-is-overjoyed-to-have-nfl-games/&quot;&gt;Boris Johnson&lt;/a&gt;). This is really just
+a preamble for my own prediction for the end of football.&lt;/p&gt;
 
 &lt;h1 id=&quot;the-end-of-the-nfl-driven-by-game-predictability&quot;&gt;The end of the NFL driven by game predictability&lt;/h1&gt;
 
@@ -41,8 +42,7 @@ play may be increasing because players are getting better and better.&lt;/p&gt;
 so powerful they are able to drive the ball to the endzone every possession.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Reasonable predictions are data-driven. I scoured the internet for data, and
-ultimately the data below came from [pro-football-reference.com][pro-football-
-reference].^&lt;/p&gt;
+ultimately the data below came from &lt;a href=&quot;http://www.pro-football-reference.com/play-index/play_finder.cgi&quot;&gt;pro-football-reference.com&lt;/a&gt;.^&lt;/p&gt;
 
 &lt;p&gt;The evidence agrees with the theory offensive plays are gaining more yards per
 play than the year prior. This relationship has a high degree of statistical
@@ -62,7 +62,7 @@ more predictable and therefore, less fun to watch.&lt;/p&gt;
 
 &lt;p&gt;But this is a &lt;strong&gt;very&lt;/strong&gt; long term concern: &lt;strong&gt;It will take until the year 2579
 for players to be so good that every play results in a first down.&lt;/strong&gt;
-Personally, I am a lot more concerned about entire teams being on the injury
+Personally, I am a lot more concerned about entire teams landing on the injury
 report.&lt;/p&gt;
 
 &lt;style&gt;
@@ -165,7 +165,7 @@ report.&lt;/p&gt;
                 tooltip.html(xValue(d) + &quot;, &quot; + yValue(d))
                      .style(&quot;position&quot;, &quot;absolute&quot;)
                      .style(&quot;left&quot;, d3.event.x + &quot;px&quot;)
-                     .style(&quot;top&quot;, d3.event.y + height + 190 + &quot;px&quot;);
+                     .style(&quot;top&quot;, d3.event.y + height + 210 + &quot;px&quot;);
             })
             .on(&quot;mouseout&quot;, function(d) {
                 tooltip.transition()

@@ -9,10 +9,10 @@ customjs:
 
 # The end of the NFL driven by head injuries
 
-Journalists, among others, are predicting the end of the NFL. Lawsuits by
-current and former players suffering [concussions][wiki-concussions] and head
-injuries are driving these predictions. The controversy over these injuries
-comes amidst coverage of the violence in players' personal lives.
+Journalists are predicting [the end of the NFL][grantland]. Driving these
+predictions are the lawsuits by current and former players suffering
+[concussions][wiki-concussions] and head injuries. In parallel with this
+controversy comes coverage of violence in players' personal lives.
 
 What's worse is these two trends may be related: according to [this article in
 vice sports][vice-sports], doctors examining former players at Boston
@@ -22,8 +22,9 @@ from the sport by concerned parents, but conscientious fans may feel a tremor
 of hesitation, at least for a half-second, before they turn on the game.
 
 However, in spite of all this, I continue to watch football, as do an
-increasing number of Americans. And all this is really just a obligatory
-preamble for my own prediction for the end of football.
+increasing number of Americans (and the English! American football is
+apparently favored by the mayor of London, [Boris Johnson][nbc-sports]). This is really just
+a preamble for my own prediction for the end of football.
 
 # The end of the NFL driven by game predictability
 
@@ -36,8 +37,7 @@ play may be increasing because players are getting better and better.
 so powerful they are able to drive the ball to the endzone every possession.**
 
 Reasonable predictions are data-driven. I scoured the internet for data, and
-ultimately the data below came from [pro-football-reference.com][pro-football-
-reference].^
+ultimately the data below came from [pro-football-reference.com][pro-football-reference].^
 
 The evidence agrees with the theory offensive plays are gaining more yards per
 play than the year prior. This relationship has a high degree of statistical
@@ -57,7 +57,7 @@ more predictable and therefore, less fun to watch.
 
 But this is a **very** long term concern: **It will take until the year 2579
 for players to be so good that every play results in a first down.**
-Personally, I am a lot more concerned about entire teams being on the injury
+Personally, I am a lot more concerned about entire teams landing on the injury
 report.
 
 <style>
@@ -160,7 +160,7 @@ report.
                 tooltip.html(xValue(d) + ", " + yValue(d))
                      .style("position", "absolute")
                      .style("left", d3.event.x + "px")
-                     .style("top", d3.event.y + height + 190 + "px");
+                     .style("top", d3.event.y + height + 210 + "px");
             })
             .on("mouseout", function(d) {
                 tooltip.transition()
@@ -181,6 +181,8 @@ conversion increases the closer the offense is to their opponents' endzone. I
 came to the conclusion, based on the data I had at hand, such a relationship
 does not exist.*
 
+[nbc-sports]:             http://profootballtalk.nbcsports.com/2014/11/13/mayor-says-london-is-overjoyed-to-have-nfl-games/
+[grantland]:              http://grantland.com/features/cte-concussion-crisis-economic-look-end-football/
 [wiki-concussions]:       http://en.wikipedia.org/wiki/Concussions_in_American_football
 [vice-sports]:            https://sports.vice.com/article/the-nfl-concussion-settlement-is-pure-evil
 [pro-football-reference]: http://www.pro-football-reference.com/play-index/play_finder.cgi

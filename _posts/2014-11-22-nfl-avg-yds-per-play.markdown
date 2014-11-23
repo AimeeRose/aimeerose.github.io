@@ -166,7 +166,7 @@ report.
                      .style("opacity", .9);
                 tooltip.html(xValue(d) + ", " + yValue(d))
                      .style("left", d3.event.x  + "px")
-                     .style("top", postHeight - (height - d3.event.y) + "px");
+                     .style("top", postHeight - (height - d3.event.y) - 200 + "px");
             })
             .on("mouseout", function(d) {
                 tooltip.transition()

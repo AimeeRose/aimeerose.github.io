@@ -6,8 +6,8 @@
 </description>
     <link>http://aimeeb.com/</link>
     <atom:link href="http://aimeeb.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 23 Nov 2014 13:03:41 -0500</pubDate>
-    <lastBuildDate>Sun, 23 Nov 2014 13:03:41 -0500</lastBuildDate>
+    <pubDate>Sun, 23 Nov 2014 13:55:07 -0500</pubDate>
+    <lastBuildDate>Sun, 23 Nov 2014 13:55:07 -0500</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -159,13 +159,15 @@ report.&lt;/p&gt;
             .attr(&quot;cy&quot;, yMap)
             .style(&quot;fill&quot;, &quot;blue&quot;) 
             .on(&quot;mouseover&quot;, function(d) {
+                console.log(&quot;Y: &quot; + d3.event.y)
+                console.log(&quot;X: &quot; + d3.event.x)
                 tooltip.transition()
                      .duration(200)
                      .style(&quot;opacity&quot;, .9);
                 tooltip.html(xValue(d) + &quot;, &quot; + yValue(d))
                      .style(&quot;position&quot;, &quot;absolute&quot;)
                      .style(&quot;left&quot;, d3.event.x + &quot;px&quot;)
-                     .style(&quot;top&quot;, d3.event.y + height + 190 + &quot;px&quot;);
+                     .style(&quot;top&quot;, d3.event.y + height - 80 + &quot;px&quot;);
             })
             .on(&quot;mouseout&quot;, function(d) {
                 tooltip.transition()
@@ -180,7 +182,7 @@ report.&lt;/p&gt;
 &lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;^ &lt;em&gt;Truthfully, I was originally interested in finding
-evidence for an unrelated hunch: that the likelihood of a play resulting in a
+evidence for an unrelated theory based solely on a hunch: that the likelihood of a play resulting in a
 conversion increases the closer the offense is to their opponents’ endzone. I
 came to the conclusion, based on the data I had at hand, such a relationship
 does not exist.&lt;/em&gt;&lt;/p&gt;

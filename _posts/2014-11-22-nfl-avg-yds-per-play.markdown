@@ -154,13 +154,15 @@ report.
             .attr("cy", yMap)
             .style("fill", "blue") 
             .on("mouseover", function(d) {
+                console.log("Y: " + d3.event.y)
+                console.log("X: " + d3.event.x)
                 tooltip.transition()
                      .duration(200)
                      .style("opacity", .9);
                 tooltip.html(xValue(d) + ", " + yValue(d))
                      .style("position", "absolute")
                      .style("left", d3.event.x + "px")
-                     .style("top", d3.event.y + height + 190 + "px");
+                     .style("top", d3.event.y + height - 80 + "px");
             })
             .on("mouseout", function(d) {
                 tooltip.transition()
@@ -176,7 +178,7 @@ report.
 <br />
 
 ^ *Truthfully, I was originally interested in finding
-evidence for an unrelated hunch: that the likelihood of a play resulting in a
+evidence for an unrelated theory based solely on a hunch: that the likelihood of a play resulting in a
 conversion increases the closer the offense is to their opponents' endzone. I
 came to the conclusion, based on the data I had at hand, such a relationship
 does not exist.*

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>World Map Test</title>
+
+    <script type="text/javascript" src="javascripts/d3.v3.min.js"></script>
+    <script type="text/javascript" src="javascripts/topojson.v1.min.js"></script>
+  </head>
+
+  <body>
+    <script>
+
+      var width = 960,
+          height = 960;
+
+      var projection = d3.geo.equirectangular()
+          .scale((width + 1) / 2 / Math.PI)
+          .translate([width / 2, height / 2])
+          .precision(.1);
+
+      var path = d3.geo.path()
+          .projection(projection);
+
+      var graticule = d3.geo.graticule();
+
+      var svg = d3.select("body").append("svg")
+          .attr("width", width)
+          .attr("height", height);
+
+      svg.append("path")
+          .datum(graticule)
+          .attr("class", "graticule")
+          .attr("d", path);
+
+      var greyBlue = "rgb(99,135,166)"
+      var lightBlue = "rgb(174,211,242)"
+      var yellow = "rgb(255,217,33)"
+      d3.json("data/topojson/world-50m.json", function(error, world) {
+        svg.insert("path", ".graticule")
+            .datum(topojson.feature(world, world.objects.land))
+            .attr("class", "land")
+            .attr("d", path)
+            .attr("fill", greyBlue);
+
+        svg.insert("path", ".graticule")
+            .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
+            .attr("class", "boundary")
+            .attr("d", path)
+            .attr("fill", greyBlue)
+            .attr("stroke", "white");
+      });
+
+      d3.select(self.frameElement).style("height", height + "px");
+
+      var tooltip = function(d, visibility) {
+        d3.selectAll(".tooltip").transition().style("opacity", 0).duration(500).remove();
+
+        d3.select("body")
+          .append("div")
+          .attr("class", "tooltip")
+          .style("font-family", "sans-serif")
+          .style("color", "#333")
+          .style("position", "absolute")
+          .style("z-index", "10")
+          .text(d.name)
+          .style("top", yMap(d) - 20 +"px").style("left", xMap(d)  + "px")
+          .transition()
+          .style("visibility", visibility)
+        }
+
+      var projectD = function(d) { return projection([d['locations'][0]['longitude'], d['locations'][0]['latitude']]) }
+      var xMap = function(d){  if (d['locations'] != null) { return projectD(d)[0]; } else { return null };}
+      var yMap = function(d){if (d['locations'] != null) { return projectD(d)[1]; } else { return null };}
+      
+      var addBreweries = function(data) {
+        return svg.selectAll("circle")
+                .data(data)
+                .enter()
+                .append("circle")
+                .attr("cx", xMap)
+                .attr("cy", yMap)
+                .attr("r", 4)
+                .style("fill", yellow)
+                .style("opacity", "1")
+                .on("mouseover", function(d){ return tooltip(d, "visible") })
+                .on("mouseout", function(d) { return tooltip(d, "hidden") });
+      }
+
+      var mapBreweries = function(year) {
+        if (year <= lastYear) {
+          d3.select("body div#year").text(year.toString())
+          d3.json("data/breweries/locations/" + year.toString() + "-brewery-locations.json", function(error, data) {
+            addBreweries(data);
+          });
+          currentYear++
+          return setTimeout(function(){ mapBreweries(currentYear) }, 200);
+        }
+      }
+
+      var years = d3.range(1765, 2014)
+      var currentYear = years[0]
+      var lastYear = 2014
+      d3.select("body").append("div").attr("id", "year").style("font-size", "20px").html("<h1>" + currentYear.toString() + "</h1>")
+
+      setTimeout(function(){ mapBreweries(currentYear) }, 200);
+    </script>
+  </body>
+</html>

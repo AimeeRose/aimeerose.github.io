@@ -6,8 +6,8 @@
 </description>
     <link>http://aimeeb.com/</link>
     <atom:link href="http://aimeeb.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 23 Nov 2014 16:15:25 -0500</pubDate>
-    <lastBuildDate>Sun, 23 Nov 2014 16:15:25 -0500</lastBuildDate>
+    <pubDate>Sun, 23 Nov 2014 20:29:49 -0500</pubDate>
+    <lastBuildDate>Sun, 23 Nov 2014 20:29:49 -0500</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -108,14 +108,6 @@ report.&lt;/p&gt;
         .append(&quot;g&quot;)
           .attr(&quot;transform&quot;, &quot;translate(&quot; + margin.left + &quot;,&quot; + margin.top + &quot;)&quot;);
 
-      // add the tooltip area to the webpage
-      var tooltip = d3.select(&quot;body&quot;)//.style(&quot;position&quot;, &quot;relative&quot;)
-          .append(&quot;div&quot;)
-            .attr(&quot;class&quot;, &quot;tooltip&quot;)
-            .style(&quot;position&quot;, &quot;absolute&quot;)
-            .style(&quot;opacity&quot;, 0)
-            .style(&quot;color&quot;, &quot;#F2A341&quot;);
-
       // load data
       d3.csv(&quot;/data/NFL-YrAggregates.csv&quot;, function(error, data) {
         // change string (from CSV) into number format
@@ -162,11 +154,6 @@ report.&lt;/p&gt;
             .attr(&quot;cx&quot;, xMap)
             .attr(&quot;cy&quot;, yMap)
             .style(&quot;fill&quot;, &quot;rgb(102,163,217)&quot;)
-            .on(&quot;mouseout&quot;, function(d) {
-                tooltip.transition()
-                     .duration(500)
-                     .style(&quot;opacity&quot;, 0);
-            });
       });
 
 &lt;/script&gt;

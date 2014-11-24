@@ -103,14 +103,6 @@ report.
         .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-      // add the tooltip area to the webpage
-      var tooltip = d3.select("body")//.style("position", "relative")
-          .append("div")
-            .attr("class", "tooltip")
-            .style("position", "absolute")
-            .style("opacity", 0)
-            .style("color", "#F2A341");
-
       // load data
       d3.csv("/data/NFL-YrAggregates.csv", function(error, data) {
         // change string (from CSV) into number format
@@ -157,11 +149,6 @@ report.
             .attr("cx", xMap)
             .attr("cy", yMap)
             .style("fill", "rgb(102,163,217)")
-            .on("mouseout", function(d) {
-                tooltip.transition()
-                     .duration(500)
-                     .style("opacity", 0);
-            });
       });
 
 </script>

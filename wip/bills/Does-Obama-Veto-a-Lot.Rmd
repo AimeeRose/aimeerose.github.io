@@ -1,0 +1,37 @@
+---
+title: "Does Obama Veto Alot?"
+output: html_document
+---
+
+It was stated on PBS this evening that Obama has vetoed only 2 bills, the least number of vetoes of any President in history. I pondered: this may be true, but if Congress had been ineffective in introducing and passing bills, than relatively 2 bills could be a normal or even an egregious number of vetos.
+
+Let's look at the numbers.
+
+```{r, echo = FALSE}
+# install.packages('jsonlite')
+# install.packages('httr')
+library(jsonlite)
+library(httr)
+library(dplyr)
+
+bills_json <- fromJSON("https://govtrack.us/api/v2/bill?limit=600")
+bills_meta <- as.data.frame(bills_json[1])
+limit <- bills_meta$meta.limit
+offset <- bills_meta$meta.offset
+total_bills <- bills_meta$meta.total_count
+
+# bills <- as.data.frame(bills_json[2])
+bills <- list()
+
+while (offset < total_bills) {
+  url = paste("https://govtrack.us/api/v2/bill?limit=", limit, "&offset=", offset)
+  bills_json <- fromJSON(url)
+  current_bills <- bills_json[2]
+  bills <- c(bills, current_bills)
+  
+  offset <- offset + limit
+}
+
+bills <- data.frame(bills)
+```
+

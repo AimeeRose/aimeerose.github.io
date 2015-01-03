@@ -1,0 +1,161 @@
+---
+title: "A survey of ebola trials"
+output: html_document
+---
+
+I was shocked to find the number of search results for studies registered with clinicaltrials.gov for **ebola** was less than those for **fitbit** (25 versus 26 results, respectively). My curiousity led me to read through some of these individual ebola studies. Reviewing each was fascinating, but I wanted a broader understanding of these studies. 
+
+Below is a review of what I discovered about past and current ebola studies listed on clinicaltrials.gov.
+
+**In summary:** Nearly all studies are Phase I studies. Half of the studies targeted prevention, while the other half targeted treatment. A majority have been sponsored by either the Department of Defense or the Department of Health and Human Services, via the National Institutes of Health.
+
+```{r, echo = FALSE}
+setwd('~/Desktop/data/clinicaltrials.gov')
+
+suppressMessages(library(ggplot2))
+suppressMessages(library(gridExtra))
+suppressMessages(library(dplyr))
+
+ebola_studies <- read.csv('ebola_study_fields.csv', stringsAsFactors = FALSE)
+ebola_studies <- transform(ebola_studies, Start.Date.f = sub('-', '-01-', Start.Date))
+ebola_studies$Start.Date.f <- as.Date(ebola_studies$Start.Date.f, '%b-%d-%y')
+
+enrollment_populations <- ggplot() +
+  geom_point(data = ebola_studies, aes(x = Start.Date.f, y = Enrollment, color = Recruitment)) +
+  scale_y_continuous('Target Enrollment', breaks = seq(0,1000,100)) +
+  xlab('Start Date')
+
+enrollment_populations
+```
+
+#### The majority of ebola studies were started in the past year (2014).
+
+16 out of the 25 studies listed were started in the past year (2014).
+
+All studies begun in the past year appear to be active, while all those before 2012 are completed and the two begun in 2012 were terminated and withdrawn.
+
+#### In 2003, an uncommonly expansive study was launched by the US Department of Health.
+
+An outlier in the above scatter plot jumps out for its enrollment target of 958. In 2003, the National Institute of Allergy and Infectious Diseases (NIAID) in collaboration with the National Institutes of Health Clinical Center (CC) launched the study [Screening of Healthy Volunteers for Clinical Trials of Investigational Vaccines to Prevent Infectious Diseases](https://clinicaltrials.gov/show/NCT00068926). This study is uncommon in the magnitude of its enrollment target, 958, which underlied its objective: to funnel eligible subjects into trials for one of many "vaccines of interest" at NIAID's Vaccine Research Center.
+
+An overview of the types of vaccines the NIAID was interested in testing:
+
+> Of interest are vaccines for: newly identified infectious diseases such as SARS; infectious diseases of concern as possible bioweapons, such as smallpox and Ebola virus; emerging infectious diseases that are more widespread geographically than in the past, such as West Nile virus; and, for preventing diseases such as tuberculosis and malaria.
+
+
+#### Ebola trials have been largely sponsored by departments of the US Government.
+
+```{r, echo = FALSE}
+ebola_studies <- transform(ebola_studies, Sponsor.Collaborators = strsplit(Sponsor.Collaborators, split = '\\|'))
+
+sponsor_collaborators <- as.data.frame(unlist(ebola_studies$Sponsor.Collaborators), names = 'Sponsor.Collaborator')
+
+colnames(sponsor_collaborators) <- c('Sponsor.Collaborators')
+
+sponsor_collaborators_grouped <- sponsor_collaborators %>%
+                                   group_by(Sponsor.Collaborators) %>%
+                                   filter(n() > 1)
+
+sponsor_collaborators_grouped <- within(sponsor_collaborators_grouped, Sponsor.Collaborators <- factor(Sponsor.Collaborators, levels=names(sort(table(Sponsor.Collaborators), ascending=TRUE))))
+
+spon_collab_plot <- ggplot(data = sponsor_collaborators_grouped, aes(x = Sponsor.Collaborators)) +
+  geom_bar(colour = 'darkolivegreen', fill = 'darkolivegreen3') +
+  scale_y_continuous('Number of studies', breaks = seq(0, 10, 1)) +
+  xlab('Sponsor / Collaborator') + 
+  theme(axis.text.x = element_text(angle = 70, hjust = 1))
+
+spon_collab_plot
+```
+
+The following four sponsors have each had a share of a notable proportion of trials:
+
+* Department of Defense: 20%
+* Wellcome Trust: 20%
+* National Institutes of Health Clinical Center (CC): 24%
+* National Institute of Allergy and Infectious Diseases (NIAID): 40%
+
+CC and NIAID are both a part of the National Institutes of Health, which is a part of the US Department of Health and Human Services. These two sponsors together have been a part of 2/3 of trials for ebola.
+
+
+#### Many new sponsors have become active in sponsoring ebola trials in the past year.
+
+Qualifying **active sponsors** as sponsors which have been involved in 3 or more trials, all active sponsors, aside from those affiliated with the US government, have become involved only in the past year. While the US Department of Defense, NIAID and CC have been sponsoring trials since 2003, in 2014, 6 other sponsors have been involved in 3 or more trials.
+
+```{r, echo = FALSE}
+ebola_studies <- read.csv('ebola_study_fields.csv', stringsAsFactors = FALSE)
+ebola_studies <- transform(ebola_studies, Start.Date.f = sub('-', '-01-', Start.Date))
+ebola_studies$Start.Date.f <- as.Date(ebola_studies$Start.Date.f, '%b-%d-%y')
+ebola_studies <- transform(ebola_studies, Sponsor.Collaborators = as.list(strsplit(Sponsor.Collaborators, split = '\\|')))
+
+all_active_sponsor_collaborators <- sponsor_collaborators %>%
+                                      group_by(Sponsor.Collaborators) %>%
+                                      summarise(total = n()) %>%
+                                      filter(total >= 3)
+
+active_sponsors <- function(sponsors_list) {
+  return(intersect(sponsors_list, all_active_sponsor_collaborators$Sponsor.Collaborators))
+}
+
+ebola_studies$active_sponsors <- lapply(ebola_studies[,c('Sponsor.Collaborators')], active_sponsors)
+
+# 42 observations, 1 study for each active sponsor involved in the study
+
+asc <- data.frame(sponsor = unlist(ebola_studies$active_sponsors), 
+                  date = rep(ebola_studies$Start.Date.f, vapply(ebola_studies$active_sponsors, length, 1L)))
+                  
+asc$year <- as.integer(format(asc$date, '%Y'))
+
+groups <- group_by(asc, year)
+
+qplot(factor(year), data = groups, geom="bar", fill=factor(sponsor)) +
+  xlab('Start Date') +
+  ylab('Number of trials') +
+  scale_y_continuous(breaks = seq(0, 30, 2)) +
+  scale_size(range=c(5,20), guide="none") +
+  theme(legend.title=element_blank(), legend.text = element_text(size = 8))
+```
+
+#### Studies are targeting prevention and treatment equally.
+
+The number of studies targeting treatment is equal to the number targeting prevention. Both the proportion of studies over time as well as the total enrollment targets are roughly equivalent between studies targeting prevention and those targeting treatment.
+
+```{r, echo = FALSE}
+get_primary_purpose <- function(study_designs) {
+  study_designs_list <- unlist(strsplit(study_designs, split = '\\|'))
+  purpose_index <- grep("Primary Purpose:", study_designs_list)
+  primary_purpose <- unlist(strsplit(study_designs_list[purpose_index], split = ': '))[2]
+  return(primary_purpose)
+}
+
+ebola_studies$primary_purpose <- lapply(ebola_studies[,c('Study.Designs')], get_primary_purpose)
+primary_purposes <- data.frame(purpose = as.character(ebola_studies$primary_purpose),
+                               enrollment = ebola_studies$Enrollment,
+                               date = ebola_studies$Start.Date.f)
+purposes <- primary_purposes %>%
+  group_by(purpose) %>%
+  summarise(total = n())
+
+slices <- purposes$total
+labels <- purposes$purpose
+purpose_pie <- pie(slices, labels = labels, main="Primary Purpose")
+```
+
+
+```{r, echo = FALSE}
+plot <- ggplot() +
+  geom_point(data = subset(primary_purposes, purpose != 'NULL'), aes(x = date, y = enrollment, color = purpose)) +
+  scale_y_continuous('Target Enrollment', breaks = seq(0,1000,100)) +
+  xlab('Start Date')
+
+plot
+```
+
+#### Nearly all studies are Phase I studies.
+
+```{r, echo = FALSE}
+table(ebola_studies$Phases)
+```
+
+Phase I studies focus on the safety, rather than the efficacy, of a treatment. Alas, it is not news neither a vaccine nor a treatment for ebola is near or even on its way to FDA approval and the wider market.
+
+

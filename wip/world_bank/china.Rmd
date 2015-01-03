@@ -1,0 +1,43 @@
+Enrollment levels in China
+
+```{r}
+setwd('~/Desktop/data/world_bank')
+library(ggplot2)
+library(gridExtra)
+
+urban_chi <- read.csv('CHN_SP_URB_TOTL_IN_ZS.csv')
+urban_chi$date <- as.Date(urban_chi$Date, '%Y-%m-%d')
+
+# https://www.quandl.com/WORLDBANK/CHN_MYS_PROP_25UP_TER_MF-China-proportion-25-total-tertiary
+ter_edu_chi <- read.csv('CHN_MYS_PROP_25UP_TER_MF.csv?trim_end=2013-12-31')
+ter_edu_chi$date <- as.Date(ter_edu_chi$Date, '%Y-%m-%d')
+
+# https://www.quandl.com/WORLDBANK/CHN_MYS_PROP_25UP_SEC_MF-China-proportion-25-total-secondary
+sec_edu_chi <- read.csv('CHN_MYS_PROP_25UP_SEC_MF.csv?trim_end=2013-12-31')
+sec_edu_chi$date <- as.Date(sec_edu_chi$Date, '%Y-%m-%d')
+
+# https://www.quandl.com/WORLDBANK/CHN_MYS_PROP_25UP_PRI_MF-China-proportion-25-total-primary
+prim_edu_chi <- read.csv('CHN_MYS_PROP_25UP_PRI_MF.csv?trim_end=2013-12-31')
+prim_edu_chi$date <- as.Date(prim_edu_chi$Date, '%Y-%m-%d')
+
+# https://www.quandl.com/UNDATA/GID_EDPRI_CHN-Enrolment-in-Primary-Education-China
+#
+enrollment_in_primary <- read.csv('GID_EDPRI_CHN.csv')
+enrollment_in_primary$date <- as.Date(enrollment_in_primary$Date, '%Y-%m-%d')
+
+educated_pop <- ggplot() +
+  geom_line(data = urban_chi, aes(x = date, y = Value/100, color = 'urban')) +
+  geom_line(data = ter_edu_chi, aes(x = date, y = Value, color = 'tertiary')) +
+  geom_line(data = sec_edu_chi, aes(x = date, y = Value, color = 'secondary')) +
+  geom_line(data = prim_edu_chi, aes(x = date, y = Value, color = 'primary')) +
+  geom_line(data = enrollment_in_primary, aes(x = date, y = Female.Percentage / 100, color = '% primary female')) +
+  ylab('% Population')
+  
+educated_pop
+```
+
+
+
+> "Since the end of the Cultural Revolution (1966–76), the education system in China has been geared toward economic modernization.[citation needed] In 1985, the national government ceded responsibility for basic education to local governments through the Central Committee of the Chinese Communist Party's "Decision on the Reform of the Educational Structure." In unveiling the education reform plan in May 1985, the authorities called for nine years of compulsory education and the establishment of the State Education Commission (created the following month). Official commitment to improved education was nowhere more evident than in the substantial increase in funds for education in the Seventh Five-Year Plan (1986–90), which amounted to 72 percent more than funds allotted to education in the previous plan period (1981–85). In 1986 some 16.8 percent of the state budget was earmarked for education, compared with 10.4 percent in 1984."
+
+http://en.wikipedia.org/wiki/Education_in_China

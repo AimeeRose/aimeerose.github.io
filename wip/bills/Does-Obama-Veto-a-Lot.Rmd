@@ -8,30 +8,158 @@ It was stated on PBS this evening that Obama has vetoed only 2 bills, the least 
 Let's look at the numbers.
 
 ```{r, echo = FALSE}
-# install.packages('jsonlite')
-# install.packages('httr')
-library(jsonlite)
-library(httr)
+setwd('~/Projects/aimeerose.github.io/wip/bills')
+
+# install.packages('RMySQL', type = 'source')
+library(RMySQL)
+library(ggplot2)
 library(dplyr)
 
-bills_json <- fromJSON("https://govtrack.us/api/v2/bill?limit=600")
-bills_meta <- as.data.frame(bills_json[1])
-limit <- bills_meta$meta.limit
-offset <- bills_meta$meta.offset
-total_bills <- bills_meta$meta.total_count
+conn <- dbConnect(MySQL(), user = 'root', password = '',
+                  dbname = 'govtrack', host = 'localhost')
 
-# bills <- as.data.frame(bills_json[2])
-bills <- list()
+bills <- dbReadTable(conn, 'bills')
 
-while (offset < total_bills) {
-  url = paste("https://govtrack.us/api/v2/bill?limit=", limit, "&offset=", offset)
-  bills_json <- fromJSON(url)
-  current_bills <- bills_json[2]
-  bills <- c(bills, current_bills)
-  
-  offset <- offset + limit
-}
+bills$congress <- factor(bills$congress)
 
-bills <- data.frame(bills)
+# bills_sample <- bills[sample(1:length(bills$congress), 1000), ]
+ggplot(data = bills, aes(x = congress)) + geom_histogram()
 ```
 
+
+It turns out, there are a lot of things that can happen to a bill. As categorized by the govtrack database, there are exactly 29 states of a bill. However, the differences are mostly in ways a bill can die in Congress. For a complete listing see **Appendix A: 29 Flavors of Legislative State**
+
+In order to make these states digestable to the lay person, the states have been collapsed into:
+
+* Introduced: The bill was introduced.
+* Referred: The bill was referred to committee but never reported.
+* Reported: The bill was addressed by its committee and reported to Congress.
+* Enacted: The bill was enacted. This includes bills enacted by the ten-day rule and bills enacted by "unknown".
+* Enacted Veto Override: The bill was enacted by Congressional override of a Presidential veto.
+* Passed Bill: The bill passed Congress but was never enacted before the end of the session.
+* Congressional stalemate: The bill was never passed because of one of the following reasons: it did not receive mutual approval in the House and Senate; non-identical forms were passed; it was killed by a suspension vote; it failed vote for cloture or it was killed while resolving differences.
+* Vetoed: The bill was vetoed successfully. This includes pocket vetoes.
+* Resolution Passed: Passed simple and concurrent resolutions.
+
+
+```{r, echo = FALSE}
+enacted <- list(
+  'enacted_signed',
+  'enacted_unknown',
+  'enacted_tendayrule')
+
+congressional_stalemates <- list(
+  'pass_over_senate',
+  'pass_over_house',
+  'pass_back_house',
+  'pass_back_senate',
+  'fail_originating_house',
+  'fail_originating_senate',
+  'conference_passed_house',
+  'fail_second_house',
+  'failed_second_senate',
+  'conference_passed_senate',
+  'prov_kill_suspensionfailed',
+  'prov_kill_cloturefailed')
+
+vetoed <- list(
+  'prov_kill_veto',
+  'vetoed_pocket',
+  'override_pass_over_house',
+  'vetoed_override_fail_second_senate',
+  'vetoed_override_fail_originating_house',
+  'vetoed_override_fail_originating_senate',
+  'vetoed_override_fail_second_house')
+
+resolution_passed <- list(
+  'passed_concurrentres',
+  'passed_simpleres')
+
+collapsed_states <- function(bill_state){
+  returned_state <- if (bill_state %in% congressional_stalemates) {
+    return('congressional_stalemates')
+  } else if (bill_state %in% enacted) {
+    return('enacted')
+  } else if (bill_state %in% vetoed) {
+    return('vetoed')
+  } else if (bill_state %in% resolution_passed) {
+    return('resolution_passed')
+  } else {
+    return(bill_state)
+  }
+  
+  return(returned_state)
+}
+
+bills$current_status.f <- unlist(lapply(bills[,c('current_status')], collapsed_states))
+
+# bills_sample <- bills[sample(1:length(bills$congress), 1000), ]
+grouped_bills <- bills %>%
+  group_by(current_status.f) %>%
+  summarise(total = n()) %>%
+  mutate(freq = round(total / sum(total), 4)) %>%
+  arrange(total)
+
+print(grouped_bills)
+
+grouped_bills_subset <- subset(grouped_bills, total > 100)
+y.breaks <- cumsum(grouped_bills_subset$total) - grouped_bills_subset$total/2
+
+ggplot(data = grouped_bills, aes(x = 1, y = total, fill = current_status.f)) +
+  geom_bar(stat = 'identity', color = 'black') +
+  coord_polar(theta='y', start = 45) +
+  guides(fill = guide_legend(override.aes = list(colour = NA), title = 'Current Status')) +
+  theme(axis.ticks = element_blank(), axis.title = element_blank(), axis.text.y = element_blank()) +
+  theme(axis.text.x = element_text(color = 'black', size = 14)) +
+  scale_y_continuous(breaks = y.breaks, labels = grouped_bills_subset$current_status.f)
+```
+
+Sometimes when you go looking for something, you find something else you entirely weren't looking for. **69% of all bills in US history are currently in the "referred" state meaning they are still waiting to be addressed by their committee.** In other words, the majority all of bills introduced to Congress are in a coma and may never wake up.
+
+### Appendix A: 29 Flavors of Legislative State
+
+#### Identity
+* **referred:** The bill was introduced and referred to a committee, but never reported.
+* **reported:** The bill was adressed in a hearing by its committee, but was never enacted by Congress.
+* **introduced:** The bill was introduced.
+* **enacted_veto_override:** The bill was enacted after a congressional override of the Presidential veto.
+* **passed_bill:** The bill passed Congress but was never enacted before the end of the session.
+
+#### Congressional Stalemate
+* **pass_over_senate:** The bill passed the Senate but not the House.
+* **pass_over_house:** The bill passed the House but not Senate.
+* **pass_back_house:** The bill passed by both chambers but was passed in non-identical forms and the differences were never resolved.
+* **pass_back_senate:** The bill passed by both chambers but was passed in non-identical forms and the differences were never resolved.
+* **fail_originating_house:** The bill failed in the House.
+* **fail_originating_senate:** The bill failed in the Senate.
+* **conference_passed_house:** The bill was introduced in a previous session of Congress. It was passed by both chambers but it passed in non-identical forms.
+* **fail_second_house:** The bill passed in senate, failed in house.
+* **failed_second_senate:** The bill was passed in the House but failed in the Sentate.
+* **conference_passed_senate:** The bill was introduced in a previous session of Congress. It was passed in non-identical form and only one chamber approved a conference report to resolve the differences.
+* **prov_kill_suspensionfailed:** A catch-all for random ways for a bill to die in Congress. The bill was introduced but was killed due to a failed vote for cloture (placing a time limit on the debate), under a fast-track vote called 'suspension' (meant to quickly pass non-controversial bills), or while resolving differences.
+* **prov_kill_cloturefailed:** Same as description above for 'prov_kill_suspensionfailed'.
+
+#### Vetoed
+* **prov_kill_veto:** The bill was vetoed by the President and Congress did not attempt an override.
+* **vetoed_pocket:** The bill was pocket vetoed. A bill is pocket vetoed when the President does not sign the bill and Congress adjourns before the ten-day period expires.
+* **override_pass_over_house:** The bill was vetoed by the President and Congress did not finish an override before the end of the Congressional session.
+* **vetoed_override_fail_second_senate:** The bill was vetoed. The Senate attempted to override the veto but failed.
+* **vetoed_override_fail_originating_house:** The bill was vetoed. The House attempted to override the veto but failed.
+* **vetoed_override_fail_originating_senate:** The bill was vetoed by the President and Senate did not finish an override before the end of the Congressional session.
+* **vetoed_override_fail_second_house:** The bill was vetoed by the President and the House did not finish an override before the end of the Congressional session.
+
+#### Enacted
+* **enacted_signed:** The bill was enacted after being signed.
+* **enacted_unknown:** The bill was enacted.
+* **enacted_tendayrule:** The bill became enacted after ten days elapsed after being presented to the President.
+
+#### Passed Resolutions
+* **passed_concurrentres:** The concurrent resolution was agreed to by both Chambers, which is the end of the legislative process for concurrent resolutions.
+* **passed_simpleres:** The bill is a simple resolution and was passed^.
+
+***simple resolution:*** Designated "S. Res.," simple resolutions are used to express nonbinding positions of the Senate or to deal with the Senate's internal affairs, such as the creation of a special committee. They do not require action by the House of Representatives. ([source](https://www.senate.gov/reference/glossary_term/simple_resolution.htm))
+
+
+### Resources
+
+http://mathematicalcoffee.blogspot.com/2014/06/ggpie-pie-graphs-in-ggplot2.html

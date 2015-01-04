@@ -1,6 +1,7 @@
 ---
 layout: post
-title:  "A survey of ebola trials"
+title:  More clinical trials initiated for the fitbit than for ebola
+subtitle: A survey of ebola trials listed on clinicaltrials.gov
 date:   2014-12-28 09:37:23
 categories: r clinical data
 ---

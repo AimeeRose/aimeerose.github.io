@@ -3,17 +3,19 @@ title: "Does Obama Veto Alot?"
 output: html_document
 ---
 
-It was stated on PBS this evening that Obama has vetoed only 2 bills, the least number of vetoes of any President in history. I pondered: this may be true, but if Congress had been ineffective in introducing and passing bills, than relatively 2 bills could be a normal or even an egregious number of vetos.
+It was stated recently on PBS Obama has vetoed only 2 bills while in office, the least number of vetoes of any President in history. I pondered: Could it be that 2 vetoes is actually an average or great number of vetoes as a relative measure? If, for example, Congress had been ineffective in introducing and passing bills and only 2 had reached Obama's desk, then he would be quite the Contrary Connor.
 
 Let's look at the numbers.
 
 ```{r, echo = FALSE}
-setwd('~/Projects/aimeerose.github.io/wip/bills')
+setwd('~/Projects/aimeerose.github.io/_drafts/bills')
 
 # install.packages('RMySQL', type = 'source')
 library(RMySQL)
 library(ggplot2)
 library(dplyr)
+library(stringr)
+library(reshape2)
 
 conn <- dbConnect(MySQL(), user = 'root', password = '',
                   dbname = 'govtrack', host = 'localhost')
@@ -21,25 +23,42 @@ conn <- dbConnect(MySQL(), user = 'root', password = '',
 bills <- dbReadTable(conn, 'bills')
 
 bills$congress <- factor(bills$congress)
+bills$bill_type <- factor(bills$bill_type)
 
-# bills_sample <- bills[sample(1:length(bills$congress), 1000), ]
-ggplot(data = bills, aes(x = congress)) + geom_histogram()
+ggplot(data = bills, aes(x = congress)) + 
+  geom_histogram(colour = 'darkolivegreen', fill = 'darkolivegreen3') +
+  ggtitle('Bills in Congress') +
+  scale_x_discrete(breaks = seq(0,114,4))
+```
+
+Whoa! What happened between the 92nd and 93rd congress? Nothing, or at least nothing that explains this bar graph. The jump in numbers is just a characteristic of the data sources. Govtrack.us data for bills is consistently provided from 1973 through today by THOMAS.gov, from 1951 through 1971 from GPO.gov/FDSys, and for 1799-1873 from the Library of Congress’s American Memory Century of Lawmaking collection via the am_mem_law project ([source](https://www.govtrack.us/about)). This also explains the missing congress sessions 43 through 81. 
+
+For the remainder of this post, I will be restricting analysis to those before the 93rd Congress, and those after.
+
+```{r, echo = FALSE}
+modern_bills <- bills[bills$congress %in% c(93:113), ]
+
+ggplot(data = modern_bills, aes(x = congress)) + 
+  geom_histogram(colour = 'darkolivegreen', fill = 'darkolivegreen3') +
+  ggtitle('Bills in Congress since the 93rd session')
 ```
 
 
-It turns out, there are a lot of things that can happen to a bill. As categorized by the govtrack database, there are exactly 29 states of a bill. However, the differences are mostly in ways a bill can die in Congress. For a complete listing see **Appendix A: 29 Flavors of Legislative State**
+## Have you met my friend bill?
+
+There a lot of bills which have never moved past being introduced to Congress. As categorized by the govtrack database, there have been over 300,000 bills introduced into congress which is really a low ball estimate due to the data sources, and 29 current states for all the bills in this corpus. The differences are mostly in ways a bill can die in Congress. For a complete listing of these statii, see **Appendix A: 29 Flavors of Legislative State**
 
 In order to make these states digestable to the lay person, the states have been collapsed into:
 
-* Introduced: The bill was introduced.
-* Referred: The bill was referred to committee but never reported.
-* Reported: The bill was addressed by its committee and reported to Congress.
-* Enacted: The bill was enacted. This includes bills enacted by the ten-day rule and bills enacted by "unknown".
-* Enacted Veto Override: The bill was enacted by Congressional override of a Presidential veto.
-* Passed Bill: The bill passed Congress but was never enacted before the end of the session.
-* Congressional stalemate: The bill was never passed because of one of the following reasons: it did not receive mutual approval in the House and Senate; non-identical forms were passed; it was killed by a suspension vote; it failed vote for cloture or it was killed while resolving differences.
-* Vetoed: The bill was vetoed successfully. This includes pocket vetoes.
-* Resolution Passed: Passed simple and concurrent resolutions.
+* **Introduced:** The bill was introduced.
+* **Referred:** The bill was referred to committee but never reported.
+* **Reported:** The bill was addressed by its committee and reported to Congress.
+* **Enacted:** The bill was enacted. This includes bills enacted by the ten-day rule and bills enacted by "unknown".
+* **Enacted veto override:** The bill was enacted by Congressional override of a Presidential veto.
+* **Passed bill:** The bill passed Congress but was never enacted before the end of the session.
+* **Congressional stalemate:** The bill was never passed because of one of the following reasons: it did not receive mutual approval in the House and Senate; non-identical forms were passed; it was killed by a suspension vote; it failed vote for cloture or it was killed while resolving differences.
+* **Vetoed:** The bill was vetoed successfully. This includes pocket vetoes.
+* **Resolution passed:** Passed simple and concurrent resolutions.
 
 
 ```{r, echo = FALSE}
@@ -57,7 +76,7 @@ congressional_stalemates <- list(
   'fail_originating_senate',
   'conference_passed_house',
   'fail_second_house',
-  'failed_second_senate',
+  'fail_second_senate',
   'conference_passed_senate',
   'prov_kill_suspensionfailed',
   'prov_kill_cloturefailed')
@@ -91,10 +110,9 @@ collapsed_states <- function(bill_state){
   return(returned_state)
 }
 
-bills$current_status.f <- unlist(lapply(bills[,c('current_status')], collapsed_states))
+modern_bills$current_status.f <- unlist(lapply(modern_bills[,c('current_status')], collapsed_states))
 
-# bills_sample <- bills[sample(1:length(bills$congress), 1000), ]
-grouped_bills <- bills %>%
+grouped_bills <- modern_bills %>%
   group_by(current_status.f) %>%
   summarise(total = n()) %>%
   mutate(freq = round(total / sum(total), 4)) %>%
@@ -103,18 +121,173 @@ grouped_bills <- bills %>%
 print(grouped_bills)
 
 grouped_bills_subset <- subset(grouped_bills, total > 100)
-y.breaks <- cumsum(grouped_bills_subset$total) - grouped_bills_subset$total/2
 
 ggplot(data = grouped_bills, aes(x = 1, y = total, fill = current_status.f)) +
   geom_bar(stat = 'identity', color = 'black') +
   coord_polar(theta='y', start = 45) +
   guides(fill = guide_legend(override.aes = list(colour = NA), title = 'Current Status')) +
   theme(axis.ticks = element_blank(), axis.title = element_blank(), axis.text.y = element_blank()) +
-  theme(axis.text.x = element_text(color = 'black', size = 14)) +
-  scale_y_continuous(breaks = y.breaks, labels = grouped_bills_subset$current_status.f)
+  theme(axis.text.x = element_blank()) +
+  ggtitle('Current Bill Statuses since 93rd Congress')
 ```
 
-Sometimes when you go looking for something, you find something else you entirely weren't looking for. **69% of all bills in US history are currently in the "referred" state meaning they are still waiting to be addressed by their committee.** In other words, the majority all of bills introduced to Congress are in a coma and may never wake up.
+Sometimes when you go looking for something, you find something else you entirely weren't looking for: **69% of all bills in US history are currently in the "referred" state meaning they are still waiting to be addressed by their committee. An even greater proportion (81%) are in this state if only counting back to 1973.**
+
+```{r, echo = FALSE}
+ggplot(data = modern_bills, aes(x = congress, fill = current_status.f)) + 
+  geom_bar(colour = 'darkolivegreen', fill = 'darkolivegreen3') +
+  ggtitle('Current Bill Status')
+```
+
+
+This provides (very) minor support for the claim Congress is becoming more and more ineffectual. There is greater support for this claim when looking solely at the number of bills enacted.
+
+```{r, echo = FALSE}
+ggplot(data = subset(modern_bills, current_status.f %in% list('enacted', 'enacted_veto_override')), aes(x = congress)) + 
+  geom_histogram(colour = 'darkolivegreen', fill = 'darkolivegreen3') +
+  scale_y_continuous(breaks = seq(0, 800, 100)) +
+  ggtitle('Number of bills enacted by Congress')
+```
+
+
+```{r, echo = FALSE}
+ggplot(data = subset(modern_bills, current_status.f == 'introduced'), aes(x = congress)) + 
+  geom_histogram(colour = 'darkolivegreen', fill = 'darkolivegreen3') +
+  ggtitle('Number of bills introduced to Congress')
+```
+
+Whoa! What was going on in the 97 through 100th Congressional sessions? Ronald Reagan was president during those sessions but more likely it was some other characteristic of those congressional sessions. Note: this is the number of bills introduced during that period which are *still* in the introduced state, not to be confused with the *total* number of bills introduced during that period.
+
+
+```{r, echo = FALSE}
+extract_sortname <- function(sponsor_blob) {
+ extracted <- str_extract(sponsor_blob, "sortname\\\"(.+)\\\",")
+ return(sub("\\\",", "", sub("sortname\\\"=>\\\"", "", extracted)))
+}
+
+modern_bills$sponsor.sort_name <- unlist(lapply(modern_bills[,c('sponsor')], extract_sortname))
+
+modern_bills$sponsor.sort_name <- factor(modern_bills$sponsor.sort_name)
+
+reagan_bills <- modern_bills[modern_bills$congress %in% c(97:100), ]
+reagan_bills_introduced <- subset(reagan_bills, current_status == 'introduced')
+
+# 170 levels
+grouped_reagan_bills <- reagan_bills_introduced %>%
+  group_by(sponsor.sort_name) %>%
+  summarise(total = n()) %>%
+  mutate(freq = round(total / sum(total), 4)) %>%
+  arrange(-total)
+
+before_reagan_bills <- modern_bills[modern_bills$congress %in% c(93:96), ]
+before_reagan_bills_introduced <- subset(before_reagan_bills, current_status == 'introduced')
+
+grouped_before_reagan_bills <- before_reagan_bills_introduced %>%
+  group_by(sponsor.sort_name) %>%
+  summarise(total = n()) %>%
+  mutate(freq = round(total / sum(total), 4)) %>%
+  arrange(-total)
+
+after_reagan_bills <- modern_bills[modern_bills$congress %in% c(101:104), ]
+after_reagan_bills_introduced <- subset(after_reagan_bills, current_status == 'introduced')
+
+grouped_after_reagan_bills <- after_reagan_bills_introduced %>%
+  group_by(sponsor.sort_name) %>%
+  summarise(total = n()) %>%
+  mutate(freq = round(total / sum(total), 4)) %>%
+  arrange(-total)
+```
+
+## Comparing 4 sessions before, after and during the Reagan presidency
+
+```{r, echo = FALSE}
+# Before
+grouped_before_reagan_bills <- before_reagan_bills_introduced %>%
+  group_by(bill_type) %>%
+  summarise(total = n()) %>%
+  mutate(freq = round(total / sum(total), 4)) %>%
+  arrange(-total)
+
+pie_grouped_before_reagan <- ggplot(data = grouped_before_reagan_bills, aes(x = 1, y = total, fill = bill_type)) +
+  geom_bar(stat = 'identity', color = 'black') +
+  ggtitle('Introduced before Reagan') +
+  coord_polar(theta='y', start = 45) +
+  guides(fill = guide_legend(override.aes = list(colour = NA), title = 'Bill Types')) +
+  theme(axis.ticks = element_blank(), axis.title = element_blank(), axis.text.y = element_blank()) +
+  theme(axis.text.x = element_blank())
+
+# After
+grouped_after_reagan_bills <- after_reagan_bills_introduced %>%
+  group_by(bill_type) %>%
+  summarise(total = n()) %>%
+  mutate(freq = round(total / sum(total), 4)) %>%
+  arrange(-total)
+
+pie_grouped_after_reagan <- ggplot(data = grouped_after_reagan_bills, aes(x = 1, y = total, fill = bill_type)) +
+  geom_bar(stat = 'identity', color = 'black') +
+  ggtitle('Introduced after Reagan') +
+  coord_polar(theta='y', start = 45) +
+  guides(fill = guide_legend(override.aes = list(colour = NA), title = 'Bill Types')) +
+  theme(axis.ticks = element_blank(), axis.title = element_blank(), axis.text.y = element_blank()) +
+  theme(axis.text.x = element_blank())
+
+# During
+grouped_reagan_bills <- reagan_bills_introduced %>%
+  group_by(bill_type) %>%
+  summarise(total = n()) %>%
+  mutate(freq = round(total / sum(total), 4)) %>%
+  arrange(-total)
+
+pie_grouped_during_reagan <- ggplot(data = grouped_reagan_bills, aes(x = 1, y = total, fill = bill_type)) +
+  geom_bar(stat = 'identity', color = 'black') +
+  ggtitle('Introduced during Reagan') +
+  coord_polar(theta='y', start = 45) +
+  guides(fill = guide_legend(override.aes = list(colour = NA), title = 'Bill Types')) +
+  theme(axis.ticks = element_blank(), axis.title = element_blank(), axis.text.y = element_blank()) +
+  theme(axis.text.x = element_blank())
+
+pie_grouped_before_reagan
+pie_grouped_during_reagan
+pie_grouped_after_reagan
+```
+
+**Nearly 10 times more house resolutions from the Reagan years still exist in the introduced state as before and after the Reagan years.**
+
+House representatives were either *very* involved or *very* ineffective (or both) during the Reagan years. 996 house resolutions from the congressional sessions when Reagan was in office are still in the "introduced" state, whereas before and after Reagan sessions only 103 and 26 house resolutions still exist as "introduced", respectively. 
+
+This imbalance is mirrored when looking at bill sponsors: The top 10 sponsors of bills during the Reagan years were all from the house and have between 40 and 125 outstanding bills or resolutions introduced. The top ten before and after the Reagan sessions all have 17 or less outstanding.
+
+### Back to the original question: Does Obama veto a lot?
+
+Obama was president during the 111th, 112th and 113th Congressional sessions.
+
+```{r, echo = FALSE}
+modern_bills_grouped <- modern_bills %>%
+  group_by(congress, current_status.f) %>%
+  summarise(total_of_status = n()) %>%
+  mutate(total_bills = sum(total_of_status))
+
+casted <- dcast(modern_bills_grouped, value.var = 'total_of_status', total_bills + congress ~ current_status.f)
+casted$proportion_vetoed <- casted$vetoed / casted$total_bills
+
+ggplot(data = casted, aes(x = congress, y = proportion_vetoed)) + 
+  geom_bar(stat = 'identity', colour = 'darkolivegreen', fill = 'darkolivegreen3') +
+  ylab('Proportion Vetoed') +
+  ggtitle('Proportion of bills vetoed')
+```
+
+**It is true Obama has issued, both in total numbers and relative to total bills, the least number of vetoes when compared with other Presidents.**
+
+**There is also some evidence to suggest the number of bills enacted, and thus bills available to veto, is declining over time.**
+
+```{r, echo = FALSE}
+ggplot(data = subset(modern_bills, current_status.f %in% list('enacted', 'enacted_veto_override')), aes(x = congress)) + 
+  geom_histogram(colour = 'darkolivegreen', fill = 'darkolivegreen3') +
+  scale_y_continuous(breaks = seq(0, 800, 100)) +
+  ylab('Number of bills enacted') +
+  ggtitle('Number of bills enacted by Congress')
+```
+
 
 ### Appendix A: 29 Flavors of Legislative State
 

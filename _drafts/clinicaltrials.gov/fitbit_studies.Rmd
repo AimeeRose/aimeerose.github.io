@@ -1,0 +1,142 @@
+---
+title: "A survey of fitbit trials"
+output: html_document
+---
+
+There are currently 27 trials listed on clinicaltrials.gov for the search term "fitbit". Below is a summary of characterstics of those studies.
+
+### Only 4 of the 27 trials are completed.
+
+```{r, echo = FALSE, fig.width=10}
+setwd('~/Projects/aimeerose.github.io/_drafts/clinicaltrials.gov')
+
+suppressMessages(library(ggplot2))
+suppressMessages(library(gridExtra))
+suppressWarnings(suppressMessages(library(dplyr)))
+
+fitbit_studies <- read.csv('fitbit_study_fields.csv', stringsAsFactors = FALSE)
+fitbit_studies <- transform(fitbit_studies, Start.Date.f = sub('-', '-01-', Start.Date))
+fitbit_studies$Start.Date.f <- as.Date(fitbit_studies$Start.Date.f, '%b-%d-%y')
+
+enrollment_populations <- ggplot() +
+  geom_point(data = fitbit_studies, aes(x = Start.Date.f, y = Enrollment, color = Recruitment)) +
+  scale_y_continuous('Target Enrollment', breaks = seq(0,1000,100)) +
+  xlab('Start Date') +
+  ggtitle('Target enrollment numbers and current enrollment status')
+
+enrollment_populations
+```
+
+### Trial sponsors are involved in only one or two trials involving the fitbit.
+
+```{r, echo = FALSE, fig.width=10}
+fitbit_studies <- transform(fitbit_studies, Sponsor.Collaborators = strsplit(Sponsor.Collaborators, split = '\\|'))
+
+sponsor_collaborators <- as.data.frame(unlist(fitbit_studies$Sponsor.Collaborators), names = 'Sponsor.Collaborator')
+
+colnames(sponsor_collaborators) <- c('Sponsor.Collaborators')
+
+sponsor_collaborators_grouped <- sponsor_collaborators %>%
+                                   group_by(Sponsor.Collaborators)
+
+sponsor_collaborators_grouped <- within(sponsor_collaborators_grouped, Sponsor.Collaborators <- factor(Sponsor.Collaborators, levels=names(sort(table(Sponsor.Collaborators), ascending=TRUE))))
+
+spon_collab_plot <- ggplot(data = sponsor_collaborators_grouped, aes(x = Sponsor.Collaborators)) +
+  geom_bar(colour = 'darkolivegreen', fill = 'darkolivegreen3') +
+  scale_y_continuous('Number of trials', breaks = seq(0, 10, 1)) +
+  xlab('Sponsor / Collaborator') + 
+  theme(axis.text.x = element_text(angle = 70, hjust = 1)) +
+  ggtitle('Trials initiated per sponsor')
+
+spon_collab_plot
+```
+
+### Trials are being conducted by Universities, Foundations and Healthcare Institututes.
+
+```{r, echo = FALSE, fig.width=10}
+fitbit_studies <- read.csv('fitbit_study_fields.csv', stringsAsFactors = FALSE)
+fitbit_studies <- transform(fitbit_studies, Start.Date.f = sub('-', '-01-', Start.Date))
+fitbit_studies$Start.Date.f <- as.Date(fitbit_studies$Start.Date.f, '%b-%d-%y')
+fitbit_studies <- transform(fitbit_studies, Sponsor.Collaborators = as.list(strsplit(Sponsor.Collaborators, split = '\\|')))
+
+all_active_sponsor_collaborators <- sponsor_collaborators %>%
+                                      group_by(Sponsor.Collaborators) %>%
+                                      summarise(total = n())
+
+active_sponsors <- function(sponsors_list) {
+  return(intersect(sponsors_list, all_active_sponsor_collaborators$Sponsor.Collaborators))
+}
+
+fitbit_studies$active_sponsors <- lapply(fitbit_studies[,c('Sponsor.Collaborators')], active_sponsors)
+
+# 42 observations, 1 study for each active sponsor involved in the study
+
+asc <- data.frame(sponsor = unlist(fitbit_studies$active_sponsors), 
+                  date = rep(fitbit_studies$Start.Date.f, vapply(fitbit_studies$active_sponsors, length, 1L)))
+                  
+asc$year <- as.integer(format(asc$date, '%Y'))
+
+groups <- group_by(asc, year)
+
+stacked_bar_plot <- qplot(factor(year), data = groups, geom="bar", fill=factor(sponsor)) +
+  xlab('Start Date') +
+  ylab('Number of trials') +
+  scale_y_continuous(breaks = seq(0, 30, 2)) +
+  scale_size(range=c(5,20), guide="none") +
+  theme(legend.title=element_blank(), legend.text = element_text(size = 8), legend.key.size = unit(4, 'mm')) +
+  guides(fill = guide_legend(ncol = 2)) +
+  ggtitle('Trials initiated by sponsor-year')
+
+stacked_bar_plot
+```
+
+### Half of trials are focused on prevention, while the other half are mostly focused on treatment.
+
+```{r, echo = FALSE, fig.width=10}
+get_primary_purpose <- function(study_designs) {
+  study_designs_list <- unlist(strsplit(study_designs, split = '\\|'))
+  purpose_index <- grep("Primary Purpose:", study_designs_list)
+  primary_purpose <- unlist(strsplit(study_designs_list[purpose_index], split = ': '))[2]
+  return(primary_purpose)
+}
+
+fitbit_studies$primary_purpose <- lapply(fitbit_studies[,c('Study.Designs')], get_primary_purpose)
+primary_purposes <- data.frame(purpose = as.character(fitbit_studies$primary_purpose),
+                               enrollment = fitbit_studies$Enrollment,
+                               date = fitbit_studies$Start.Date.f)
+purposes <- primary_purposes %>%
+  group_by(purpose) %>%
+  summarise(total = n()) %>%
+  filter(purpose != 'NULL')
+
+slices <- purposes$total
+labels <- purposes$purpose
+purpose_pie <- pie(slices, labels = labels, main="Primary purpose of trial")
+```
+
+### Most trials are using parallel assignment.
+
+```{r, echo = FALSE, fig.width=10}
+get_intervention_model <- function(study_designs) {
+  study_designs_list <- unlist(strsplit(study_designs, split = '\\|'))
+  intervention_model_index <- grep("Intervention Model:", study_designs_list)
+  intervention_model <- unlist(strsplit(study_designs_list[intervention_model_index], split = ': '))[2]
+  return(intervention_model)
+}
+
+fitbit_studies$intervention_model <- lapply(fitbit_studies[,c('Study.Designs')], get_intervention_model)
+intervention_models <- data.frame(intervention_model = as.character(fitbit_studies$intervention_model),
+                               enrollment = fitbit_studies$Enrollment,
+                               date = fitbit_studies$Start.Date.f)
+
+intervention_models_grouped <- intervention_models %>%
+  group_by(intervention_model) %>%
+  summarise(total = n()) %>%
+  filter(intervention_model != 'NULL')
+
+slices <- intervention_models_grouped$total
+labels <- intervention_models_grouped$intervention_model
+purpose_pie <- pie(slices, labels = labels, main="Intervention model of trial")
+```
+
+

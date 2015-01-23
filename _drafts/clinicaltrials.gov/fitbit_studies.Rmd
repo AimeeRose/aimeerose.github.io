@@ -1,11 +1,19 @@
 ---
-title: "A survey of fitbit trials"
+title: "Is the fitbit the solution to our weight problem?"
 output: html_document
 ---
 
-There are currently 27 trials listed on clinicaltrials.gov for the search term "fitbit". Below is a summary of characterstics of those studies.
+The fitbit dominates the wearable technology conversation offering an accessible tool to improve your health. It has emerged as the leader of the activity trackers market: according to [mobihealthnews](http://mobihealthnews.com/28566/fitbit-shipped-the-most-activity-trackers-in-2013/), fitbit shipped 67% of all activity trackign devices in 2013 and according to [Canalys](http://www.canalys.com/newsroom/fitbit-accounted-nearly-half-global-wearable-band-shipments-q1-2014) sustained 50% market share in 2014.
 
-### Only 4 of the 27 trials are completed.
+We see its success in aggregate and in every day encounters: My mom has a fitbit and she loves it. And it has worked for her: she loves the device and has lost weight after plateauing for years. She often takes walks after dinner to make up for any surplus energy consumption (i.e. eating too much) the fitbit application has calculated.
+
+### So, does it work?
+
+Fitbit claims it does: in an article by [entrepreneur.com](http://www.entrepreneur.com/article/223780), fitbit reports its users demonstrate a 43% increase in steps per day and report an average weight loss of 13 pounds when they have weight loss goals.
+
+There are, at the time of this writing, 29 studies listed on clinicaltrials.gov for the search term "fitbit". Of those, only 4 have been completed.
+
+#### A study of medical residents
 
 ```{r, echo = FALSE, fig.width=10}
 setwd('~/Projects/aimeerose.github.io/_drafts/clinicaltrials.gov')
@@ -27,7 +35,28 @@ enrollment_populations <- ggplot() +
 enrollment_populations
 ```
 
-### Trial sponsors are involved in only one or two trials involving the fitbit.
+Of the 4 completed trials, only one had posted results. Luckily, the single completed study with posted results fascinated me: [the study](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4065028/) observed the effects of the fitbit on activity levels in hospital residents. Originating from the premise those who medically advise us should themselves be role models of health the study introduction argues that not only does the work of medical professionals itself suffer as a result of unhealthy habits, but it's also been shown to increase the probabilty of recommending healthy habits to patients. The demanding schedules of residents underlies this problem: the rate of burnout is higher than for other professions.
+
+Out of the 127 residents at Massachusetts General Hospital in, 104 participated in the 12-week trial in two 6-week phases. During the first phase, half of the residents were "blind" as the control arm: they wore a fitbit but were unable to see their activity levels. The other half were "unblinded" as the intervention arm: they wore a fitbit and were able to see their activity levels displayed in real time and on the fitbit web application. During the second phase, all residents were unblinded and participated in a three team competition of most average steps per day.
+
+A number of things surprised me about this trial and its results:
+* Nearly all of the 127 residents participated, suggesting an residents are highly motivated and optimistic about the fitbit itself and / or its outcomes.
+* Residents take just under 8,000 steps a day, well above the national average of 5,117 as reported in the entrepreneur article, but still below the 10,000 recommended by the U.S. Surgeon General.
+The results worked against fitbits claims of efficacy:
+* Average steps per day was negligibly greater for the intervention group than the control group.
+* Compliance fell during the second phase.
+
+The most promising finding of this trial is the participation rate. Even within a busy hospital setting and with demanding schedules, 85% of residents participated and demonstrated 77% compliance over a 12-week period. It is also impossible to know the effect on average steps per day of just wearing an activity monitor, as all subjects wore an activity tracker and understood their steps were being counted. But, the study agrees that other methods - or perhaps just more residents and thus more relaxed schedules - are needed to make a real difference.
+
+### More studies to come
+
+Fitbit trials are different from what's considered a "typical clinical trial": sponsored by a big pharma company, a typical trial investigates the effect of some intervention with the goal of FDA approval of that intervention. Fitbit has no need for FDA approval so studies are uncharactersitcally heterogeneous. 
+
+The characteristics of this field of studies are:
+
+#### 1. Trial sponsors are involved in only one or two trials involving the fitbit.
+
+This makes sense as the only financial stakeholder in demonstrating the fitbit affect is fitbit the company.
 
 ```{r, echo = FALSE, fig.width=10}
 fitbit_studies <- transform(fitbit_studies, Sponsor.Collaborators = strsplit(Sponsor.Collaborators, split = '\\|'))
@@ -51,7 +80,9 @@ spon_collab_plot <- ggplot(data = sponsor_collaborators_grouped, aes(x = Sponsor
 spon_collab_plot
 ```
 
-### Trials are being conducted by Universities, Foundations and Healthcare Institututes.
+#### 2. Trials are being conducted by Universities, Foundations and Healthcare Institututes.
+
+Same reasoning as the characteristic above.
 
 ```{r, echo = FALSE, fig.width=10}
 fitbit_studies <- read.csv('fitbit_study_fields.csv', stringsAsFactors = FALSE)
@@ -90,7 +121,9 @@ stacked_bar_plot <- qplot(factor(year), data = groups, geom="bar", fill=factor(s
 stacked_bar_plot
 ```
 
-### Half of trials are focused on prevention, while the other half are mostly focused on treatment.
+#### 3. Half of trials are focused on prevention, while the other half are mostly focused on treatment.
+
+This was surprising to me. I expect interest in the fitbit to be in outcomes of a sedentary lifestyle such as weight and cholesterol.
 
 ```{r, echo = FALSE, fig.width=10}
 get_primary_purpose <- function(study_designs) {
@@ -114,7 +147,9 @@ labels <- purposes$purpose
 purpose_pie <- pie(slices, labels = labels, main="Primary purpose of trial")
 ```
 
-### Most trials are using parallel assignment.
+#### 4. Most trials are using parallel assignment.
+
+Parallel assignment means more than one arm of treatment.
 
 ```{r, echo = FALSE, fig.width=10}
 get_intervention_model <- function(study_designs) {
@@ -139,4 +174,4 @@ labels <- intervention_models_grouped$intervention_model
 purpose_pie <- pie(slices, labels = labels, main="Intervention model of trial")
 ```
 
-
+Stay tuned. If one of these studies comes back with positively significan results, I'm sure fitbit PR team will let you know about it.

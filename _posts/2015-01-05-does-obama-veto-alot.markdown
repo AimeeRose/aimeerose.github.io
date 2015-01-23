@@ -28,7 +28,6 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 }
 </script>
 
-
 <style type="text/css">
 .main-container {
   max-width: 940px;

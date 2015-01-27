@@ -3,7 +3,7 @@ title: "Does Obama Veto Alot?"
 output: html_document
 ---
 
-It was stated recently on PBS Obama has vetoed only 2 bills while in office, the least number of vetoes of any President in history. I pondered: Could it be that 2 vetoes is actually an average or great number of vetoes as a relative measure? If, for example, Congress had been ineffective in introducing and passing bills and only 2 had reached Obama's desk, then he would be quite the Contrary Connor.
+Obama vetoed only 2 bills while in office, the least number of vetoes of any President in history. Is this proportionately a low number of vetoes? If uneventful congressional sessions had only produced 2 bills, than his veto rate would be 100%.
 
 Let's look at the numbers.
 
@@ -25,28 +25,12 @@ bills <- dbReadTable(conn, 'bills')
 bills$congress <- factor(bills$congress)
 bills$bill_type <- factor(bills$bill_type)
 
-ggplot(data = bills, aes(x = congress)) + 
-  geom_histogram(colour = 'darkolivegreen', fill = 'darkolivegreen3') +
-  ggtitle('Bills in Congress') +
-  scale_x_discrete(breaks = seq(0,114,4))
-```
-
-Whoa! What happened between the 92nd and 93rd congress? Nothing, or at least nothing that explains this bar graph. The jump in numbers is just a characteristic of the data sources. Govtrack.us data for bills is consistently provided from 1973 through today by THOMAS.gov, from 1951 through 1971 from GPO.gov/FDSys, and for 1799-1873 from the Library of Congress’s American Memory Century of Lawmaking collection via the am_mem_law project ([source](https://www.govtrack.us/about)). This also explains the missing congress sessions 43 through 81. 
-
-For the remainder of this post, I will be restricting analysis to those before the 93rd Congress, and those after.
-
-```{r, echo = FALSE}
 modern_bills <- bills[bills$congress %in% c(93:113), ]
-
-ggplot(data = modern_bills, aes(x = congress)) + 
-  geom_histogram(colour = 'darkolivegreen', fill = 'darkolivegreen3') +
-  ggtitle('Bills in Congress since the 93rd session')
 ```
 
+## Has congress been busy?
 
-## Have you met my friend bill?
-
-There a lot of bills which have never moved past being introduced to Congress. As categorized by the govtrack database, there have been over 300,000 bills introduced into congress which is really a low ball estimate due to the data sources, and 29 current states for all the bills in this corpus. The differences are mostly in ways a bill can die in Congress. For a complete listing of these statii, see **Appendix A: 29 Flavors of Legislative State**
+A large majority of bills introduced into congress disappear into the legislative ether. At least 300,000 bills have been introduced into congress (govtrack.us). Each bill begins its journey in the introduced state, and progresses into as many as 29 different states. Most of these states signify ways a bill can die in Congress. For a complete listing of these statuses, see **Appendix A: 29 Flavors of Legislative State** at the bottom of this post.
 
 In order to make these states digestable to the lay person, the states have been collapsed into:
 
@@ -60,6 +44,9 @@ In order to make these states digestable to the lay person, the states have been
 * **Vetoed:** The bill was vetoed successfully. This includes pocket vetoes.
 * **Resolution passed:** Passed simple and concurrent resolutions.
 
+### 69% of bills in US history remain in a "referred" state 
+
+69% of bills introduced into congress are listed as in the "referred" state, waiting to be addressed by their committee. If only counting back to 1973, an even greater proportion, 81% of bills, are in the referred state.
 
 ```{r, echo = FALSE}
 enacted <- list(
@@ -131,16 +118,23 @@ ggplot(data = grouped_bills, aes(x = 1, y = total, fill = current_status.f)) +
   ggtitle('Current Bill Statuses since 93rd Congress')
 ```
 
-Sometimes when you go looking for something, you find something else you entirely weren't looking for: **69% of all bills in US history are currently in the "referred" state meaning they are still waiting to be addressed by their committee. An even greater proportion (81%) are in this state if only counting back to 1973.**
+
+### Claims congress's productivity is slowing are weakly supported by the number of bills enacted.
+
+How effectual have the different congressional sessions been?
+
+The referred state overwhelms visual analysis of the states by congress.
 
 ```{r, echo = FALSE}
 ggplot(data = modern_bills, aes(x = congress, fill = current_status.f)) + 
-  geom_bar(colour = 'darkolivegreen', fill = 'darkolivegreen3') +
-  ggtitle('Current Bill Status')
+  geom_bar() +
+  ggtitle('Current State of Bills Introduced by Congressional Session') +
+  scale_y_continuous('Total number of bills introduced', breaks = seq(0,30000,5000)) +
+  labs(x = 'Congressional session') +
+  guides(fill = guide_legend(override.aes = list(colour = NA), title = 'Current Status'))
 ```
 
-
-This provides (very) minor support for the claim Congress is becoming more and more ineffectual. There is greater support for this claim when looking solely at the number of bills enacted.
+Claims congress has become less effectual are weakly supported by the number of bills enacted.
 
 ```{r, echo = FALSE}
 ggplot(data = subset(modern_bills, current_status.f %in% list('enacted', 'enacted_veto_override')), aes(x = congress)) + 
@@ -149,6 +143,9 @@ ggplot(data = subset(modern_bills, current_status.f %in% list('enacted', 'enacte
   ggtitle('Number of bills enacted by Congress')
 ```
 
+### Reagans congressional sessions' introduction of resolutions dwarves those before and after
+
+What if productivity is not only number of bills enacted, but also the number of bills introduced?
 
 ```{r, echo = FALSE}
 ggplot(data = subset(modern_bills, current_status.f == 'introduced'), aes(x = congress)) + 
@@ -156,7 +153,9 @@ ggplot(data = subset(modern_bills, current_status.f == 'introduced'), aes(x = co
   ggtitle('Number of bills introduced to Congress')
 ```
 
-Whoa! What was going on in the 97 through 100th Congressional sessions? Ronald Reagan was president during those sessions but more likely it was some other characteristic of those congressional sessions. Note: this is the number of bills introduced during that period which are *still* in the introduced state, not to be confused with the *total* number of bills introduced during that period.
+Whoa! What was going on in the 97 - 100th Congressional sessions?
+
+Congressional activity, specifically new resolutions, spiked during Ronald Reagan's congressional sessions. Comparing 4 sessions before, after and during the Reagan presidency revealed **nearly 10 times more house resolutions from the Reagan years still exist in the introduced state as before and after the Reagan years.** From those sessions, 996 house resolutions are still in the "introduced" state, whereas before and after Reagan sessions only 103 and 26 house resolutions still exist as "introduced", respectively. Bill sponsors mirror the imbalance: during the Reagan years, the top 10 sponsors of bills have at least 40 and as many as 125 introduced bills or resolutions. The top 10 before and after the Reagan sessions all have 17 or less outstanding.
 
 
 ```{r, echo = FALSE}
@@ -196,11 +195,7 @@ grouped_after_reagan_bills <- after_reagan_bills_introduced %>%
   summarise(total = n()) %>%
   mutate(freq = round(total / sum(total), 4)) %>%
   arrange(-total)
-```
 
-## Comparing 4 sessions before, after and during the Reagan presidency
-
-```{r, echo = FALSE}
 # Before
 grouped_before_reagan_bills <- before_reagan_bills_introduced %>%
   group_by(bill_type) %>%
@@ -251,13 +246,7 @@ pie_grouped_during_reagan
 pie_grouped_after_reagan
 ```
 
-**Nearly 10 times more house resolutions from the Reagan years still exist in the introduced state as before and after the Reagan years.**
-
-House representatives were either *very* involved or *very* ineffective (or both) during the Reagan years. 996 house resolutions from the congressional sessions when Reagan was in office are still in the "introduced" state, whereas before and after Reagan sessions only 103 and 26 house resolutions still exist as "introduced", respectively. 
-
-This imbalance is mirrored when looking at bill sponsors: The top 10 sponsors of bills during the Reagan years were all from the house and have between 40 and 125 outstanding bills or resolutions introduced. The top ten before and after the Reagan sessions all have 17 or less outstanding.
-
-### Back to the original question: Does Obama veto a lot?
+## Does Obama veto a lot?
 
 Obama was president during the 111th, 112th and 113th Congressional sessions.
 
@@ -276,9 +265,9 @@ ggplot(data = casted, aes(x = congress, y = proportion_vetoed)) +
   ggtitle('Proportion of bills vetoed')
 ```
 
-**It is true Obama has issued, both in total numbers and relative to total bills, the least number of vetoes when compared with other Presidents.**
+**Obama has issued, both in total numbers and relative to total bills, the least number of vetoes when compared with other Presidents.**
 
-**There is also some evidence to suggest the number of bills enacted, and thus bills available to veto, is declining over time.**
+**There is also weak evidence to suggest the number of bills enacted, and thus bills available to veto, is declining over time.**
 
 ```{r, echo = FALSE}
 ggplot(data = subset(modern_bills, current_status.f %in% list('enacted', 'enacted_veto_override')), aes(x = congress)) + 

@@ -27,7 +27,7 @@ Every year, I ask myself the same thing: Is it this cold *every* winter? Today i
 <br />
 <br />
 
-From this question arose **[weather-widgets.aimeeb.com](http://weather-widgets.aimeeb.com)**. Using the forecast.io, Google Geocode and flickr APIs I have created the first two widgets:
+From this question arose **[weather-widgets.aimeeb.com](http://weather-widgets.aimeeb.com)**. Using the forecast.io, Google Geocode and flickr APIs, the first two widgets are:
 <br />
 <br />
 

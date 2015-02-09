@@ -19,7 +19,7 @@ I wear the pants nearly every day. They have made me a winter person. Before the
 
 ### Is it cold today?
 
-Before snow pants, I spent much of my Boston and New York residencies wondering how so many humans have aggregated in such inhumane living climates and how these cities continue to experience positive rates of migration. We're all crazy. We live in climates where the battle between going outside at all loses to a House Hunters International marathon 95% of the time. Goodbye Saturdays in the park, hello coding side projects.
+Before snow pants, I spent much of my Boston and New York residencies wondering how so many humans have aggregated in such inhumane climates and how these cities continue to experience positive rates of migration. We're all crazy. We live in climates where the battle between going outside at all loses to a House Hunters International marathon 95% of the time. Goodbye Saturdays in the park, hello coding side projects.
 <br />
 <br />
 

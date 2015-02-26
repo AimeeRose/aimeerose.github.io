@@ -25,6 +25,7 @@ suppressMessages({
     library(ggplot2)
     library(quantmod)
     library(lubridate)
+    library(grid)
   })
 })
 
@@ -35,10 +36,10 @@ air <- read.csv('~/Downloads/AnnualFares1995-2014.csv', skip = 2, nrows = 20, st
 gas <- read.csv('~/Downloads/DOE-RWTC (1).csv')
 
 # Itemize & Clean
-cpi$item = 'All items'
-trans$item = 'Transportation'
-air$item = 'Air'
-gas$item = 'Gas'
+cpi$item = 'all items'
+trans$item = 'transportation'
+air$item = 'air'
+gas$item = 'gas'
 air[20,]$Year = 2014
 gas$Date <- strptime(gas$Date, format = "%Y-%m-%d")
 gas$Year <- year(gas$Date)
@@ -76,13 +77,13 @@ all <- na.omit(rbind(selectColumns(cpi), selectColumns(air), selectColumns(gas))
 
 all$Year = as.numeric(all$Year)
 
-big_title <- theme(plot.title = element_text(size = rel(1.5)), text = element_text(size=20))
-hide_legend <- theme(legend.title=element_blank())
+big_title <- theme(plot.title = element_text(size = rel(1.5)), text = element_text(size=28, lineheight=2))
+hide_legend <- theme(legend.title=element_blank(), legend.key.size = unit(2, "cm"))
 
 ggplot(data = all, aes(x = Year, y = cummulative, color = item)) +
   geom_line() +
   scale_x_continuous("Year", breaks = seq(1996, 2014, 2)) +
-  labs(title = "Cummulative Change in Price Index since 1995", y = "Percent change", size = 12) +
+  labs(title = "Cummulative change in price index since 1995", y = "Percent change", size = 12) +
   geom_point(size = 24, color = "white") +
   geom_text(aes(label = paste0(round(cummulative, digits = 1), "%")), size = 5) + big_title + hide_legend
 
@@ -137,10 +138,9 @@ ggplot(data = NULL) +
   scale_x_continuous(breaks = seq(1995, 2014, 1)) +
   scale_y_continuous(breaks = seq(-60, 40, 5)) +
   guides(fill=guide_legend(title=NULL)) +
-  labs(title = "Quarter-over-quarter Price Change", y = "% Change", x = "Quarter") +
+  labs(title = "Quarter-over-quarter price change", y = "% change", x = "quarter") +
   big_title + hide_legend
 ```
-
 
 ```{r, echo=FALSE, fig.width = 20, fig.height = 10}
 
@@ -159,9 +159,12 @@ bothChanges <- na.omit(bothChanges)
 ggplot(data = bothChanges, aes(x = quarter_change_gas, y = quarter_change_air)) +
   geom_point() +
   scale_x_continuous(breaks = seq(-60, 40, 5)) +
-  labs(title = "Quarter-over-quarter Change in Air Price by Change in Gas Price", x = "% change gas", y = "% change air") +
+  labs(title = "Quarter-over-quarter change in air fare by gas price", x = "% change gas", y = "% change air") +
   big_title
+```
 
+Linear model in R:
+```{r, echo=FALSE}
 ols <- lm(bothChanges$quarter_change_air ~ bothChanges$quarter_change_gas)
 summary(ols)
 ```

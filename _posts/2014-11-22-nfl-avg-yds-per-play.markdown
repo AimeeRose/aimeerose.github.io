@@ -9,42 +9,46 @@ customjs:
 
 # The end of the NFL driven by head injuries
 
-Journalists are predicting [the end of the NFL][grantland]. Driving these
-predictions are the lawsuits by current and former players suffering
-[concussions][wiki-concussions] and head injuries. In parallel with this
-controversy comes coverage of violence in players' personal lives.
+Journalists predicting [the end of the NFL][grantland] cite lawsuits by
+current and former players suffering [concussions][wiki-concussions] and head
+injuries. Alongside these lawsuits are reports of violent controversies in
+players' personal lives.
 
-What's worse is these two trends may be related: according to [this article in
-vice sports][vice-sports], doctors examining former players at Boston
-University linked their football-related brain injuries to depression and
-impulse control. So, not only are potential future NFL players being forbidden
-from the sport by concerned parents, but conscientious fans may feel a tremor
-of hesitation, at least for a half-second, before they turn on the game.
+What's worse is these two trends are related: according to [vice sports][vice-sports], 
+doctors examining former players at Boston University linked
+their football-related brain injuries to depression and impulse control.
+Heeding these injuries, parents of potential NFL players are forbidding
+participation in the sport, and conscientious fans  are second-guessing their
+devotion to the game.
 
 However, in spite of all this, I continue to watch football, as do an
 increasing number of Americans (and the English! American football is
-apparently favored by the mayor of London, [Boris Johnson][nbc-sports]). This is really just
-a preamble for my own prediction for the end of football.
+enjoyed by the mayor of London, [Boris Johnson][nbc-sports]).
 
-# The end of the NFL driven by game predictability
+# Ever-more powerful players
 
-It may be the game itself becomes too predictable to enjoy. One of the reasons
-sports (and sports betting) is so popular is because of the high degree of
-unpredictability. A superior football fan suggested offensive yards gained per
-play may be increasing because players are getting better and better.
+An aspect of sports that as always been of interest is the continuous
+advancement of athletes in the same sport over time. Athletes, over time with
+advances in nutrition and training seem to get better and better. How good
+they get and how long will it take to get there?
+
+In American Football, players are getting ever more powerful. This has translated
+into a greater probability of conversion for any given play over time. This is
+shown in the scatterplot below, using data from [pro-football-reference.com
+][pro-football-reference]. If you take this to its extreme where every play
+results in a first down, the game itself becomes too predictable to enjoy. One
+of the reasons sports (and sports betting) is so popular is because of the
+high degree of unpredictability.
 
 **If players are getting more and more powerful over time, they could become
 so powerful they are able to drive the ball to the endzone every possession.**
 
-Reasonable predictions are data-driven. I scoured the internet for data, and
-ultimately the data below came from [pro-football-reference.com][pro-football-reference].^
-
 The evidence agrees with the theory offensive plays are gaining more yards per
 play than the year prior. This relationship has a high degree of statistical
-signifance (the probability the relationship is actually random being
-2.183e-07). Admittedly, the increase is minor, about 0.026 yards per year.
+signifance (the probability the relationship is random being 2.183e-07).
+Admittedly, the advancement is very small, about 0.026 yards per year.
 
-A similarly strong and positive relationship was found between the likelihood
+Correspondingly, a strong and positive relationship was found between the likelihood
 of a play resulting in a conversion over time. The likelihood a play results
 in a first down, year over year, is increasing by 0.128% (in 2013, the
 percentage of plays resulting in a first down was 27.8%). Again, this is a
@@ -52,13 +56,8 @@ rather trivial quantity, but the relationship shows a high degree of
 statistical significance (the likelihood this relationship is actually random
 is 1.782e-06).
 
-So, long term, as football players become harder, faster, stronger, the game
-more predictable and therefore, less fun to watch.
-
-But this is a **very** long term concern: **It will take until the year 2579
-for players to be so good that every play results in a first down.**
-Personally, I am a lot more concerned about entire teams landing on the injury
-report.
+So, long term, as football players get better and better, the game will get more and
+more predictable and less fun to watch.
 
 <style>
 
@@ -156,12 +155,6 @@ report.
 
 <br />
 <br />
-
-^ *Truthfully, I was originally interested in finding
-evidence for an unrelated theory based solely on a hunch: that the likelihood of a play resulting in a
-conversion increases the closer the offense is to their opponents' endzone. I
-came to the conclusion, based on the data I had at hand, such a relationship
-does not exist.*
 
 [nbc-sports]:             http://profootballtalk.nbcsports.com/2014/11/13/mayor-says-london-is-overjoyed-to-have-nfl-games/
 [grantland]:              http://grantland.com/features/cte-concussion-crisis-economic-look-end-football/

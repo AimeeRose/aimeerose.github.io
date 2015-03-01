@@ -52,5 +52,25 @@ $on-laptop:        800px;
 ;
 
 p {
-  margin-bottom: 2em;
+  margin-bottom: 1.67em;
+}
+
+h4 {
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+td, th {
+  border: solid 1px lightgrey;
+  padding: 7px;
+}
+
+table {
+  border:2px solid lightgrey;
+  border-collapse: collapse;
+}
+
+blockquote {
+  font-size: 1em;
+  letter-spacing: normal;
 }

@@ -10,7 +10,7 @@ Below is a review of what I discovered about past and current ebola studies list
 **In summary:** Nearly all studies are Phase I studies. Half of the studies targeted prevention, while the other half targeted treatment. A majority have been sponsored by either the Department of Defense or the Department of Health and Human Services, via the National Institutes of Health.
 
 ```{r, echo = FALSE}
-setwd('~/Desktop/data/clinicaltrials.gov')
+setwd('~/Desktop/old/data/clinicaltrials.gov')
 
 suppressMessages(library(ggplot2))
 suppressMessages(library(gridExtra))
@@ -19,11 +19,17 @@ suppressMessages(library(dplyr))
 ebola_studies <- read.csv('ebola_study_fields.csv', stringsAsFactors = FALSE)
 ebola_studies <- transform(ebola_studies, Start.Date.f = sub('-', '-01-', Start.Date))
 ebola_studies$Start.Date.f <- as.Date(ebola_studies$Start.Date.f, '%b-%d-%y')
+ebola_studies <- subset(ebola_studies, Recruitment != 'Withdrawn')
+
+theme_set(theme_gray(base_size = 28))
+title = theme(plot.title = element_text(lineheight=3, face="bold", color="black", size = rel(1.67)))
+legend = theme(legend.key.size = unit(1.5, "cm"))
 
 enrollment_populations <- ggplot() +
-  geom_point(data = ebola_studies, aes(x = Start.Date.f, y = Enrollment, color = Recruitment)) +
-  scale_y_continuous('Target Enrollment', breaks = seq(0,1000,100)) +
-  xlab('Start Date')
+  geom_point(data = ebola_studies, aes(x = Start.Date.f, y = Enrollment, color = Recruitment), size = 8, alpha = 0.5) +
+  scale_y_log10(breaks = seq(200, 1000, 200)) +
+  labs(x = 'Start date', y = 'Target enrollment') +
+  ggtitle('Ebola studies target enrollment') + legend + title
 
 enrollment_populations
 ```
@@ -56,13 +62,19 @@ sponsor_collaborators_grouped <- sponsor_collaborators %>%
                                    group_by(Sponsor.Collaborators) %>%
                                    filter(n() > 1)
 
+sponsor_collaborators_grouped$Sponsor.Collaborators <- gsub(
+  "National Institutes of Health Clinical Center \\(CC\\)", "CC", sponsor_collaborators_grouped$Sponsor.Collaborators)
+
+sponsor_collaborators_grouped$Sponsor.Collaborators <- gsub(
+  "National Institute of Allergy and Infectious Diseases \\(NIAID\\)", "NIAID", sponsor_collaborators_grouped$Sponsor.Collaborators)
+
 sponsor_collaborators_grouped <- within(sponsor_collaborators_grouped, Sponsor.Collaborators <- factor(Sponsor.Collaborators, levels=names(sort(table(Sponsor.Collaborators), ascending=TRUE))))
 
 spon_collab_plot <- ggplot(data = sponsor_collaborators_grouped, aes(x = Sponsor.Collaborators)) +
   geom_bar(colour = 'darkolivegreen', fill = 'darkolivegreen3') +
-  scale_y_continuous('Number of studies', breaks = seq(0, 10, 1)) +
-  xlab('Sponsor / Collaborator') + 
-  theme(axis.text.x = element_text(angle = 70, hjust = 1))
+  scale_y_continuous('Total', breaks = seq(0, 10, 1)) +
+  labs(title = 'Total studies by sponsor', x = '') + 
+  theme(axis.text.x = element_text(angle = -30, hjust = 0)) + title
 
 spon_collab_plot
 ```
@@ -107,12 +119,17 @@ asc$year <- as.integer(format(asc$date, '%Y'))
 
 groups <- group_by(asc, year)
 
+groups$sponsor <- gsub(
+  "National Institutes of Health Clinical Center \\(CC\\)", "CC", groups$sponsor)
+
+groups$sponsor <- gsub(
+  "National Institute of Allergy and Infectious Diseases \\(NIAID\\)", "NIAID", groups$sponsor)
+
 qplot(factor(year), data = groups, geom="bar", fill=factor(sponsor)) +
-  xlab('Start Date') +
-  ylab('Number of trials') +
+  labs(title = 'Active sponsors', x = 'Start Date', y ='Number of trials') +
   scale_y_continuous(breaks = seq(0, 30, 2)) +
   scale_size(range=c(5,20), guide="none") +
-  theme(legend.title=element_blank(), legend.text = element_text(size = 8))
+  theme(legend.title = element_blank(), legend.key.size = unit(1.5, "cm"), legend.text = element_text(size = rel(0.6))) + title
 ```
 
 #### Studies are targeting prevention and treatment equally.
@@ -134,6 +151,8 @@ primary_purposes <- data.frame(purpose = as.character(ebola_studies$primary_purp
 purposes <- primary_purposes %>%
   group_by(purpose) %>%
   summarise(total = n())
+
+purposes <- purposes[2:3,]
 
 slices <- purposes$total
 labels <- purposes$purpose

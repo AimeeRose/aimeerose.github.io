@@ -16,7 +16,7 @@ There are, at the time of this writing, 29 studies listed on clinicaltrials.gov 
 #### A study of medical residents
 
 ```{r, echo = FALSE, fig.width=10}
-setwd('~/Projects/aimeerose.github.io/_drafts/clinicaltrials.gov')
+setwd('~/Projects/aimeerose.github.io/_drafts/fitbit_studies')
 
 suppressMessages(library(ggplot2))
 suppressMessages(library(gridExtra))
@@ -26,11 +26,15 @@ fitbit_studies <- read.csv('fitbit_study_fields.csv', stringsAsFactors = FALSE)
 fitbit_studies <- transform(fitbit_studies, Start.Date.f = sub('-', '-01-', Start.Date))
 fitbit_studies$Start.Date.f <- as.Date(fitbit_studies$Start.Date.f, '%b-%d-%y')
 
+theme_set(theme_gray(base_size = 28))
+title = theme(plot.title = element_text(lineheight=3, face="bold", color="black", size = rel(1.67)))
+legend = theme(legend.key.size = unit(1.5, "cm"))
+
 enrollment_populations <- ggplot() +
-  geom_point(data = fitbit_studies, aes(x = Start.Date.f, y = Enrollment, color = Recruitment)) +
-  scale_y_continuous('Target Enrollment', breaks = seq(0,1000,100)) +
-  xlab('Start Date') +
-  ggtitle('Target enrollment numbers and current enrollment status')
+  geom_point(data = fitbit_studies, aes(x = Start.Date.f, y = Enrollment, color = Recruitment), size = 10, alpha = 0.5) +
+  scale_y_log10('Target enrollment', breaks = seq(200,1000,200)) +
+  xlab('Start date') +
+  ggtitle('Target enrollment') + title + legend
 
 enrollment_populations
 ```
@@ -70,12 +74,15 @@ sponsor_collaborators_grouped <- sponsor_collaborators %>%
 
 sponsor_collaborators_grouped <- within(sponsor_collaborators_grouped, Sponsor.Collaborators <- factor(Sponsor.Collaborators, levels=names(sort(table(Sponsor.Collaborators), ascending=TRUE))))
 
+table(sponsor_collaborators_grouped)
+
 spon_collab_plot <- ggplot(data = sponsor_collaborators_grouped, aes(x = Sponsor.Collaborators)) +
   geom_bar(colour = 'darkolivegreen', fill = 'darkolivegreen3') +
   scale_y_continuous('Number of trials', breaks = seq(0, 10, 1)) +
   xlab('Sponsor / Collaborator') + 
-  theme(axis.text.x = element_text(angle = 70, hjust = 1)) +
-  ggtitle('Trials initiated per sponsor')
+  theme(axis.text.x = element_text(angle = -30, hjust = 0, size = rel(0.4))) +
+  ggtitle('Trials initiated by sponsor') + title +
+  theme(plot.margin = unit(c(0, 40, 0, 0), "mm"))
 
 spon_collab_plot
 ```

@@ -453,7 +453,8 @@ p {
 
 h4 {
   margin-top: 2em;
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+  font-weight: bold; }
 
 td, th {
   border: solid 1px lightgrey;

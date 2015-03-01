@@ -26,7 +26,7 @@ title = theme(plot.title = element_text(lineheight=3, face="bold", color="black"
 legend = theme(legend.key.size = unit(1.5, "cm"))
 
 enrollment_populations <- ggplot() +
-  geom_point(data = ebola_studies, aes(x = Start.Date.f, y = Enrollment, color = Recruitment), size = 8, alpha = 0.5) +
+  geom_point(data = ebola_studies, aes(x = Start.Date.f, y = Enrollment, color = Recruitment), size = 10, alpha = 0.5) +
   scale_y_log10(breaks = seq(200, 1000, 200)) +
   labs(x = 'Start date', y = 'Target enrollment') +
   ggtitle('Ebola studies target enrollment') + legend + title

@@ -27,7 +27,7 @@ fitbit_studies <- transform(fitbit_studies, Start.Date.f = sub('-', '-01-', Star
 fitbit_studies$Start.Date.f <- as.Date(fitbit_studies$Start.Date.f, '%b-%d-%y')
 
 theme_set(theme_gray(base_size = 28))
-title = theme(plot.title = element_text(lineheight=3, face="bold", color="black", size = rel(1.67)))
+title = theme(plot.title = element_text(lineheight=3, face="bold", color="black", size = rel(1.67), vjust = 3))
 legend = theme(legend.key.size = unit(1.5, "cm"))
 
 enrollment_populations <- ggplot() +

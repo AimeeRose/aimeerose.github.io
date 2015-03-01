@@ -22,14 +22,14 @@ ebola_studies$Start.Date.f <- as.Date(ebola_studies$Start.Date.f, '%b-%d-%y')
 ebola_studies <- subset(ebola_studies, Recruitment != 'Withdrawn')
 
 theme_set(theme_gray(base_size = 28))
-title = theme(plot.title = element_text(lineheight=3, face="bold", color="black", size = rel(1.67)))
+title = theme(plot.title = element_text(lineheight=3, face="bold", color="black", size = rel(1.67), vjust = 3))
 legend = theme(legend.key.size = unit(1.5, "cm"))
 
 enrollment_populations <- ggplot() +
   geom_point(data = ebola_studies, aes(x = Start.Date.f, y = Enrollment, color = Recruitment), size = 10, alpha = 0.5) +
   scale_y_log10(breaks = seq(200, 1000, 200)) +
   labs(x = 'Start date', y = 'Target enrollment') +
-  ggtitle('Ebola studies target enrollment') + legend + title
+  ggtitle('Target enrollment') + legend + title
 
 enrollment_populations
 ```

@@ -5,7 +5,7 @@ date:   2015-02-23 20:11:02
 categories: r statistics economics gas transportation
 ---
 
-<p>Driving through suburban New Jersy, signs advertising $1.97 unleaded gas evokes memories of learning to drive my first car. That was when I was in high school, 12 years ago. Even to chronic pedestrians, the gas price collapse is an inescapable curiosity. Like my mother's home-cooked purple chicken, gas prices below $2 remind us of not-so-recent times past.</p>
+<p>Driving through suburban New Jersy, signs advertising $1.97 unleaded gas evoke memories of learning to drive my first car. That was when I was in high school, 12 years ago. Even to chronic pedestrians, the gas price collapse is an inescapable curiosity. Like my mother's home-cooked purple chicken, gas prices below $2 remind us of not-so-recent times past.</p>
 <p>Purchasing a plane ticket, in contrast, is still a big purchase. Drawing a relationship with gas prices is difficult: gas prices, ubiquotously and regularly displayed, cannot be ignored, while air fares must be sought out and can vary across suppliers. Gas price volatility further obscures change comparison. To get an empirical answer to the question “Have air fares fallen?”, I turned to the Bureau of Labor Statistics, the Bureau of Transportation Statistics and the West Texas Intermediate crude oil benchmark for the Consumer Price Index (CPI), air fare and gas prices from 1995 throuh 2014.</p>
 <div id="air-fares-have-fallen-relatively-but-not-due-to-the-cost-of-gas" class="section level4">
 <h4>Air fares have fallen relatively, but not due to the cost of gas</h4>

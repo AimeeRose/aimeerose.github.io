@@ -129,7 +129,7 @@ qplot(factor(year), data = groups, geom="bar", fill=factor(sponsor)) +
   labs(title = 'Active sponsors', x = 'Start Date', y ='Number of trials') +
   scale_y_continuous(breaks = seq(0, 30, 2)) +
   scale_size(range=c(5,20), guide="none") +
-  theme(legend.title = element_blank(), legend.key.size = unit(1.5, "cm"), legend.text = element_text(size = rel(0.6))) + title
+  theme(legend.title = element_blank(), legend.key.size = unit(1.5, "cm")) + title
 ```
 
 #### Studies are targeting prevention and treatment equally.

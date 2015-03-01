@@ -461,7 +461,8 @@ td, th {
 
 table {
   border: 2px solid lightgrey;
-  border-collapse: collapse; }
+  border-collapse: collapse;
+  width: 100%; }
 
 blockquote {
   font-size: 1em;

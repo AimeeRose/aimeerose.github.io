@@ -6,8 +6,8 @@
 </description>
     <link>http://aimeeb.com/</link>
     <atom:link href="http://aimeeb.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 28 Feb 2015 23:57:39 -0500</pubDate>
-    <lastBuildDate>Sat, 28 Feb 2015 23:57:39 -0500</lastBuildDate>
+    <pubDate>Sun, 01 Mar 2015 00:00:22 -0500</pubDate>
+    <lastBuildDate>Sun, 01 Mar 2015 00:00:22 -0500</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -234,55 +234,55 @@ $(document).ready(function () {
 &lt;div id=&quot;identity&quot; class=&quot;section level4&quot;&gt;
 &lt;h4&gt;Identity&lt;/h4&gt;
 &lt;ul style=&quot;list-style-type: decimal&quot;&gt;
-referred
-reported
-introduced
-enacted_veto_override
-passed_bill
+&lt;li&gt;referred&lt;/li&gt;
+&lt;li&gt;reported&lt;/li&gt;
+&lt;li&gt;introduced&lt;/li&gt;
+&lt;li&gt;enacted_veto_override&lt;/li&gt;
+&lt;li&gt;passed_bill&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&quot;congressional-stalemate&quot; class=&quot;section level4&quot;&gt;
 &lt;h4&gt;Congressional Stalemate&lt;/h4&gt;
 &lt;ul style=&quot;list-style-type: decimal&quot;&gt;
-pass_over_senate
-pass_over_house
-pass_back_house
-pass_back_senate
-fail_originating_house
-fail_originating_senate
-conference_passed_house
-fail_second_house
-failed_second_senate
-conference_passed_senate
-prov_kill_suspensionfailed
-prov_kill_cloturefailed
+&lt;li&gt;pass_over_senate&lt;/li&gt;
+&lt;li&gt;pass_over_house&lt;/li&gt;
+&lt;li&gt;pass_back_house&lt;/li&gt;
+&lt;li&gt;pass_back_senate&lt;/li&gt;
+&lt;li&gt;fail_originating_house&lt;/li&gt;
+&lt;li&gt;fail_originating_senate&lt;/li&gt;
+&lt;li&gt;conference_passed_house&lt;/li&gt;
+&lt;li&gt;fail_second_house&lt;/li&gt;
+&lt;li&gt;failed_second_senate&lt;/li&gt;
+&lt;li&gt;conference_passed_senate&lt;/li&gt;
+&lt;li&gt;prov_kill_suspensionfailed&lt;/li&gt;
+&lt;li&gt;prov_kill_cloturefailed&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&quot;vetoed&quot; class=&quot;section level4&quot;&gt;
 &lt;h4&gt;Vetoed&lt;/h4&gt;
 &lt;ul style=&quot;list-style-type: decimal&quot;&gt;
-prov_kill_veto
-vetoed_pocket
-override_pass_over_house
-vetoed_override_fail_second_senate
-vetoed_override_fail_originating_house
-vetoed_override_fail_originating_senate
-vetoed_override_fail_second_house
+&lt;li&gt;prov_kill_veto&lt;/li&gt;
+&lt;li&gt;vetoed_pocket&lt;/li&gt;
+&lt;li&gt;override_pass_over_house&lt;/li&gt;
+&lt;li&gt;vetoed_override_fail_second_senate&lt;/li&gt;
+&lt;li&gt;vetoed_override_fail_originating_house&lt;/li&gt;
+&lt;li&gt;vetoed_override_fail_originating_senate&lt;/li&gt;
+&lt;li&gt;vetoed_override_fail_second_house&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&quot;enacted&quot; class=&quot;section level4&quot;&gt;
 &lt;h4&gt;Enacted&lt;/h4&gt;
 &lt;ul style=&quot;list-style-type: decimal&quot;&gt;
-enacted_signed
-enacted_unknown
-enacted_tendayrule
+&lt;li&gt;enacted_signed&lt;/li&gt;
+&lt;li&gt;enacted_unknown&lt;/li&gt;
+&lt;li&gt;enacted_tendayrule&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&quot;passed-resolutions&quot; class=&quot;section level4&quot;&gt;
 &lt;h4&gt;Passed Resolutions&lt;/h4&gt;
 &lt;ul style=&quot;list-style-type: decimal&quot;&gt;
-passed_concurrentres
-passed_simpleres
+&lt;li&gt;passed_concurrentres&lt;/li&gt;
+&lt;li&gt;passed_simpleres&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;simple resolution:&lt;/em&gt;&lt;/strong&gt; Designated “S. Res.,” simple resolutions are used to express nonbinding positions of the Senate or to deal with the Senate’s internal affairs, such as the creation of a special committee. They do not require action by the House of Representatives. (&lt;a href=&quot;https://www.senate.gov/reference/glossary_term/simple_resolution.htm&quot;&gt;source&lt;/a&gt;)&lt;/p&gt;
 &lt;/div&gt;
@@ -295,26 +295,6 @@ passed_simpleres
 
 
 &lt;/div&gt;
-
-&lt;script&gt;
-
-// add bootstrap table styles to pandoc tables
-$(document).ready(function () {
-  $(&#39;tr.header&#39;).parent(&#39;thead&#39;).parent(&#39;table&#39;).addClass(&#39;table table-condensed&#39;);
-});
-
-&lt;/script&gt;
-
-&lt;!-- dynamically load mathjax for compatibility with self-contained --&gt;
-&lt;script&gt;
-  (function () {
-    var script = document.createElement(&quot;script&quot;);
-    script.type = &quot;text/javascript&quot;;
-    script.src  = &quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;;
-    document.getElementsByTagName(&quot;head&quot;)[0].appendChild(script);
-  })();
-&lt;/script&gt;
-
 </description>
         <pubDate>Mon, 26 Jan 2015 17:13:37 -0500</pubDate>
         <link>http://aimeeb.com/r/politics/statistics/2015/01/26/does-obama-veto-alot.html</link>

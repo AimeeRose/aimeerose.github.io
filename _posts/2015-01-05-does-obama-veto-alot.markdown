@@ -64,55 +64,55 @@ categories: r politics statistics
 <div id="identity" class="section level4">
 <h4>Identity</h4>
 <ul style="list-style-type: decimal">
-referred
-reported
-introduced
-enacted_veto_override
-passed_bill
+<li>referred</li>
+<li>reported</li>
+<li>introduced</li>
+<li>enacted_veto_override</li>
+<li>passed_bill</li>
 </ul>
 </div>
 <div id="congressional-stalemate" class="section level4">
 <h4>Congressional Stalemate</h4>
 <ul style="list-style-type: decimal">
-pass_over_senate
-pass_over_house
-pass_back_house
-pass_back_senate
-fail_originating_house
-fail_originating_senate
-conference_passed_house
-fail_second_house
-failed_second_senate
-conference_passed_senate
-prov_kill_suspensionfailed
-prov_kill_cloturefailed
+<li>pass_over_senate</li>
+<li>pass_over_house</li>
+<li>pass_back_house</li>
+<li>pass_back_senate</li>
+<li>fail_originating_house</li>
+<li>fail_originating_senate</li>
+<li>conference_passed_house</li>
+<li>fail_second_house</li>
+<li>failed_second_senate</li>
+<li>conference_passed_senate</li>
+<li>prov_kill_suspensionfailed</li>
+<li>prov_kill_cloturefailed</li>
 </ul>
 </div>
 <div id="vetoed" class="section level4">
 <h4>Vetoed</h4>
 <ul style="list-style-type: decimal">
-prov_kill_veto
-vetoed_pocket
-override_pass_over_house
-vetoed_override_fail_second_senate
-vetoed_override_fail_originating_house
-vetoed_override_fail_originating_senate
-vetoed_override_fail_second_house
+<li>prov_kill_veto</li>
+<li>vetoed_pocket</li>
+<li>override_pass_over_house</li>
+<li>vetoed_override_fail_second_senate</li>
+<li>vetoed_override_fail_originating_house</li>
+<li>vetoed_override_fail_originating_senate</li>
+<li>vetoed_override_fail_second_house</li>
 </ul>
 </div>
 <div id="enacted" class="section level4">
 <h4>Enacted</h4>
 <ul style="list-style-type: decimal">
-enacted_signed
-enacted_unknown
-enacted_tendayrule
+<li>enacted_signed</li>
+<li>enacted_unknown</li>
+<li>enacted_tendayrule</li>
 </ul>
 </div>
 <div id="passed-resolutions" class="section level4">
 <h4>Passed Resolutions</h4>
 <ul style="list-style-type: decimal">
-passed_concurrentres
-passed_simpleres
+<li>passed_concurrentres</li>
+<li>passed_simpleres</li>
 </ul>
 <p><strong><em>simple resolution:</em></strong> Designated “S. Res.,” simple resolutions are used to express nonbinding positions of the Senate or to deal with the Senate’s internal affairs, such as the creation of a special committee. They do not require action by the House of Representatives. (<a href="https://www.senate.gov/reference/glossary_term/simple_resolution.htm">source</a>)</p>
 </div>
@@ -125,22 +125,3 @@ passed_simpleres
 
 
 </div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-$(document).ready(function () {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-});
-
-</script>
-
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>

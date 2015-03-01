@@ -193,15 +193,20 @@
 /**
  * Posts
  */
+
+div.post {
+    margin-top: 60px;
+}
+
 .post-header {
+    margin-top: $spacing-unit + 50px;
     margin-bottom: $spacing-unit;
 }
 
 .post-title {
-    font-size: 42px;
     letter-spacing: -1px;
     line-height: 1;
-
+    margin-top: 60px;
     @include media-query($on-laptop) {
         font-size: 36px;
     }
@@ -209,6 +214,10 @@
 
 .post-content {
     margin-bottom: $spacing-unit;
+
+    h1 {
+      font-size: 200%;
+    }
 
     h2 {
         font-size: 32px;

@@ -6,8 +6,8 @@
 </description>
     <link>http://aimeeb.com/</link>
     <atom:link href="http://aimeeb.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 01 Mar 2015 12:40:16 -0500</pubDate>
-    <lastBuildDate>Sun, 01 Mar 2015 12:40:16 -0500</lastBuildDate>
+    <pubDate>Sun, 01 Mar 2015 17:47:17 -0500</pubDate>
+    <lastBuildDate>Sun, 01 Mar 2015 17:47:17 -0500</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -40,7 +40,7 @@
 &lt;br /&gt;
 &lt;br /&gt;
 &lt;p&gt;A linear model in R reports positive correlation but was not statistically significant. The probability there is no relationship in reality is nearly 50%, so we confidently reject the hypothesis quarterly changes in are fares are indepdendent of quarterly changes in gas prices.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Call:
+&lt;pre style=&quot;border: 1px solid grey; border-radius: 5px;&quot;&gt;&lt;p style=&quot;padding: 20px&quot;&gt;Call:
 lm(formula = bothChanges$quarter_change_air ~ bothChanges$quarter_change_gas)
 
 Residuals:
@@ -54,8 +54,9 @@ bothChanges$quarter_change_gas   0.0164     0.0230   0.713    0.478
 
 Residual standard error: 3.218 on 76 degrees of freedom
 Multiple R-squared:  0.006648,   Adjusted R-squared:  -0.006423 
-F-statistic: 0.5086 on 1 and 76 DF,  p-value: 0.4779
-&lt;/code&gt;&lt;/pre&gt;
+F-statistic: 0.5086 on 1 and 76 DF,  p-value: 0.4779&lt;/p&gt;&lt;/pre&gt;
+
+
 &lt;/div&gt;
 </description>
         <pubDate>Mon, 23 Feb 2015 15:11:02 -0500</pubDate>
@@ -77,31 +78,19 @@ F-statistic: 0.5086 on 1 and 76 DF,  p-value: 0.4779
     
       <item>
         <title>Is it cold today?</title>
-        <description>&lt;p&gt;The best present I got for Christmas 2014 cost $5.99 and was not intended as a gift: In anticipation of two days of skiing and having only ill-fitting options for borrowed pairs, my mother bought me a pair of Value Village snow pants.
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;The best present I got for Christmas 2014 cost $5.99 and was not intended as a gift: In anticipation of two days of skiing and having only ill-fitting options for borrowed pairs, my mother bought me a pair of Value Village snow pants.&lt;/p&gt;
 
-&lt;p&gt;I love these snow pants with irrational fervor, and not because they look good. The snow pants are dark slate grey, just short enough to identify them as youth-sized, and unflattering to my figure. But what they lack in style, they make up for in warmth and comfort. It’s like wearing sleeping bags on your legs.
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;I love these snow pants with irrational fervor, and not because they look good. The snow pants are dark slate grey, just short enough to identify them as youth-sized, and unflattering to my figure. But what they lack in style, they make up for in warmth and comfort. It’s like wearing sleeping bags on your legs.&lt;/p&gt;
 
-&lt;p&gt;I wear the pants nearly every day. They have made me a winter person. Before the pants, winter was absent the long walks I love, and now I take them as often as during other seasons. In other words: &lt;strong&gt;I don’t always go outside when it’s freezing, but when I do, I wear my snow pants.&lt;/strong&gt; 
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;I wear the pants nearly every day. They have made me a winter person. Before the pants, winter was absent the long walks I love, and now I take them as often as during other seasons. In other words: &lt;strong&gt;I don’t always go outside when it’s freezing, but when I do, I wear my snow pants.&lt;/strong&gt; &lt;/p&gt;
 
-&lt;h3 id=&quot;is-it-cold-today&quot;&gt;Is it cold today?&lt;/h3&gt;
+&lt;h2 id=&quot;is-it-cold-today&quot;&gt;Is it cold today?&lt;/h2&gt;
 
-&lt;p&gt;Before snow pants, I spent much of my Boston and New York residencies wondering how so many humans have aggregated in such inhumane climates and how these cities continue to experience positive rates of migration. We’re all crazy. We live in climates where the battle between going outside at all loses to a House Hunters International marathon 95% of the time. Goodbye Saturdays in the park, hello coding side projects.
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;Before snow pants, I spent much of my Boston and New York residencies wondering how so many humans have aggregated in such inhumane climates and how these cities continue to experience positive rates of migration. We’re all crazy. We live in climates where the battle between going outside at all loses to a House Hunters International marathon 95% of the time. Goodbye Saturdays in the park, hello coding side projects.&lt;/p&gt;
 
-&lt;p&gt;Every year, I ask myself the same thing: Is it this cold &lt;em&gt;every&lt;/em&gt; winter? Today it was an average of 27 degrees farenheit - is that normal?
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;Every year, I ask myself the same thing: Is it this cold &lt;em&gt;every&lt;/em&gt; winter? Today it was an average of 27 degrees farenheit - is that normal?&lt;/p&gt;
 
-&lt;p&gt;From this question arose &lt;strong&gt;&lt;a href=&quot;http://weather-widgets.aimeeb.com&quot;&gt;weather-widgets.aimeeb.com&lt;/a&gt;&lt;/strong&gt;. Using the forecast.io, Google Geocode and flickr APIs, the first two widgets are:
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;From this question arose &lt;strong&gt;&lt;a href=&quot;http://weather-widgets.aimeeb.com&quot;&gt;weather-widgets.aimeeb.com&lt;/a&gt;&lt;/strong&gt;. Using the forecast.io, Google Geocode and flickr APIs, the first two widgets are:&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;&lt;strong&gt;Is it cold today?&lt;/strong&gt; determines the percentile of today’s average temperature when compared with the same date for the past 50 years.&lt;/li&gt;
@@ -293,229 +282,229 @@ There are, at the time of this writing, 29 studies listed on clinicaltrials.gov 
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Sponsor&lt;/th&gt;
-      &lt;th&gt;Number of fitbit studies&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Number of fitbit studies&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Aalborg Universitetshospital&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Aalborg University&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Arizona State University&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Baycrest Centre for Geriatric Care&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Canadian Institutes of Health Research  (CIHR)&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Carol Fabian, MD&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Carol Vassiliadis Family&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Children’s Hospital of Eastern Ontario&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Danish Heart Foundation&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Dr Falk Mueller-Riemenschneider&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;DSM Nutritional Products, Inc.&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;EIR (Empowering Industry and Research)&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Emory University&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Frederikshavn Municipality&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;GP in the Municipalities of Hjoerring and Frederikshavn&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Grand Valley State University&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Health Promotion Board, Singapore&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Hjoerring Municipaility&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;International Business Machines (IBM)&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;JR Albert Foundation&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Julie Wang&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Katholieke Universiteit Leuven&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;KMD&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;M.D. Anderson Cancer Center&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Mayo Clinic&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;McMaster University&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Medidata Solutions&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Miami Research Associates&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;National Heart, Lung, and Blood Institute (NHLBI)&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;National University, Singapore&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;New York CFS Association&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;New York University School of Medicine&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Northwestern University&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Oakland University&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Oscar Film&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Phonak AG, Switzerland&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Renal Research Institute&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Roche Pharma AG&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Seattle Children’s Hospital&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Simon Fraser University&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;SOS International&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Spectrum Health Hospitals&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Tel-Aviv Sourasky Medical Center&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Tunstall Healthcare&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;University of Aarhus&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;University of California, San Diego&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;University of Kansas&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;University of Toronto&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Vendsyssel Hospital&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Arthritis Research Centre of Canada&lt;/td&gt;
-      &lt;td&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;2&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Duke-NUS Graduate Medical School&lt;/td&gt;
-      &lt;td&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;2&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Massachusetts General Hospital&lt;/td&gt;
-      &lt;td&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;2&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;University of California, San Francisco&lt;/td&gt;
-      &lt;td&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;2&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Vancouver General Hospital&lt;/td&gt;
-      &lt;td&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;2&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;University of British Columbia&lt;/td&gt;
-      &lt;td&gt;3&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -635,7 +624,7 @@ Phase I studies focus on the safety, rather than the efficacy, of a treatment. N
     
       <item>
         <title>The end of the NFL</title>
-        <description>&lt;h1 id=&quot;the-end-of-the-nfl-driven-by-head-injuries&quot;&gt;The end of the NFL driven by head injuries&lt;/h1&gt;
+        <description>&lt;h1 id=&quot;plagued-by-head-injuries&quot;&gt;Plagued by head injuries&lt;/h1&gt;
 
 &lt;p&gt;Journalists predicting &lt;a href=&quot;http://grantland.com/features/cte-concussion-crisis-economic-look-end-football/&quot;&gt;the end of the NFL&lt;/a&gt; cite lawsuits by
 current and former players suffering &lt;a href=&quot;http://en.wikipedia.org/wiki/Concussions_in_American_football&quot;&gt;concussions&lt;/a&gt; and head
@@ -700,8 +689,8 @@ more predictable and less fun to watch.&lt;/p&gt;
 
 &lt;script type=&quot;text/javascript&quot;&gt;
   
-  var margin = {top: 20, right: 20, bottom: 30, left: 40},
-          width = document.getElementsByClassName(&#39;wrapper&#39;)[0].clientWidth - margin.left - margin.right,
+  var margin = {top: 20, right: 20, bottom: 30, left: 60},
+          width = document.getElementsByClassName(&#39;post&#39;)[0].clientWidth - margin.left - margin.right,
           height = 500 - margin.top - margin.bottom;
 
       /* 

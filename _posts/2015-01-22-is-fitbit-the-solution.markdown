@@ -39,8 +39,8 @@ The characteristics of fitbut studies are:
 
 Below is a comprehensive list of these sponsors (note, more than one sponsor can be involved in a single trial).
 
-| Sponsor | Number of fitbit studies |
-| :------ | ------------------------ |
+| Sponsor | Number of fitbit studies  |
+| :------ | ------------------------: |
 | Aalborg Universitetshospital | 1 |
 | Aalborg University | 1 |
 | Arizona State University | 1 |

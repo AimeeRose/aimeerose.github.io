@@ -7,7 +7,7 @@ customjs:
   - /javascripts/d3.v3.min.js
 ---
 
-# The end of the NFL driven by head injuries
+# Plagued by head injuries
 
 Journalists predicting [the end of the NFL][grantland] cite lawsuits by
 current and former players suffering [concussions][wiki-concussions] and head
@@ -72,8 +72,8 @@ more predictable and less fun to watch.
 
 <script type="text/javascript">
   
-  var margin = {top: 20, right: 20, bottom: 30, left: 40},
-          width = document.getElementsByClassName('wrapper')[0].clientWidth - margin.left - margin.right,
+  var margin = {top: 20, right: 20, bottom: 30, left: 60},
+          width = document.getElementsByClassName('post')[0].clientWidth - margin.left - margin.right,
           height = 500 - margin.top - margin.bottom;
 
       /* 
@@ -161,4 +161,3 @@ more predictable and less fun to watch.
 [wiki-concussions]:       http://en.wikipedia.org/wiki/Concussions_in_American_football
 [vice-sports]:            https://sports.vice.com/article/the-nfl-concussion-settlement-is-pure-evil
 [pro-football-reference]: http://www.pro-football-reference.com/play-index/play_finder.cgi
-

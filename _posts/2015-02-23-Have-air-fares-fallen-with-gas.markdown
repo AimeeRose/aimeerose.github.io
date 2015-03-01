@@ -33,7 +33,7 @@ categories: r statistics economics gas transportation
 <br />
 <br />
 <p>A linear model in R reports positive correlation but was not statistically significant. The probability there is no relationship in reality is nearly 50%, so we confidently reject the hypothesis quarterly changes in are fares are indepdendent of quarterly changes in gas prices.</p>
-<pre><code>Call:
+<pre style="border: 1px solid grey; border-radius: 5px;"><p style="padding: 20px">Call:
 lm(formula = bothChanges$quarter_change_air ~ bothChanges$quarter_change_gas)
 
 Residuals:
@@ -47,5 +47,6 @@ bothChanges$quarter_change_gas   0.0164     0.0230   0.713    0.478
 
 Residual standard error: 3.218 on 76 degrees of freedom
 Multiple R-squared:  0.006648,   Adjusted R-squared:  -0.006423 
-F-statistic: 0.5086 on 1 and 76 DF,  p-value: 0.4779
-</code></pre>
+F-statistic: 0.5086 on 1 and 76 DF,  p-value: 0.4779</p></pre>
+
+

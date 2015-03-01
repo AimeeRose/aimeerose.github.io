@@ -6,8 +6,8 @@
 </description>
     <link>http://aimeeb.com/</link>
     <atom:link href="http://aimeeb.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 01 Mar 2015 00:02:23 -0500</pubDate>
-    <lastBuildDate>Sun, 01 Mar 2015 00:02:23 -0500</lastBuildDate>
+    <pubDate>Sun, 01 Mar 2015 00:02:56 -0500</pubDate>
+    <lastBuildDate>Sun, 01 Mar 2015 00:02:56 -0500</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -184,7 +184,6 @@ $(document).ready(function () {
 &lt;li&gt;There is evidence to support the number of bills enacted per session is declining.&lt;/li&gt;
 &lt;li&gt;The congressional sessions during the Reagan presidency experienced 10 times more resolutions than the sessions before and after Reagan.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;div id=&quot;has-congress-been-busy&quot; class=&quot;section level2&quot;&gt;
 &lt;h4&gt;A majority of bills stagnate in committee.&lt;/h4&gt;

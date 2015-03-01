@@ -14,7 +14,6 @@ categories: r politics statistics
 <li>There is evidence to support the number of bills enacted per session is declining.</li>
 <li>The congressional sessions during the Reagan presidency experienced 10 times more resolutions than the sessions before and after Reagan.</li>
 </ul>
-<br />
 
 <div id="has-congress-been-busy" class="section level2">
 <h4>A majority of bills stagnate in committee.</h4>

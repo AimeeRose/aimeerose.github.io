@@ -32,17 +32,7 @@ modern_bills <- bills[bills$congress %in% c(93:113), ]
 
 A large majority of bills introduced into congress disappear into the legislative ether. At least 300,000 bills have been introduced into congress (govtrack.us). Each bill begins its journey in the introduced state, and progresses into as many as 29 different states. Most of these states signify ways a bill can die in Congress. For a complete listing of these statuses, see **Appendix A: 29 Flavors of Legislative State** at the bottom of this post.
 
-In order to make these states digestable to the lay person, the states have been collapsed into:
-
-* **Introduced:** The bill was introduced.
-* **Referred:** The bill was referred to committee but never reported.
-* **Reported:** The bill was addressed by its committee and reported to Congress.
-* **Enacted:** The bill was enacted. This includes bills enacted by the ten-day rule and bills enacted by "unknown".
-* **Enacted veto override:** The bill was enacted by Congressional override of a Presidential veto.
-* **Passed bill:** The bill passed Congress but was never enacted before the end of the session.
-* **Congressional stalemate:** The bill was never passed because of one of the following reasons: it did not receive mutual approval in the House and Senate; non-identical forms were passed; it was killed by a suspension vote; it failed vote for cloture or it was killed while resolving differences.
-* **Vetoed:** The bill was vetoed successfully. This includes pocket vetoes.
-* **Resolution passed:** Passed simple and concurrent resolutions.
+In order to make these states digestable to the lay person, the states have been collapsed into: introduced, referred, reported, enacted, enacted by veto override, passed bill, congressional stalemate, vetoed, or resolution passed.
 
 ### 69% of bills in US history remain in a "referred" state 
 
@@ -109,13 +99,17 @@ print(grouped_bills)
 
 grouped_bills_subset <- subset(grouped_bills, total > 100)
 
+theme_set(theme_gray(base_size = 28))
+title = theme(plot.title = element_text(lineheight=3, face="bold", color="black", size = rel(1.67)), plot.title = element_text(vjust = 3))
+legend = theme(legend.key.size = unit(1.5, "cm"))
+
 ggplot(data = grouped_bills, aes(x = 1, y = total, fill = current_status.f)) +
   geom_bar(stat = 'identity', color = 'black') +
   coord_polar(theta='y', start = 45) +
   guides(fill = guide_legend(override.aes = list(colour = NA), title = 'Current Status')) +
   theme(axis.ticks = element_blank(), axis.title = element_blank(), axis.text.y = element_blank()) +
-  theme(axis.text.x = element_blank()) +
-  ggtitle('Current Bill Statuses since 93rd Congress')
+  theme(axis.text.x = element_blank(), plot.title=element_text(vjust=3)) +
+  ggtitle('Current bill statuses since the 93rd Congress') + legend
 ```
 
 
@@ -140,7 +134,7 @@ Claims congress has become less effectual are weakly supported by the number of 
 ggplot(data = subset(modern_bills, current_status.f %in% list('enacted', 'enacted_veto_override')), aes(x = congress)) + 
   geom_histogram(colour = 'darkolivegreen', fill = 'darkolivegreen3') +
   scale_y_continuous(breaks = seq(0, 800, 100)) +
-  ggtitle('Number of bills enacted by Congress')
+  ggtitle('Number of bills enacted by Congress') + theme(plot.title=element_text(vjust=3))
 ```
 
 ### Reagans congressional sessions' introduction of resolutions dwarves those before and after
@@ -148,9 +142,9 @@ ggplot(data = subset(modern_bills, current_status.f %in% list('enacted', 'enacte
 What if productivity is not only number of bills enacted, but also the number of bills introduced?
 
 ```{r, echo = FALSE}
-ggplot(data = subset(modern_bills, current_status.f == 'introduced'), aes(x = congress)) + 
+ggplot(data = subset(modern_bills, current_status.f == 'enacted'), aes(x = congress)) + 
   geom_histogram(colour = 'darkolivegreen', fill = 'darkolivegreen3') +
-  ggtitle('Number of bills introduced to Congress')
+  ggtitle('Number of bills introduced to congress') + theme(plot.title=element_text(vjust=3))
 ```
 
 Whoa! What was going on in the 97 - 100th Congressional sessions?
@@ -257,11 +251,12 @@ modern_bills_grouped <- modern_bills %>%
   mutate(total_bills = sum(total_of_status))
 
 casted <- dcast(modern_bills_grouped, value.var = 'total_of_status', total_bills + congress ~ current_status.f)
-casted$proportion_vetoed <- casted$vetoed / casted$total_bills
+casted$proportion_vetoed <- round(casted$vetoed / casted$total_bills * 100, 2)
+casted$proportion_vetoed[is.na(casted$proportion_vetoed)] <- 0
 
 ggplot(data = casted, aes(x = congress, y = proportion_vetoed)) + 
   geom_bar(stat = 'identity', colour = 'darkolivegreen', fill = 'darkolivegreen3') +
-  ylab('Proportion Vetoed') +
+  ylab('Proportion vetoed') +
   ggtitle('Proportion of bills vetoed')
 ```
 

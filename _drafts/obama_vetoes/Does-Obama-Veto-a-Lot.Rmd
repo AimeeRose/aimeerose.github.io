@@ -142,7 +142,7 @@ ggplot(data = subset(modern_bills, current_status.f %in% list('enacted', 'enacte
 What if productivity is not only number of bills enacted, but also the number of bills introduced?
 
 ```{r, echo = FALSE}
-ggplot(data = subset(modern_bills, current_status.f == 'enacted'), aes(x = congress)) + 
+ggplot(data = subset(modern_bills, current_status.f == 'introduced'), aes(x = congress)) + 
   geom_histogram(colour = 'darkolivegreen', fill = 'darkolivegreen3') +
   ggtitle('Number of bills introduced to congress') + theme(plot.title=element_text(vjust=3))
 ```
@@ -257,7 +257,7 @@ casted$proportion_vetoed[is.na(casted$proportion_vetoed)] <- 0
 ggplot(data = casted, aes(x = congress, y = proportion_vetoed)) + 
   geom_bar(stat = 'identity', colour = 'darkolivegreen', fill = 'darkolivegreen3') +
   ylab('Proportion vetoed') +
-  ggtitle('Proportion of bills vetoed')
+  ggtitle('Proportion of bills vetoed')  + theme(plot.title=element_text(vjust=3))
 ```
 
 **Obama has issued, both in total numbers and relative to total bills, the least number of vetoes when compared with other Presidents.**
@@ -269,7 +269,7 @@ ggplot(data = subset(modern_bills, current_status.f %in% list('enacted', 'enacte
   geom_histogram(colour = 'darkolivegreen', fill = 'darkolivegreen3') +
   scale_y_continuous(breaks = seq(0, 800, 100)) +
   ylab('Number of bills enacted') +
-  ggtitle('Number of bills enacted by Congress')
+  ggtitle('Number of bills enacted by Congress')  + theme(plot.title=element_text(vjust=3))
 ```
 
 

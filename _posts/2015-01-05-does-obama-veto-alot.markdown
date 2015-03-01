@@ -19,7 +19,7 @@ categories: r politics statistics
 <h4>A majority of bills stagnate in committee.</h4>
 <p>To assess the number of relative vetoes, we will compare the number of vetoes with the number of bills enacted.</p>
 
-<p>There are more than just a few states a bill can be in however: Each bill record maintains a state attributed, initiated as "introduced", and progressing into as many as 29 different states. For a complete listing of these statuses, see <strong>Appendix A: 29 Flavors of Legislative State</strong> at the bottom of this post.</p>
+<p>There are more than just a few states a bill can be in however: Each bill record maintains a state, initiated as "introduced", and progressing into as many as 29 different states. For a complete listing of these statuses, see <strong>Appendix A: 29 Flavors of Legislative State</strong> at the bottom of this post.</p>
 
 <p>In order to make these states digestable, I collapsed them into 9 states: introduced, referred, reported, enacted, enacted by veto override, passed, congressional stalemante, veto, and resolution.</p>
 </ul>

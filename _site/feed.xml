@@ -6,8 +6,8 @@
 </description>
     <link>http://aimeeb.com/</link>
     <atom:link href="http://aimeeb.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 01 Mar 2015 00:02:56 -0500</pubDate>
-    <lastBuildDate>Sun, 01 Mar 2015 00:02:56 -0500</lastBuildDate>
+    <pubDate>Sun, 01 Mar 2015 10:48:36 -0500</pubDate>
+    <lastBuildDate>Sun, 01 Mar 2015 10:48:36 -0500</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -189,7 +189,7 @@ $(document).ready(function () {
 &lt;h4&gt;A majority of bills stagnate in committee.&lt;/h4&gt;
 &lt;p&gt;To assess the number of relative vetoes, we will compare the number of vetoes with the number of bills enacted.&lt;/p&gt;
 
-&lt;p&gt;There are more than just a few states a bill can be in however: Each bill record maintains a state attributed, initiated as &quot;introduced&quot;, and progressing into as many as 29 different states. For a complete listing of these statuses, see &lt;strong&gt;Appendix A: 29 Flavors of Legislative State&lt;/strong&gt; at the bottom of this post.&lt;/p&gt;
+&lt;p&gt;There are more than just a few states a bill can be in however: Each bill record maintains a state, initiated as &quot;introduced&quot;, and progressing into as many as 29 different states. For a complete listing of these statuses, see &lt;strong&gt;Appendix A: 29 Flavors of Legislative State&lt;/strong&gt; at the bottom of this post.&lt;/p&gt;
 
 &lt;p&gt;In order to make these states digestable, I collapsed them into 9 states: introduced, referred, reported, enacted, enacted by veto override, passed, congressional stalemante, veto, and resolution.&lt;/p&gt;
 

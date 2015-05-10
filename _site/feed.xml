@@ -6,9 +6,40 @@
 </description>
     <link>http://aimeeb.com/</link>
     <atom:link href="http://aimeeb.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 01 Mar 2015 21:42:15 -0500</pubDate>
-    <lastBuildDate>Sun, 01 Mar 2015 21:42:15 -0500</lastBuildDate>
+    <pubDate>Sat, 09 May 2015 20:18:02 -0400</pubDate>
+    <lastBuildDate>Sat, 09 May 2015 20:18:02 -0400</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>Strata + Hadoop Session Popularity on Twitter</title>
+        <description>&lt;p&gt;I just got back from &lt;a href=&quot;http://strataconf.com/big-data-conference-uk-2015&quot;&gt;Strata + Hadoop World 2015 in London&lt;/a&gt;. I attended a lot of great sessions, but felt I wanted to be in two or three or four places at once. I got session envy overhearing attendees discussing sessions I had missed and reviewing the #StrataHadoop twitter stream.&lt;/p&gt;
+
+&lt;p&gt;The conference was 3 days long, with 10 tutorials and over 72 sessions. According to the site, in 3 weeks a link to a full set of recordings will appear in my email inbox. I wanted to know which sessions I should watch when the recordings become available. I also wanted to practice what I learned during the Spark Camp tutorial I attended with Paco Nathan. In a perfect convergence of problem meets tool, I installed &lt;a href=&quot;https://spark.apache.org/docs/latest/quick-start.html&quot;&gt;Apache Spark&lt;/a&gt; and developed some ruby and pyspark scripts to pull #StrataHadoop and perform a simplistic text analysis to determine which talks were popular on twitter.&lt;/p&gt;
+
+&lt;p&gt;I also used this opportunity use &lt;a href=&quot;http://shiny.rstudio.com/&quot;&gt;RStudio’s Shiny&lt;/a&gt; web application framework and deployed the result via &lt;a href=&quot;https://www.shinyapps.io&quot;&gt;shinyapps.io&lt;/a&gt;. I highly recommend this combination. Using the tutorial, the entire effort of building and deploying on shinyapps.io was painless.&lt;/p&gt;
+
+&lt;p&gt;The code is on github: &lt;a href=&quot;https://github.com/AimeeRose/strata-hadoop-twitter-spark&quot;&gt;strata-hadoop-twitter-spark&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;And here is a really awesome iframe of &lt;a href=&quot;https://aimeeb.shinyapps.io/shiny-strata-titles/&quot;&gt;aimeeb.shinyapps.io/shiny-strata-titles&lt;/a&gt;:&lt;/p&gt;
+
+&lt;iframe src=&quot;https://aimeeb.shinyapps.io/shiny-strata-titles/&quot; style=&quot;width: 100%; height: 820px; border: none&quot;&gt;&lt;/iframe&gt;
+</description>
+        <pubDate>Sat, 09 May 2015 14:52:26 -0400</pubDate>
+        <link>http://aimeeb.com/r/shiny/strata+hadoop/conferences/spark/2015/05/09/Strata-Hadoop-Twitters.html</link>
+        <guid isPermaLink="true">http://aimeeb.com/r/shiny/strata+hadoop/conferences/spark/2015/05/09/Strata-Hadoop-Twitters.html</guid>
+        
+        
+        <category>r</category>
+        
+        <category>shiny</category>
+        
+        <category>strata+hadoop</category>
+        
+        <category>conferences</category>
+        
+        <category>spark</category>
+        
+      </item>
     
       <item>
         <title>The inaugural edition of the Sunday Short</title>

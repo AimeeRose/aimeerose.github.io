@@ -6,9 +6,1097 @@
 </description>
     <link>http://aimeeb.com/</link>
     <atom:link href="http://aimeeb.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 09 May 2015 20:22:28 -0400</pubDate>
-    <lastBuildDate>Sat, 09 May 2015 20:22:28 -0400</lastBuildDate>
+    <pubDate>Wed, 17 Jun 2015 18:46:48 +0300</pubDate>
+    <lastBuildDate>Wed, 17 Jun 2015 18:46:48 +0300</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>MLB Salary Trend, 1874 to 2013</title>
+        <description>&lt;div id=&quot;linechart&quot;&gt;
+  &lt;!-- Line chart goes here! --&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Even in real terms, top professional baseball players’ salaries have grown nearly 3000% in the past 40 years. In 1973, Dick Allen made $200,000 which equates to $1,065,178 in 2014 dollars. In 2013, Alex Rodriguez made $29,000,000, or $29,470,054 in 2014 dollars.&lt;/p&gt;
+
+&lt;p&gt;In the early years of baseball, even top players were paid little more than the median income. &lt;a href=&quot;https://www.google.lt/webhp?sourceid=chrome-instant&amp;amp;ion=1&amp;amp;espv=2&amp;amp;ie=UTF-8#q=median+income+united+states+2014&quot;&gt;According to Google&lt;/a&gt;, in 2014 the median income was $51,759. Fergus Malone made just a little over that median income, earning a salary of $2800 in 1874, or $60,041 in 2014 dollars.&lt;/p&gt;
+
+&lt;h3 id=&quot;compiled-data&quot;&gt;Compiled Data&lt;/h3&gt;
+
+&lt;p&gt;Data was compiled from the following sources:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.measuringworth.com/datasets/uscpi/&quot;&gt;CPI data from Measuring Worth&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://sabr.org/research/mlbs-annual-salary-leaders-1874-2012&quot;&gt;Salary data from Society for American Baseball Research&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Adjusted salary was calculated in R (although no reason it couldn’t have been done in a regular spreadsheet) using the formula: &lt;code&gt;Adjusted Salary = (Salary / (CPI/100)) * (236.736/100)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Year&lt;/th&gt;
+      &lt;th&gt;CPI Value&lt;/th&gt;
+      &lt;th&gt;Salary&lt;/th&gt;
+      &lt;th&gt;Player(s)&lt;/th&gt;
+      &lt;th&gt;2014 Adjusted Salary&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1874&lt;/td&gt;
+      &lt;td&gt;11.04&lt;/td&gt;
+      &lt;td&gt;2800&lt;/td&gt;
+      &lt;td&gt;Fergus Malone (Chi NA)&lt;/td&gt;
+      &lt;td&gt;60041.74&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1875&lt;/td&gt;
+      &lt;td&gt;10.64&lt;/td&gt;
+      &lt;td&gt;2200&lt;/td&gt;
+      &lt;td&gt;Rich Higham (Chi NL)&lt;/td&gt;
+      &lt;td&gt;48949.17&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1876&lt;/td&gt;
+      &lt;td&gt;10.39&lt;/td&gt;
+      &lt;td&gt;4000&lt;/td&gt;
+      &lt;td&gt;Al Spalding (Chi NL)&lt;/td&gt;
+      &lt;td&gt;91139.94&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1877&lt;/td&gt;
+      &lt;td&gt;10.15&lt;/td&gt;
+      &lt;td&gt;2900&lt;/td&gt;
+      &lt;td&gt;Al Spalding (Chi NL)&lt;/td&gt;
+      &lt;td&gt;67638.86&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1878&lt;/td&gt;
+      &lt;td&gt;9.67&lt;/td&gt;
+      &lt;td&gt;3700&lt;/td&gt;
+      &lt;td&gt;Bob Ferguson (Chi NL)&lt;/td&gt;
+      &lt;td&gt;90581.51&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1879&lt;/td&gt;
+      &lt;td&gt;9.67&lt;/td&gt;
+      &lt;td&gt;1800&lt;/td&gt;
+      &lt;td&gt;Frank Flint (Chi NL)&lt;/td&gt;
+      &lt;td&gt;44066.68&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1880&lt;/td&gt;
+      &lt;td&gt;9.91&lt;/td&gt;
+      &lt;td&gt;1800&lt;/td&gt;
+      &lt;td&gt;Adrian Anson (Chi NL)&lt;/td&gt;
+      &lt;td&gt;42999.48&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1881&lt;/td&gt;
+      &lt;td&gt;9.91&lt;/td&gt;
+      &lt;td&gt;2000&lt;/td&gt;
+      &lt;td&gt;Jim O’Rourke (Buf NL)&lt;/td&gt;
+      &lt;td&gt;47777.19&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1882&lt;/td&gt;
+      &lt;td&gt;9.91&lt;/td&gt;
+      &lt;td&gt;2400&lt;/td&gt;
+      &lt;td&gt;Monte Ward (Prov NL)&lt;/td&gt;
+      &lt;td&gt;57332.63&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1883&lt;/td&gt;
+      &lt;td&gt;9.71&lt;/td&gt;
+      &lt;td&gt;3100&lt;/td&gt;
+      &lt;td&gt;Buck Ewing (NY NL)&lt;/td&gt;
+      &lt;td&gt;75579.98&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1884&lt;/td&gt;
+      &lt;td&gt;9.51&lt;/td&gt;
+      &lt;td&gt;3100&lt;/td&gt;
+      &lt;td&gt;Buck Ewing (NY NL)&lt;/td&gt;
+      &lt;td&gt;77169.46&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1885&lt;/td&gt;
+      &lt;td&gt;9.32&lt;/td&gt;
+      &lt;td&gt;4500&lt;/td&gt;
+      &lt;td&gt;Jim O’Rourke (NY NL)&lt;/td&gt;
+      &lt;td&gt;114303.86&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1886&lt;/td&gt;
+      &lt;td&gt;9.12&lt;/td&gt;
+      &lt;td&gt;4500&lt;/td&gt;
+      &lt;td&gt;Fred Dunlap (StL/Det NL)&lt;/td&gt;
+      &lt;td&gt;116810.53&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1887&lt;/td&gt;
+      &lt;td&gt;9.22&lt;/td&gt;
+      &lt;td&gt;4500&lt;/td&gt;
+      &lt;td&gt;Fred Dunlap (Det NL), Charles Radbourne (Bos NL)&lt;/td&gt;
+      &lt;td&gt;115543.6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1888&lt;/td&gt;
+      &lt;td&gt;9.22&lt;/td&gt;
+      &lt;td&gt;5000&lt;/td&gt;
+      &lt;td&gt;Fred Dunlap (Pit NL), Buck Ewing (NY NL)&lt;/td&gt;
+      &lt;td&gt;128381.78&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1889&lt;/td&gt;
+      &lt;td&gt;8.92&lt;/td&gt;
+      &lt;td&gt;5000&lt;/td&gt;
+      &lt;td&gt;Fred Dunlap (Pit NL), Buck Ewing (NY NL)&lt;/td&gt;
+      &lt;td&gt;132699.55&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1890&lt;/td&gt;
+      &lt;td&gt;8.82&lt;/td&gt;
+      &lt;td&gt;4000&lt;/td&gt;
+      &lt;td&gt;Hardy Richardson (Bos PL)&lt;/td&gt;
+      &lt;td&gt;107363.27&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1891&lt;/td&gt;
+      &lt;td&gt;8.82&lt;/td&gt;
+      &lt;td&gt;2000&lt;/td&gt;
+      &lt;td&gt;Paul Cook (Lou/StL AA)&lt;/td&gt;
+      &lt;td&gt;53681.63&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1892&lt;/td&gt;
+      &lt;td&gt;8.82&lt;/td&gt;
+      &lt;td&gt;2800&lt;/td&gt;
+      &lt;td&gt;Joe Gunson (Bal NL)&lt;/td&gt;
+      &lt;td&gt;75154.29&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1895&lt;/td&gt;
+      &lt;td&gt;8.14&lt;/td&gt;
+      &lt;td&gt;2400&lt;/td&gt;
+      &lt;td&gt;Jack Glasscock (Lou/Was NL)&lt;/td&gt;
+      &lt;td&gt;69799.31&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1899&lt;/td&gt;
+      &lt;td&gt;8.04&lt;/td&gt;
+      &lt;td&gt;1800&lt;/td&gt;
+      &lt;td&gt;Victor Willis (Bos NL)&lt;/td&gt;
+      &lt;td&gt;53000.6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1904&lt;/td&gt;
+      &lt;td&gt;8.63&lt;/td&gt;
+      &lt;td&gt;5000&lt;/td&gt;
+      &lt;td&gt;Joe McGinnity (NY NL)&lt;/td&gt;
+      &lt;td&gt;137158.75&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1906&lt;/td&gt;
+      &lt;td&gt;8.72&lt;/td&gt;
+      &lt;td&gt;8500&lt;/td&gt;
+      &lt;td&gt;Nap Lajoie (Cle AL)&lt;/td&gt;
+      &lt;td&gt;230763.3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1907&lt;/td&gt;
+      &lt;td&gt;9.11&lt;/td&gt;
+      &lt;td&gt;8500&lt;/td&gt;
+      &lt;td&gt;Nap Lajoie (Cle AL)&lt;/td&gt;
+      &lt;td&gt;220884.3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1908&lt;/td&gt;
+      &lt;td&gt;8.92&lt;/td&gt;
+      &lt;td&gt;8500&lt;/td&gt;
+      &lt;td&gt;Nap Lajoie (Cle AL)&lt;/td&gt;
+      &lt;td&gt;225589.24&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1909&lt;/td&gt;
+      &lt;td&gt;8.82&lt;/td&gt;
+      &lt;td&gt;9000&lt;/td&gt;
+      &lt;td&gt;Nap Lajoie (Cle AL)&lt;/td&gt;
+      &lt;td&gt;241567.35&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1910&lt;/td&gt;
+      &lt;td&gt;9.21&lt;/td&gt;
+      &lt;td&gt;9000&lt;/td&gt;
+      &lt;td&gt;Ty Cobb (Det AL)&lt;/td&gt;
+      &lt;td&gt;231338.11&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1911&lt;/td&gt;
+      &lt;td&gt;9.21&lt;/td&gt;
+      &lt;td&gt;9000&lt;/td&gt;
+      &lt;td&gt;Ty Cobb (Det AL), Nap Lajoie (Cle AL)&lt;/td&gt;
+      &lt;td&gt;231338.11&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1912&lt;/td&gt;
+      &lt;td&gt;9.4&lt;/td&gt;
+      &lt;td&gt;10000&lt;/td&gt;
+      &lt;td&gt;Roger Bresnahan (StL NL), Jimmy Callahan (Chi AL), Hugh Jennings (Det AL), Honus Wagner (Pit NL)&lt;/td&gt;
+      &lt;td&gt;251846.81&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1913&lt;/td&gt;
+      &lt;td&gt;9.6&lt;/td&gt;
+      &lt;td&gt;15000&lt;/td&gt;
+      &lt;td&gt;Fred Clarke (Pit NL)&lt;/td&gt;
+      &lt;td&gt;369900&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1914&lt;/td&gt;
+      &lt;td&gt;9.69&lt;/td&gt;
+      &lt;td&gt;15000&lt;/td&gt;
+      &lt;td&gt;Ty Cobb (Det AL)&lt;/td&gt;
+      &lt;td&gt;366464.4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1915&lt;/td&gt;
+      &lt;td&gt;9.74&lt;/td&gt;
+      &lt;td&gt;15050&lt;/td&gt;
+      &lt;td&gt;Fred Clarke (Pit NL)&lt;/td&gt;
+      &lt;td&gt;365798.44&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1916&lt;/td&gt;
+      &lt;td&gt;10.64&lt;/td&gt;
+      &lt;td&gt;20000&lt;/td&gt;
+      &lt;td&gt;Ty Cobb (Det AL)&lt;/td&gt;
+      &lt;td&gt;444992.48&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1917&lt;/td&gt;
+      &lt;td&gt;12.82&lt;/td&gt;
+      &lt;td&gt;20000&lt;/td&gt;
+      &lt;td&gt;Ty Cobb (Det AL)&lt;/td&gt;
+      &lt;td&gt;369322.93&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1918&lt;/td&gt;
+      &lt;td&gt;15.06&lt;/td&gt;
+      &lt;td&gt;20000&lt;/td&gt;
+      &lt;td&gt;Ty Cobb (Det AL)&lt;/td&gt;
+      &lt;td&gt;314390.44&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1919&lt;/td&gt;
+      &lt;td&gt;17.3&lt;/td&gt;
+      &lt;td&gt;20000&lt;/td&gt;
+      &lt;td&gt;Ty Cobb (Det AL)&lt;/td&gt;
+      &lt;td&gt;273683.24&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1920&lt;/td&gt;
+      &lt;td&gt;20.04&lt;/td&gt;
+      &lt;td&gt;20000&lt;/td&gt;
+      &lt;td&gt;Ty Cobb (Det AL), Babe Ruth (NY AL), Tris Speaker (Cle AL)&lt;/td&gt;
+      &lt;td&gt;236263.47&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1921&lt;/td&gt;
+      &lt;td&gt;17.9&lt;/td&gt;
+      &lt;td&gt;25000&lt;/td&gt;
+      &lt;td&gt;Ty Cobb (Det AL)&lt;/td&gt;
+      &lt;td&gt;330636.87&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1922&lt;/td&gt;
+      &lt;td&gt;16.77&lt;/td&gt;
+      &lt;td&gt;52000&lt;/td&gt;
+      &lt;td&gt;Babe Ruth (NY AL)&lt;/td&gt;
+      &lt;td&gt;734065.12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1923&lt;/td&gt;
+      &lt;td&gt;17.07&lt;/td&gt;
+      &lt;td&gt;52000&lt;/td&gt;
+      &lt;td&gt;Babe Ruth (NY AL)&lt;/td&gt;
+      &lt;td&gt;721164.15&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1924&lt;/td&gt;
+      &lt;td&gt;17.1&lt;/td&gt;
+      &lt;td&gt;52000&lt;/td&gt;
+      &lt;td&gt;Babe Ruth (NY AL)&lt;/td&gt;
+      &lt;td&gt;719898.95&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1925&lt;/td&gt;
+      &lt;td&gt;17.53&lt;/td&gt;
+      &lt;td&gt;52000&lt;/td&gt;
+      &lt;td&gt;Babe Ruth (NY AL)&lt;/td&gt;
+      &lt;td&gt;702240.27&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1926&lt;/td&gt;
+      &lt;td&gt;17.7&lt;/td&gt;
+      &lt;td&gt;52000&lt;/td&gt;
+      &lt;td&gt;Babe Ruth (NY AL)&lt;/td&gt;
+      &lt;td&gt;695495.59&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1927&lt;/td&gt;
+      &lt;td&gt;17.37&lt;/td&gt;
+      &lt;td&gt;70000&lt;/td&gt;
+      &lt;td&gt;Babe Ruth (NY AL)&lt;/td&gt;
+      &lt;td&gt;954031.09&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1928&lt;/td&gt;
+      &lt;td&gt;17.13&lt;/td&gt;
+      &lt;td&gt;70000&lt;/td&gt;
+      &lt;td&gt;Babe Ruth (NY AL)&lt;/td&gt;
+      &lt;td&gt;967397.55&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1929&lt;/td&gt;
+      &lt;td&gt;17.13&lt;/td&gt;
+      &lt;td&gt;70000&lt;/td&gt;
+      &lt;td&gt;Babe Ruth (NY AL)&lt;/td&gt;
+      &lt;td&gt;967397.55&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1930&lt;/td&gt;
+      &lt;td&gt;16.7&lt;/td&gt;
+      &lt;td&gt;80000&lt;/td&gt;
+      &lt;td&gt;Babe Ruth (NY AL)&lt;/td&gt;
+      &lt;td&gt;1134064.67&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1931&lt;/td&gt;
+      &lt;td&gt;15.23&lt;/td&gt;
+      &lt;td&gt;80000&lt;/td&gt;
+      &lt;td&gt;Babe Ruth (NY AL)&lt;/td&gt;
+      &lt;td&gt;1243524.62&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1932&lt;/td&gt;
+      &lt;td&gt;13.66&lt;/td&gt;
+      &lt;td&gt;75000&lt;/td&gt;
+      &lt;td&gt;Babe Ruth (NY AL)&lt;/td&gt;
+      &lt;td&gt;1299795.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1933&lt;/td&gt;
+      &lt;td&gt;12.96&lt;/td&gt;
+      &lt;td&gt;52000&lt;/td&gt;
+      &lt;td&gt;Babe Ruth (NY AL)&lt;/td&gt;
+      &lt;td&gt;949866.67&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1934&lt;/td&gt;
+      &lt;td&gt;13.39&lt;/td&gt;
+      &lt;td&gt;35000&lt;/td&gt;
+      &lt;td&gt;Babe Ruth (NY AL)&lt;/td&gt;
+      &lt;td&gt;618802.09&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1935&lt;/td&gt;
+      &lt;td&gt;13.73&lt;/td&gt;
+      &lt;td&gt;31000&lt;/td&gt;
+      &lt;td&gt;Lou Gehrig (NY AL)&lt;/td&gt;
+      &lt;td&gt;534509.54&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1936&lt;/td&gt;
+      &lt;td&gt;13.86&lt;/td&gt;
+      &lt;td&gt;36000&lt;/td&gt;
+      &lt;td&gt;Mickey Cochrane (Det AL)&lt;/td&gt;
+      &lt;td&gt;614898.7&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1937&lt;/td&gt;
+      &lt;td&gt;14.36&lt;/td&gt;
+      &lt;td&gt;36000&lt;/td&gt;
+      &lt;td&gt;Mickey Cochrane (Det AL), Lou Gehrig (NY AL)&lt;/td&gt;
+      &lt;td&gt;593488.58&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1938&lt;/td&gt;
+      &lt;td&gt;14.09&lt;/td&gt;
+      &lt;td&gt;39000&lt;/td&gt;
+      &lt;td&gt;Lou Gehrig (NY AL)&lt;/td&gt;
+      &lt;td&gt;655266.43&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1939&lt;/td&gt;
+      &lt;td&gt;13.89&lt;/td&gt;
+      &lt;td&gt;35000&lt;/td&gt;
+      &lt;td&gt;Lou Gehrig (NY AL), Hank Greenberg (Det AL)&lt;/td&gt;
+      &lt;td&gt;596527&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1940&lt;/td&gt;
+      &lt;td&gt;14.03&lt;/td&gt;
+      &lt;td&gt;35000&lt;/td&gt;
+      &lt;td&gt;Hank Greenberg (Det AL)&lt;/td&gt;
+      &lt;td&gt;590574.48&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1941&lt;/td&gt;
+      &lt;td&gt;14.73&lt;/td&gt;
+      &lt;td&gt;55000&lt;/td&gt;
+      &lt;td&gt;Hank Greenberg (Det AL)&lt;/td&gt;
+      &lt;td&gt;883942.97&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1942&lt;/td&gt;
+      &lt;td&gt;16.3&lt;/td&gt;
+      &lt;td&gt;43750&lt;/td&gt;
+      &lt;td&gt;Joe DiMaggio (NY AL)&lt;/td&gt;
+      &lt;td&gt;635411.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1943&lt;/td&gt;
+      &lt;td&gt;17.3&lt;/td&gt;
+      &lt;td&gt;27000&lt;/td&gt;
+      &lt;td&gt;Joe Cronin (Bos AL)&lt;/td&gt;
+      &lt;td&gt;369472.37&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1944&lt;/td&gt;
+      &lt;td&gt;17.6&lt;/td&gt;
+      &lt;td&gt;27000&lt;/td&gt;
+      &lt;td&gt;Joe Cronin (Bos AL)&lt;/td&gt;
+      &lt;td&gt;363174.55&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1945&lt;/td&gt;
+      &lt;td&gt;18&lt;/td&gt;
+      &lt;td&gt;25000&lt;/td&gt;
+      &lt;td&gt;Lou Boudreau (Cle AL), Joe Cronin (Bos AL)&lt;/td&gt;
+      &lt;td&gt;328800&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1946&lt;/td&gt;
+      &lt;td&gt;19.54&lt;/td&gt;
+      &lt;td&gt;55000&lt;/td&gt;
+      &lt;td&gt;Hank Greenberg (Det AL)&lt;/td&gt;
+      &lt;td&gt;666350.05&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1947&lt;/td&gt;
+      &lt;td&gt;22.34&lt;/td&gt;
+      &lt;td&gt;70000&lt;/td&gt;
+      &lt;td&gt;Hal Newhouser (Det AL)&lt;/td&gt;
+      &lt;td&gt;741786.93&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1948&lt;/td&gt;
+      &lt;td&gt;24.08&lt;/td&gt;
+      &lt;td&gt;65000&lt;/td&gt;
+      &lt;td&gt;Joe DiMaggio (NY AL), Ted Williams (Bos AL)&lt;/td&gt;
+      &lt;td&gt;639029.9&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1949&lt;/td&gt;
+      &lt;td&gt;23.85&lt;/td&gt;
+      &lt;td&gt;100000&lt;/td&gt;
+      &lt;td&gt;Joe DiMaggio (NY AL)&lt;/td&gt;
+      &lt;td&gt;992603.77&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1950&lt;/td&gt;
+      &lt;td&gt;24.08&lt;/td&gt;
+      &lt;td&gt;100000&lt;/td&gt;
+      &lt;td&gt;Joe DiMaggio (NY AL)&lt;/td&gt;
+      &lt;td&gt;983122.92&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1951&lt;/td&gt;
+      &lt;td&gt;25.98&lt;/td&gt;
+      &lt;td&gt;90000&lt;/td&gt;
+      &lt;td&gt;Joe DiMaggio (NY AL), Ted Williams (Bos AL)&lt;/td&gt;
+      &lt;td&gt;820101.62&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1952&lt;/td&gt;
+      &lt;td&gt;26.55&lt;/td&gt;
+      &lt;td&gt;85000&lt;/td&gt;
+      &lt;td&gt;Ted Williams (Bos AL)&lt;/td&gt;
+      &lt;td&gt;757911.86&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1953&lt;/td&gt;
+      &lt;td&gt;26.75&lt;/td&gt;
+      &lt;td&gt;85000&lt;/td&gt;
+      &lt;td&gt;Ted Williams (Bos AL)&lt;/td&gt;
+      &lt;td&gt;752245.23&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1954&lt;/td&gt;
+      &lt;td&gt;26.88&lt;/td&gt;
+      &lt;td&gt;85000&lt;/td&gt;
+      &lt;td&gt;Ted Williams (Bos AL)&lt;/td&gt;
+      &lt;td&gt;748607.14&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1955&lt;/td&gt;
+      &lt;td&gt;26.78&lt;/td&gt;
+      &lt;td&gt;67500&lt;/td&gt;
+      &lt;td&gt;Ted Williams (Bos AL)&lt;/td&gt;
+      &lt;td&gt;596702.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1956&lt;/td&gt;
+      &lt;td&gt;27.18&lt;/td&gt;
+      &lt;td&gt;58000&lt;/td&gt;
+      &lt;td&gt;Yogi Berra (NY AL)&lt;/td&gt;
+      &lt;td&gt;505176.16&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1957&lt;/td&gt;
+      &lt;td&gt;28.15&lt;/td&gt;
+      &lt;td&gt;65000&lt;/td&gt;
+      &lt;td&gt;Yogi Berra (NY AL)&lt;/td&gt;
+      &lt;td&gt;546637.3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1958&lt;/td&gt;
+      &lt;td&gt;28.92&lt;/td&gt;
+      &lt;td&gt;65000&lt;/td&gt;
+      &lt;td&gt;Mickey Mantle (NY AL)&lt;/td&gt;
+      &lt;td&gt;532082.99&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1959&lt;/td&gt;
+      &lt;td&gt;29.16&lt;/td&gt;
+      &lt;td&gt;75000&lt;/td&gt;
+      &lt;td&gt;Willie Mays (SF NL)&lt;/td&gt;
+      &lt;td&gt;608888.89&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1960&lt;/td&gt;
+      &lt;td&gt;29.62&lt;/td&gt;
+      &lt;td&gt;80000&lt;/td&gt;
+      &lt;td&gt;Willie Mays (SF NL)&lt;/td&gt;
+      &lt;td&gt;639395&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1961&lt;/td&gt;
+      &lt;td&gt;29.92&lt;/td&gt;
+      &lt;td&gt;85000&lt;/td&gt;
+      &lt;td&gt;Willie Mays (SF NL)&lt;/td&gt;
+      &lt;td&gt;672545.45&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1962&lt;/td&gt;
+      &lt;td&gt;30.26&lt;/td&gt;
+      &lt;td&gt;90000&lt;/td&gt;
+      &lt;td&gt;Mickey Mantle (NY AL), Willie Mays (SF NL)&lt;/td&gt;
+      &lt;td&gt;704105.75&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1963&lt;/td&gt;
+      &lt;td&gt;30.62&lt;/td&gt;
+      &lt;td&gt;105000&lt;/td&gt;
+      &lt;td&gt;Willie Mays (SF NL)&lt;/td&gt;
+      &lt;td&gt;811798.82&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1964&lt;/td&gt;
+      &lt;td&gt;31.03&lt;/td&gt;
+      &lt;td&gt;105000&lt;/td&gt;
+      &lt;td&gt;Willie Mays (SF NL)&lt;/td&gt;
+      &lt;td&gt;801072.51&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1965&lt;/td&gt;
+      &lt;td&gt;31.56&lt;/td&gt;
+      &lt;td&gt;105000&lt;/td&gt;
+      &lt;td&gt;Willie Mays (SF NL)&lt;/td&gt;
+      &lt;td&gt;787619.77&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1966&lt;/td&gt;
+      &lt;td&gt;32.46&lt;/td&gt;
+      &lt;td&gt;130000&lt;/td&gt;
+      &lt;td&gt;Sandy Koufax (LA NL)&lt;/td&gt;
+      &lt;td&gt;948110.91&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1967&lt;/td&gt;
+      &lt;td&gt;33.4&lt;/td&gt;
+      &lt;td&gt;125000&lt;/td&gt;
+      &lt;td&gt;Willie Mays (SF NL)&lt;/td&gt;
+      &lt;td&gt;885988.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1968&lt;/td&gt;
+      &lt;td&gt;34.8&lt;/td&gt;
+      &lt;td&gt;125000&lt;/td&gt;
+      &lt;td&gt;Willie Mays (SF NL)&lt;/td&gt;
+      &lt;td&gt;850344.83&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1969&lt;/td&gt;
+      &lt;td&gt;36.67&lt;/td&gt;
+      &lt;td&gt;135000&lt;/td&gt;
+      &lt;td&gt;Willie Mays (SF NL)&lt;/td&gt;
+      &lt;td&gt;871539.68&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1970&lt;/td&gt;
+      &lt;td&gt;38.84&lt;/td&gt;
+      &lt;td&gt;135000&lt;/td&gt;
+      &lt;td&gt;Willie Mays (SF NL)&lt;/td&gt;
+      &lt;td&gt;822846.55&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1971&lt;/td&gt;
+      &lt;td&gt;40.51&lt;/td&gt;
+      &lt;td&gt;167000&lt;/td&gt;
+      &lt;td&gt;Carl Yastrzemski (Bos AL)&lt;/td&gt;
+      &lt;td&gt;975929.7&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1972&lt;/td&gt;
+      &lt;td&gt;41.85&lt;/td&gt;
+      &lt;td&gt;167000&lt;/td&gt;
+      &lt;td&gt;Carl Yastrzemski (Bos AL)&lt;/td&gt;
+      &lt;td&gt;944681.29&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1973&lt;/td&gt;
+      &lt;td&gt;44.45&lt;/td&gt;
+      &lt;td&gt;200000&lt;/td&gt;
+      &lt;td&gt;Dick Allen (Chi AL)&lt;/td&gt;
+      &lt;td&gt;1065178.85&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1974&lt;/td&gt;
+      &lt;td&gt;49.33&lt;/td&gt;
+      &lt;td&gt;250000&lt;/td&gt;
+      &lt;td&gt;Dick Allen (Chi AL)&lt;/td&gt;
+      &lt;td&gt;1199756.74&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1975&lt;/td&gt;
+      &lt;td&gt;53.84&lt;/td&gt;
+      &lt;td&gt;240000&lt;/td&gt;
+      &lt;td&gt;Hank Aaron (Mil AL)&lt;/td&gt;
+      &lt;td&gt;1055286.78&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1976&lt;/td&gt;
+      &lt;td&gt;56.94&lt;/td&gt;
+      &lt;td&gt;240000&lt;/td&gt;
+      &lt;td&gt;Hank Aaron (Mil AL)&lt;/td&gt;
+      &lt;td&gt;997833.51&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1977&lt;/td&gt;
+      &lt;td&gt;60.61&lt;/td&gt;
+      &lt;td&gt;560000&lt;/td&gt;
+      &lt;td&gt;Mike Schmidt (Ph NL)&lt;/td&gt;
+      &lt;td&gt;2187298.47&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1978&lt;/td&gt;
+      &lt;td&gt;65.22&lt;/td&gt;
+      &lt;td&gt;560000&lt;/td&gt;
+      &lt;td&gt;Mike Schmidt (Ph NL)&lt;/td&gt;
+      &lt;td&gt;2032691.81&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1979&lt;/td&gt;
+      &lt;td&gt;72.57&lt;/td&gt;
+      &lt;td&gt;800000&lt;/td&gt;
+      &lt;td&gt;Rod Carew (Cal AL)&lt;/td&gt;
+      &lt;td&gt;2609739.56&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1980&lt;/td&gt;
+      &lt;td&gt;82.38&lt;/td&gt;
+      &lt;td&gt;1000000&lt;/td&gt;
+      &lt;td&gt;Nolan Ryan (Hou NL)&lt;/td&gt;
+      &lt;td&gt;2873707.21&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1981&lt;/td&gt;
+      &lt;td&gt;90.93&lt;/td&gt;
+      &lt;td&gt;1400000&lt;/td&gt;
+      &lt;td&gt;Dave Winfield (NY AL)&lt;/td&gt;
+      &lt;td&gt;3644896.07&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1982&lt;/td&gt;
+      &lt;td&gt;96.5&lt;/td&gt;
+      &lt;td&gt;1500000&lt;/td&gt;
+      &lt;td&gt;Mike Schmidt (Ph NL)&lt;/td&gt;
+      &lt;td&gt;3679834.2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1983&lt;/td&gt;
+      &lt;td&gt;99.6&lt;/td&gt;
+      &lt;td&gt;1652333&lt;/td&gt;
+      &lt;td&gt;Mike Schmidt (Ph NL)&lt;/td&gt;
+      &lt;td&gt;3927376.56&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1984&lt;/td&gt;
+      &lt;td&gt;103.9&lt;/td&gt;
+      &lt;td&gt;1989875&lt;/td&gt;
+      &lt;td&gt;Mike Schmidt (Ph NL)&lt;/td&gt;
+      &lt;td&gt;4533927.31&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1985&lt;/td&gt;
+      &lt;td&gt;107.6&lt;/td&gt;
+      &lt;td&gt;2096967&lt;/td&gt;
+      &lt;td&gt;Mike Schmidt (Ph NL)&lt;/td&gt;
+      &lt;td&gt;4613639.22&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1986&lt;/td&gt;
+      &lt;td&gt;109.6&lt;/td&gt;
+      &lt;td&gt;1964423&lt;/td&gt;
+      &lt;td&gt;Jim Rice (Bos AL)&lt;/td&gt;
+      &lt;td&gt;4243153.68&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1987&lt;/td&gt;
+      &lt;td&gt;113.6&lt;/td&gt;
+      &lt;td&gt;2412500&lt;/td&gt;
+      &lt;td&gt;Jim Rice (Bos AL)&lt;/td&gt;
+      &lt;td&gt;5027514.08&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1988&lt;/td&gt;
+      &lt;td&gt;118.3&lt;/td&gt;
+      &lt;td&gt;2340000&lt;/td&gt;
+      &lt;td&gt;Ozzie Smith (StL NL)&lt;/td&gt;
+      &lt;td&gt;4682690.11&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1989&lt;/td&gt;
+      &lt;td&gt;124&lt;/td&gt;
+      &lt;td&gt;2766667&lt;/td&gt;
+      &lt;td&gt;Orel Hershiser (LA NL), Frank Viola (Min/NY AL/NL)&lt;/td&gt;
+      &lt;td&gt;5282013.54&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1990&lt;/td&gt;
+      &lt;td&gt;130.7&lt;/td&gt;
+      &lt;td&gt;3200000&lt;/td&gt;
+      &lt;td&gt;Robin Yount (Mil AL)&lt;/td&gt;
+      &lt;td&gt;5796137.72&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1991&lt;/td&gt;
+      &lt;td&gt;136.2&lt;/td&gt;
+      &lt;td&gt;3800000&lt;/td&gt;
+      &lt;td&gt;Darryl Stawberry (LA NL)&lt;/td&gt;
+      &lt;td&gt;6604969.16&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1992&lt;/td&gt;
+      &lt;td&gt;140.3&lt;/td&gt;
+      &lt;td&gt;6100000&lt;/td&gt;
+      &lt;td&gt;Bobby Bonilla (NY NL)&lt;/td&gt;
+      &lt;td&gt;10292869.57&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1993&lt;/td&gt;
+      &lt;td&gt;144.5&lt;/td&gt;
+      &lt;td&gt;6200000&lt;/td&gt;
+      &lt;td&gt;Bobby Bonilla (NY NL)&lt;/td&gt;
+      &lt;td&gt;10157530.8&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1994&lt;/td&gt;
+      &lt;td&gt;148.2&lt;/td&gt;
+      &lt;td&gt;6300000&lt;/td&gt;
+      &lt;td&gt;Bobby Bonilla (NY NL)&lt;/td&gt;
+      &lt;td&gt;10063676.11&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1995&lt;/td&gt;
+      &lt;td&gt;152.4&lt;/td&gt;
+      &lt;td&gt;9237500&lt;/td&gt;
+      &lt;td&gt;Cecil Fielder (Det AL)&lt;/td&gt;
+      &lt;td&gt;14349401.57&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1996&lt;/td&gt;
+      &lt;td&gt;156.9&lt;/td&gt;
+      &lt;td&gt;9237500&lt;/td&gt;
+      &lt;td&gt;Cecil Fielder (Det AL)&lt;/td&gt;
+      &lt;td&gt;13937850.86&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1997&lt;/td&gt;
+      &lt;td&gt;160.5&lt;/td&gt;
+      &lt;td&gt;10000000&lt;/td&gt;
+      &lt;td&gt;Albert Belle (Chi AL)&lt;/td&gt;
+      &lt;td&gt;14749906.54&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1998&lt;/td&gt;
+      &lt;td&gt;163&lt;/td&gt;
+      &lt;td&gt;14936667&lt;/td&gt;
+      &lt;td&gt;Gary Sheffield (Fla/LA NL)&lt;/td&gt;
+      &lt;td&gt;21693538.64&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1999&lt;/td&gt;
+      &lt;td&gt;166.6&lt;/td&gt;
+      &lt;td&gt;11949794&lt;/td&gt;
+      &lt;td&gt;Albert Belle (Bal AL)&lt;/td&gt;
+      &lt;td&gt;16980470.78&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2000&lt;/td&gt;
+      &lt;td&gt;172.2&lt;/td&gt;
+      &lt;td&gt;15714286&lt;/td&gt;
+      &lt;td&gt;Kevin Brown (LA NL)&lt;/td&gt;
+      &lt;td&gt;21603584.27&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2001&lt;/td&gt;
+      &lt;td&gt;177.1&lt;/td&gt;
+      &lt;td&gt;22000000&lt;/td&gt;
+      &lt;td&gt;Alex Rodriguez (Tex AL)&lt;/td&gt;
+      &lt;td&gt;29408198.76&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2002&lt;/td&gt;
+      &lt;td&gt;179.9&lt;/td&gt;
+      &lt;td&gt;22000000&lt;/td&gt;
+      &lt;td&gt;Alex Rodriguez (Tex AL)&lt;/td&gt;
+      &lt;td&gt;28950483.6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2003&lt;/td&gt;
+      &lt;td&gt;184&lt;/td&gt;
+      &lt;td&gt;22000000&lt;/td&gt;
+      &lt;td&gt;Alex Rodriguez (Tex AL)&lt;/td&gt;
+      &lt;td&gt;28305391.3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2004&lt;/td&gt;
+      &lt;td&gt;188.9&lt;/td&gt;
+      &lt;td&gt;21726881&lt;/td&gt;
+      &lt;td&gt;Alex Rodriguez (NY AL)&lt;/td&gt;
+      &lt;td&gt;27228877.19&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2005&lt;/td&gt;
+      &lt;td&gt;195.3&lt;/td&gt;
+      &lt;td&gt;26000000&lt;/td&gt;
+      &lt;td&gt;Alex Rodriguez (NY AL)&lt;/td&gt;
+      &lt;td&gt;31516313.36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2006&lt;/td&gt;
+      &lt;td&gt;201.6&lt;/td&gt;
+      &lt;td&gt;21680727&lt;/td&gt;
+      &lt;td&gt;Alex Rodriguez (NY AL)&lt;/td&gt;
+      &lt;td&gt;25459367.99&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2007&lt;/td&gt;
+      &lt;td&gt;207.34&lt;/td&gt;
+      &lt;td&gt;23428571&lt;/td&gt;
+      &lt;td&gt;Jason Giambi (NY AL)&lt;/td&gt;
+      &lt;td&gt;26750198.63&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2008&lt;/td&gt;
+      &lt;td&gt;215.3&lt;/td&gt;
+      &lt;td&gt;28000000&lt;/td&gt;
+      &lt;td&gt;Alex Rodriguez (NY AL)&lt;/td&gt;
+      &lt;td&gt;30787775.2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2009&lt;/td&gt;
+      &lt;td&gt;214.54&lt;/td&gt;
+      &lt;td&gt;33000000&lt;/td&gt;
+      &lt;td&gt;Alex Rodriguez (NY AL)&lt;/td&gt;
+      &lt;td&gt;36414132.56&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2010&lt;/td&gt;
+      &lt;td&gt;218.06&lt;/td&gt;
+      &lt;td&gt;33000000&lt;/td&gt;
+      &lt;td&gt;Alex Rodriguez (NY AL)&lt;/td&gt;
+      &lt;td&gt;35826323.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2011&lt;/td&gt;
+      &lt;td&gt;224.94&lt;/td&gt;
+      &lt;td&gt;32000000&lt;/td&gt;
+      &lt;td&gt;Alex Rodriguez (NY AL)&lt;/td&gt;
+      &lt;td&gt;33678100.83&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2012&lt;/td&gt;
+      &lt;td&gt;229.59&lt;/td&gt;
+      &lt;td&gt;30000000&lt;/td&gt;
+      &lt;td&gt;Alex Rodriguez (NY AL)&lt;/td&gt;
+      &lt;td&gt;30933751.47&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2013&lt;/td&gt;
+      &lt;td&gt;232.96&lt;/td&gt;
+      &lt;td&gt;29000000&lt;/td&gt;
+      &lt;td&gt;Alex Rodriguez (NY AL)&lt;/td&gt;
+      &lt;td&gt;29470054.95&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;style&gt;
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+svg:not(:root) {
+  overflow: visible;
+}
+
+svg {
+  font: 10px sans-serif;
+}
+
+&lt;/style&gt;
+
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+
+var margin = {top: 20, right: 20, bottom: 30, left: 80},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var parseDate = d3.time.format(&quot;%Y&quot;).parse,
+    bisectDate = d3.bisector(function(d) { return d.date; }).left,
+    formatValue = d3.format(&quot;,.2f&quot;),
+    formatCurrency = function(d) { return &quot;$&quot; + formatValue(d); };
+
+var x = d3.time.scale()
+    .range([0, width]);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient(&quot;bottom&quot;);
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient(&quot;left&quot;)
+    .tickFormat(function(d) { return formatCurrency(d); });
+
+var line = d3.svg.line()
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y(d[&#39;Adjusted Salary&#39;]); });
+
+var svg = d3.select(&quot;#linechart&quot;).insert(&quot;svg&quot;)
+    .attr(&quot;width&quot;, width + margin.left + margin.right)
+    .attr(&quot;height&quot;, height + margin.top + margin.bottom)
+  .append(&quot;g&quot;)
+    .attr(&quot;transform&quot;, &quot;translate(&quot; + margin.left + &quot;,&quot; + margin.top + &quot;)&quot;);
+
+d3.csv(&quot;/data/baseball-salaries.csv&quot;, function(error, data) {
+  if (error) throw error;
+
+  data.forEach(function(d) {
+    d.date = parseDate(d.Year);
+    d.adjustedSalary = +d[&#39;Adjusted Salary&#39;];
+  });
+
+  x.domain(d3.extent(data, function(d) { return d.date; }));
+  y.domain(d3.extent(data, function(d) { return d.adjustedSalary; }));
+
+  svg.append(&quot;g&quot;)
+      .attr(&quot;class&quot;, &quot;x axis&quot;)
+      .attr(&quot;transform&quot;, &quot;translate(0,&quot; + height + &quot;)&quot;)
+      .call(xAxis);
+
+  svg.append(&quot;g&quot;)
+      .attr(&quot;class&quot;, &quot;y axis&quot;)
+      .call(yAxis)
+    .append(&quot;text&quot;)
+      .attr(&quot;transform&quot;, &quot;rotate(-90)&quot;)
+      .attr(&quot;y&quot;, 6)
+      .attr(&quot;dy&quot;, &quot;.71em&quot;)
+      .style(&quot;text-anchor&quot;, &quot;end&quot;)
+      .text(&quot;Salary in 2014 Dollars ($)&quot;);
+
+  svg.append(&quot;path&quot;)
+      .datum(data)
+      .attr(&quot;class&quot;, &quot;line&quot;)
+      .attr(&quot;d&quot;, line);
+
+  var focus = svg.append(&quot;g&quot;)
+        .attr(&quot;class&quot;, &quot;focus&quot;)
+        .style(&quot;display&quot;, &quot;none&quot;);
+
+    focus.append(&quot;circle&quot;)
+        .attr(&quot;r&quot;, 4.5);
+
+    focus.append(&quot;text&quot;)
+        .attr(&quot;x&quot;, 9)
+        .attr(&quot;dy&quot;, &quot;.35em&quot;);
+
+    svg.append(&quot;rect&quot;)
+        .attr(&quot;class&quot;, &quot;overlay&quot;)
+        .attr(&quot;width&quot;, width)
+        .attr(&quot;height&quot;, height)
+        .on(&quot;mouseover&quot;, function() { focus.style(&quot;display&quot;, null); })
+        .on(&quot;mouseout&quot;, function() { focus.style(&quot;display&quot;, &quot;none&quot;); })
+        .on(&quot;mousemove&quot;, mousemove);
+
+    function mousemove() {
+      var x0 = x.invert(d3.mouse(this)[0]),
+          i = bisectDate(data, x0, 1),
+          d0 = data[i - 1],
+          d1 = data[i],
+          d = x0 - d0.date &gt; d1.date - x0 ? d1 : d0;
+      focus.attr(&quot;transform&quot;, &quot;translate(&quot; + x(d.date) + &quot;,&quot; + y(d.adjustedSalary) + &quot;)&quot;);
+      focus.select(&quot;text&quot;).text(formatCurrency(d.adjustedSalary) + &quot; - &quot; + d[&#39;Player(s)&#39;] + &quot; in &quot; + d.Year);
+    }
+});
+
+&lt;/script&gt;
+
+</description>
+        <pubDate>Tue, 16 Jun 2015 17:01:50 +0300</pubDate>
+        <link>http://aimeeb.com/r/baseball/2015/06/16/MLB-salaries.html</link>
+        <guid isPermaLink="true">http://aimeeb.com/r/baseball/2015/06/16/MLB-salaries.html</guid>
+        
+        
+        <category>r</category>
+        
+        <category>baseball</category>
+        
+      </item>
     
       <item>
         <title>Strata + Hadoop Session Popularity on Twitter</title>
@@ -24,7 +1112,7 @@
 
 &lt;iframe src=&quot;https://aimeeb.shinyapps.io/shiny-strata-titles/&quot; style=&quot;width: 100%; height: 820px; border: none&quot;&gt;&lt;/iframe&gt;
 </description>
-        <pubDate>Sat, 09 May 2015 14:52:26 -0400</pubDate>
+        <pubDate>Sat, 09 May 2015 21:52:26 +0300</pubDate>
         <link>http://aimeeb.com/r/shiny/strata+hadoop/conferences/spark/2015/05/09/Strata-Hadoop-Twitters.html</link>
         <guid isPermaLink="true">http://aimeeb.com/r/shiny/strata+hadoop/conferences/spark/2015/05/09/Strata-Hadoop-Twitters.html</guid>
         
@@ -71,7 +1159,7 @@
 
 &lt;p&gt;That’s all for this week. Thanks for stopping by!&lt;/p&gt;
 </description>
-        <pubDate>Sun, 01 Mar 2015 15:50:41 -0500</pubDate>
+        <pubDate>Sun, 01 Mar 2015 22:50:41 +0200</pubDate>
         <link>http://aimeeb.com/sunday-shorts/2015/03/01/sunday-shorts.html</link>
         <guid isPermaLink="true">http://aimeeb.com/sunday-shorts/2015/03/01/sunday-shorts.html</guid>
         
@@ -129,7 +1217,7 @@ F-statistic: 0.5086 on 1 and 76 DF,  p-value: 0.4779&lt;/p&gt;&lt;/pre&gt;
 
 &lt;/div&gt;
 </description>
-        <pubDate>Mon, 23 Feb 2015 15:11:02 -0500</pubDate>
+        <pubDate>Mon, 23 Feb 2015 22:11:02 +0200</pubDate>
         <link>http://aimeeb.com/r/statistics/economics/gas/transportation/2015/02/23/Have-air-fares-fallen-with-gas.html</link>
         <guid isPermaLink="true">http://aimeeb.com/r/statistics/economics/gas/transportation/2015/02/23/Have-air-fares-fallen-with-gas.html</guid>
         
@@ -168,7 +1256,7 @@ F-statistic: 0.5086 on 1 and 76 DF,  p-value: 0.4779&lt;/p&gt;&lt;/pre&gt;
 &lt;/ol&gt;
 
 </description>
-        <pubDate>Mon, 09 Feb 2015 13:01:23 -0500</pubDate>
+        <pubDate>Mon, 09 Feb 2015 20:01:23 +0200</pubDate>
         <link>http://aimeeb.com/weather/2015/02/09/is-it-cold-today.html</link>
         <guid isPermaLink="true">http://aimeeb.com/weather/2015/02/09/is-it-cold-today.html</guid>
         
@@ -298,9 +1386,9 @@ F-statistic: 0.5086 on 1 and 76 DF,  p-value: 0.4779&lt;/p&gt;&lt;/pre&gt;
 
 &lt;/div&gt;
 </description>
-        <pubDate>Mon, 26 Jan 2015 17:13:37 -0500</pubDate>
-        <link>http://aimeeb.com/r/politics/statistics/2015/01/26/does-obama-veto-alot.html</link>
-        <guid isPermaLink="true">http://aimeeb.com/r/politics/statistics/2015/01/26/does-obama-veto-alot.html</guid>
+        <pubDate>Tue, 27 Jan 2015 00:13:37 +0200</pubDate>
+        <link>http://aimeeb.com/r/politics/statistics/2015/01/27/does-obama-veto-alot.html</link>
+        <guid isPermaLink="true">http://aimeeb.com/r/politics/statistics/2015/01/27/does-obama-veto-alot.html</guid>
         
         
         <category>r</category>
@@ -591,7 +1679,7 @@ There are, at the time of this writing, 29 studies listed on clinicaltrials.gov 
 
 &lt;p&gt;As stated, there is insufficient data to state the fitbit’s effectiveness on health outcomes. But stay tuned, there is more data coming! I posit the activity trackers are making a significant difference on the lives of their consumers, based on personal experience, the enthusiasm of consumers and the growth of the market.&lt;/p&gt;
 </description>
-        <pubDate>Thu, 22 Jan 2015 16:41:56 -0500</pubDate>
+        <pubDate>Thu, 22 Jan 2015 23:41:56 +0200</pubDate>
         <link>http://aimeeb.com/r/health/clinical/trials/2015/01/22/is-fitbit-the-solution.html</link>
         <guid isPermaLink="true">http://aimeeb.com/r/health/clinical/trials/2015/01/22/is-fitbit-the-solution.html</guid>
         
@@ -679,7 +1767,7 @@ Qualifying &lt;strong&gt;active sponsors&lt;/strong&gt; as sponsors which have b
 Phase I studies focus on the safety, rather than the efficacy, of a treatment. Neither a vaccine nor a treatment for ebola is near or even on its way to FDA approval and the wider market.&lt;/p&gt;
 
 </description>
-        <pubDate>Sun, 28 Dec 2014 04:37:23 -0500</pubDate>
+        <pubDate>Sun, 28 Dec 2014 11:37:23 +0200</pubDate>
         <link>http://aimeeb.com/r/clinical/data/2014/12/28/a-survey-of-ebola-trials.html</link>
         <guid isPermaLink="true">http://aimeeb.com/r/clinical/data/2014/12/28/a-survey-of-ebola-trials.html</guid>
         
@@ -843,7 +1931,7 @@ more predictable and less fun to watch.&lt;/p&gt;
 &lt;br /&gt;&lt;/p&gt;
 
 </description>
-        <pubDate>Sat, 22 Nov 2014 15:28:45 -0500</pubDate>
+        <pubDate>Sat, 22 Nov 2014 22:28:45 +0200</pubDate>
         <link>http://aimeeb.com/nfl/d3/statistics/2014/11/22/nfl-avg-yds-per-play.html</link>
         <guid isPermaLink="true">http://aimeeb.com/nfl/d3/statistics/2014/11/22/nfl-avg-yds-per-play.html</guid>
         

@@ -6,8 +6,8 @@
 </description>
     <link>http://aimeeb.com/</link>
     <atom:link href="http://aimeeb.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 17 Jun 2015 18:46:48 +0300</pubDate>
-    <lastBuildDate>Wed, 17 Jun 2015 18:46:48 +0300</lastBuildDate>
+    <pubDate>Wed, 17 Jun 2015 18:52:55 +0300</pubDate>
+    <lastBuildDate>Wed, 17 Jun 2015 18:52:55 +0300</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -25,7 +25,7 @@
 &lt;p&gt;Data was compiled from the following sources:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.measuringworth.com/datasets/uscpi/&quot;&gt;CPI data from Measuring Worth&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.measuringworth.com/datasets/uscpi/&quot;&gt;CPI data from Measuring Worth&lt;/a&gt; and the &lt;a href=&quot;http://www.usinflationcalculator.com/inflation/consumer-price-index-and-annual-percent-changes-from-1913-to-2008/&quot;&gt;US Inflation Calculator&lt;/a&gt;.&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://sabr.org/research/mlbs-annual-salary-leaders-1874-2012&quot;&gt;Salary data from Society for American Baseball Research&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 

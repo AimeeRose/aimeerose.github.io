@@ -18,7 +18,7 @@ In the early years of baseball, even top players were paid little more than the 
 
 Data was compiled from the following sources:
 
-* [CPI data from Measuring Worth](http://www.measuringworth.com/datasets/uscpi/)
+* [CPI data from Measuring Worth](http://www.measuringworth.com/datasets/uscpi/) and the [US Inflation Calculator](http://www.usinflationcalculator.com/inflation/consumer-price-index-and-annual-percent-changes-from-1913-to-2008/).
 * [Salary data from Society for American Baseball Research](http://sabr.org/research/mlbs-annual-salary-leaders-1874-2012)
 
 Adjusted salary was calculated in R (although no reason it couldn't have been done in a regular spreadsheet) using the formula: `Adjusted Salary = (Salary / (CPI/100)) * (236.736/100)`.
